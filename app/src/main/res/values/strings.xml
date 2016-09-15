@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">Heart Patrol</string>
+    <string name="facebook_app_id" translatable="false">162037024142938</string>
+    <string name="Login">LOGIN</string>
+    <string name="Login_With">Login with</string>
+    <string name="reg_email">Username or email</string>
+    <string name="reg_password">Password</string>
+    <string name="Register">REGISTER</string>
+
+
+</resources>

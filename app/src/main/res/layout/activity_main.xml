@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:font="http://schemas.android.com/apk/res-auto"
+    tools:context="com.unifam.heartpatrol.MainActivity">
+
+    <include
+        android:id="@+id/tool_bar"
+        layout="@layout/tool_bar">
+    </include>
+
+    <TextView
+        android:id="@+id/textView38"
+        android:layout_width="fill_parent"
+        android:layout_height="4dp"
+        android:textColor="@color/red"
+        android:background="@color/colorPrimary"
+        android:layout_below="@+id/tool_bar"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        />
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/space_55"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:id="@+id/linearLayout">
+
+        <RelativeLayout
+            android:id="@+id/layoutLogin"
+            android:layout_width="fill_parent"
+            android:layout_height="match_parent"
+            android:background="@color/colorPrimary"
+            android:layout_weight=".5">
+
+            <ImageView
+                android:layout_width="@dimen/space_25"
+                android:layout_height="@dimen/space_18"
+                android:id="@+id/imageView"
+                android:src="@drawable/arrow_back_white"
+                android:layout_centerVertical="true"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_marginLeft="@dimen/space_5" />
+
+            <ui.CustomtextView
+                font:name = "Avenir_Light"
+                font:type = "bold"
+                android:text="@string/Login"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/space_18"
+                android:textColor="@color/white"
+                android:layout_toRightOf="@+id/imageView"
+                android:layout_toEndOf="@+id/imageView"
+                android:textSize="@dimen/space_20"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentBottom="true"
+                android:gravity="fill" />
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/view2"
+            android:layout_width="2dp"
+            android:layout_height="match_parent"
+            android:textColor="@color/red"
+            android:background="@color/white"
+            android:layout_below="@+id/tool_bar"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            />
+
+        <RelativeLayout
+            android:id="@+id/layoutRegister"
+            android:layout_width="fill_parent"
+            android:layout_height="match_parent"
+            android:background="@color/colorPrimary"
+            android:layout_weight=".5">
+
+            <ImageView
+                android:layout_width="@dimen/space_25"
+                android:layout_height="@dimen/space_18"
+                android:id="@+id/imageView2"
+                android:src="@drawable/arrow_forward_white"
+                android:layout_centerVertical="true"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentEnd="true"
+                android:layout_marginRight="@dimen/space_5" />
+
+
+            <ui.CustomtextView
+                font:name = "Avenir_Light"
+                font:type = "bold"
+                android:text="@string/Register"
+                android:textColor="@color/white"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/space_30"
+                android:textSize="@dimen/space_20"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_toLeftOf="@+id/imageView2"
+                android:layout_toStartOf="@+id/imageView2"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentTop="true"
+                android:gravity="center|right" />
+            </RelativeLayout>
+
+    </LinearLayout>
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/imageView3"
+        android:layout_below="@+id/textView38"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:src="@drawable/stock_photo_young_couple_hugging"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:scaleType="fitXY"
+        android:layout_alignBottom="@+id/linearLayout"
+        android:paddingBottom="@dimen/space_30" />
+
+    <ui.CustomtextView
+        font:name="Avenir_Heavy"
+        android:textColor="@color/Pink"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Heart Beat"
+        android:textSize="@dimen/space_25"
+        android:id="@+id/textView3"
+        android:layout_above="@+id/linearLayout"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginBottom="@dimen/space_16"
+        android:layout_marginLeft="@dimen/space_30" />
+
+    <ui.CustomtextView
+        font:name="Avenir_Heavy"
+        android:textColor="@color/Pink"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Through your"
+        android:textSize="@dimen/space_25"
+        android:id="@+id/textView2"
+        android:layout_above="@+id/textView3"
+        android:layout_alignLeft="@+id/textView3"
+        android:layout_alignStart="@+id/textView3" />
+
+    <ui.CustomtextView
+        font:name="Avenir_Heavy"
+        android:textColor="@color/Pink"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Feel the happiness"
+        android:textSize="@dimen/space_25"
+        android:id="@+id/textView"
+        android:layout_above="@+id/textView2"
+        android:layout_alignLeft="@+id/textView2"
+        android:layout_alignStart="@+id/textView2" />
+</RelativeLayout>

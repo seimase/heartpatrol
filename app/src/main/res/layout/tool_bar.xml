@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.Toolbar xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:font="http://schemas.android.com/apk/res-auto"
+    android:background="@color/white"
+    android:theme="@style/Base.ThemeOverlay.AppCompat.Dark"
+    android:elevation="2dp"
+    tools:ignore="UnusedAttribute">
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/relativeLayout2"
+        android:layout_margin="@dimen/space_5"
+        android:layout_below="@+id/tool_bar"
+        android:orientation="vertical">
+
+        <ui.CustomtextView
+            font:name = "Avenir_Black"
+            android:id="@+id/textHeart"
+            android:text="Heart"
+            android:textColor="@color/grey"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:textSize="@dimen/space_18" />
+
+        <ui.CustomtextView
+            font:name = "Avenir_Black"
+            android:id="@+id/textPatrol"
+            android:text="Patrol"
+            android:textColor="@color/grey"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:gravity="center"
+            android:paddingLeft="25dp"
+            android:layout_below="@+id/textHeart"
+            android:textSize="@dimen/space_18" />
+    </LinearLayout>
+
+
+    </android.support.v7.widget.Toolbar>
+
+

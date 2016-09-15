@@ -1,0 +1,283 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:font="http://schemas.android.com/apk/res-auto">
+
+    <include
+        android:id="@+id/tool_bar"
+        layout="@layout/tool_bar_banner">
+    </include>
+
+    <TextView
+        android:id="@+id/textView38"
+        android:layout_width="fill_parent"
+        android:layout_height="4dp"
+        android:textColor="@color/red"
+        android:background="@color/colorPrimary"
+        android:layout_below="@+id/tool_bar"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        />
+
+    <ui.CustomtextView
+        font:name = "Avenir_Heavy"
+        android:text="@string/Login_With"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textView38"
+        android:layout_centerHorizontal="true"
+        android:textColor="@color/colorPrimary"
+        android:layout_marginTop="@dimen/space_30"
+        android:textSize="@dimen/space_25"
+        android:id="@+id/textView4" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/textView4"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="@dimen/space_20"
+        android:layout_marginBottom="@dimen/space_20">
+
+
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+
+            android:paddingTop="@dimen/space_10"
+            android:orientation="vertical"
+            android:weightSum="2"
+            android:layout_toLeftOf="@+id/texline2"
+            android:layout_toStartOf="@+id/texline2"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentTop="true">
+
+            <RelativeLayout
+                android:id="@+id/FrameLayout1"
+                android:layout_width="180dp"
+                android:layout_height="@dimen/space_60"
+                android:layout_alignParentRight="true"
+                android:layout_marginLeft="@dimen/space_60"
+                android:layout_marginRight="@dimen/space_12"
+                android:layout_marginTop="@dimen/space_22"
+                android:layout_weight="1"
+                android:orientation="horizontal"
+                android:layout_gravity="center_vertical">
+
+                <com.facebook.login.widget.LoginButton
+                    android:id="@+id/login_button_facebook"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:visibility="gone" />
+
+                <ui.CustomtextView
+                    android:id="@+id/btnFacebook"
+                    android:layout_width="fill_parent"
+                    android:layout_height="@dimen/space_60"
+                    android:background="@drawable/btn_shape_facebook"
+                    android:gravity="center"
+                    android:onClick="onClick"
+                    android:text="Facebook"
+                    android:textColor="#ffffff"
+                    android:textSize="@dimen/space_20"
+                    font:name="Klavika" />
+
+                <ImageView
+                    android:layout_width="30dp"
+                    android:layout_height="40dp"
+                    android:id="@+id/imageView4"
+                    android:src="@drawable/com_facebook_button_icon_blue"
+                    android:layout_below="@+id/login_button_facebook"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true"
+                    android:layout_marginTop="10dp" />
+
+            </RelativeLayout>
+
+
+            <RelativeLayout
+                android:id="@+id/FrameLayout"
+                android:layout_width="180dp"
+                android:layout_height="@dimen/space_60"
+                android:layout_alignParentRight="true"
+                android:layout_marginBottom="@dimen/space_20"
+                android:layout_weight="1"
+                android:orientation="horizontal"
+                android:layout_marginLeft="@dimen/space_60">
+
+                <ui.CustomtextView
+                    android:id="@+id/btn_login_google"
+                    android:layout_width="fill_parent"
+                    android:layout_height="@dimen/space_60"
+                    android:background="@drawable/btn_shape_google"
+                    android:gravity="center"
+                    android:text="Google"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/title_size"
+                    font:name="Roboto" />
+
+                <com.google.android.gms.common.SignInButton
+                    android:id="@+id/google_sign_in_button"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:visibility="gone" />
+
+                <ImageView
+                    android:layout_width="30dp"
+                    android:layout_height="40dp"
+                    android:id="@+id/imageView5"
+                    android:src="@drawable/google_plus"
+                    android:layout_below="@+id/google_sign_in_button"
+                    android:layout_toRightOf="@+id/google_sign_in_button"
+                    android:layout_toEndOf="@+id/google_sign_in_button"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginLeft="5dp" />
+
+            </RelativeLayout>
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/texline2"
+            android:layout_width="1dp"
+            android:layout_height="fill_parent"
+            android:textColor="@color/black"
+            android:background="@color/black"
+
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"/>
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+
+            android:paddingTop="@dimen/space_10"
+            android:orientation="vertical"
+            android:layout_toRightOf="@+id/texline2"
+            android:layout_toEndOf="@+id/texline2"
+            android:layout_alignParentTop="true"
+            android:layout_marginLeft="@dimen/space_30"
+            android:layout_marginRight="@dimen/space_16">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:id="@+id/icon5"
+                    android:layout_width="@dimen/space_22"
+                    android:layout_height="@dimen/space_22"
+                    android:layout_marginBottom="@dimen/space_5"
+                    android:layout_marginLeft="@dimen/space_10"
+                    android:layout_marginTop="@dimen/space_5"
+                    android:src="@drawable/ic_email_2" />
+
+                <ui.CustomEditText
+                    android:id="@+id/nav_login_email_edit_text"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/space_40"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginLeft="@dimen/space_40"
+                    android:background="@android:color/transparent"
+                    android:hint="@string/reg_email"
+                    android:inputType="textEmailAddress"
+                    android:paddingBottom="@dimen/space_7"
+                    android:paddingTop="0dp"
+                    android:textSize="@dimen/space_12"
+                    font:name="Content" />
+
+                <ImageView
+                    android:id="@+id/right_icon5"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_marginEnd="10dp"
+                    android:layout_marginRight="10dp"
+                    android:src="@color/transparant" />
+
+                <View
+                    android:id="@+id/line5"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_alignEnd="@+id/right_icon5"
+                    android:layout_alignLeft="@+id/icon5"
+                    android:layout_alignRight="@+id/right_icon5"
+                    android:layout_alignStart="@+id/icon5"
+                    android:layout_below="@+id/icon5"
+                    android:background="#939597" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                    android:id="@+id/layoutpassword"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <ImageView
+                        android:id="@+id/icon2"
+                        android:layout_width="@dimen/space_22"
+                        android:layout_height="@dimen/space_22"
+                        android:layout_marginBottom="@dimen/space_5"
+                        android:layout_marginLeft="@dimen/space_10"
+                        android:layout_marginTop="@dimen/space_5"
+                        android:src="@drawable/ic_lock_2" />
+
+                    <ui.CustomEditText
+                        android:id="@+id/nav_login_password_edit_text"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/space_40"
+                        android:layout_alignParentRight="true"
+                        android:layout_marginLeft="@dimen/space_40"
+                        android:background="@android:color/transparent"
+                        android:hint="@string/reg_password"
+                        android:paddingBottom="@dimen/space_7"
+                        android:paddingTop="0dp"
+                        android:password="true"
+                        android:singleLine="true"
+                        android:textSize="@dimen/space_12"
+                        font:name="Content" />
+
+                    <ImageView
+                        android:id="@+id/right_icon2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:layout_alignParentRight="true"
+                        android:layout_alignParentTop="true"
+                        android:layout_marginEnd="10dp"
+                        android:layout_marginRight="10dp"
+                        android:src="@color/transparant" />
+
+                    <View
+                        android:id="@+id/line2"
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_alignEnd="@+id/right_icon2"
+                        android:layout_alignLeft="@+id/icon2"
+                        android:layout_alignRight="@+id/right_icon2"
+                        android:layout_alignStart="@+id/icon2"
+                        android:layout_below="@+id/icon2"
+                        android:background="#939597" />
+                </RelativeLayout>
+
+            <ui.CustomtextView
+                android:id="@+id/nav_login_button"
+                android:layout_width="fill_parent"
+                android:layout_height="@dimen/space_60"
+                android:background="@drawable/btn_shape"
+                android:gravity="center"
+                android:onClick="onClick"
+                android:text="@string/Login"
+                android:textColor="#ffffff"
+                android:textSize="@dimen/space_20"
+                font:name="Avenir_Heavy"
+                android:layout_marginTop="@dimen/space_16" />
+        </LinearLayout>
+
+    </RelativeLayout>
+
+
+</RelativeLayout>
