@@ -2,10 +2,20 @@
     <string name="app_name">Heart Patrol</string>
     <string name="facebook_app_id" translatable="false">162037024142938</string>
     <string name="Login">LOGIN</string>
+    <string name="Next">NEXT</string>
+    <string name="Done">DONE</string>
     <string name="Login_With">Login with</string>
     <string name="reg_email">Username or email</string>
+    <string name="reg_email_sample">email@email.com</string>
     <string name="reg_password">Password</string>
     <string name="Register">REGISTER</string>
-
-
+    <string name="Register_with">Register with</string>
+    <string name="My_Password">My password</string>
+    <string name="Password_confirmation">Password Confirmation</string>
+    <string name="Minum_Characters">minimum 8 characters</string>
+    <string name="Note_Register">By clicking next, you are agreeing to the   </string>
+    <string name="Term_condition">terms and conditions </string>
+    <string name="Enter_Name">Enter Name</string>
+    <string name="First_Name">First Name</string>
+    <string name="Last_Name">Last Name</string>
 </resources>
