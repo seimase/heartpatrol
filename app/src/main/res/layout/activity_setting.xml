@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:font="http://schemas.android.com/apk/res-auto">
+
+    <include
+        android:id="@+id/tool_bar"
+        layout="@layout/tool_bar_banner">
+    </include>
+
+    <TextView
+        android:id="@+id/textView38"
+        android:layout_width="fill_parent"
+        android:layout_height="4dp"
+        android:textColor="@color/red"
+        android:background="@color/colorPrimary"
+        android:layout_below="@+id/tool_bar"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        />
+
+
+    <ui.CustomtextView
+        font:name = "Avenir_Light"
+        android:textSize="22dp"
+        android:paddingTop="@dimen/space_22"
+        android:layout_marginLeft="@dimen/space_30"
+        android:text="Link ECG Device"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textView38"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:id="@+id/view5" />
+
+    <ui.CustomtextView
+        android:text="@string/Next"
+        android:background="@drawable/btn_shape_grey_device"
+        android:layout_width="@dimen/space_187"
+        android:layout_height="@dimen/space_30"
+        android:textColor="@color/black"
+        android:gravity="center"
+        android:id="@+id/text_device"
+        android:layout_alignBottom="@+id/view5"
+        android:layout_centerHorizontal="true" />
+
+    <ui.CustomtextView
+        android:id="@+id/btn_next"
+        android:layout_width="@dimen/space_187"
+        android:layout_height="@dimen/space_60"
+        android:background="@drawable/btn_shape_grey"
+        android:gravity="center"
+        android:onClick="onClick"
+        android:text="@string/Next"
+        android:textColor="#ffffff"
+        android:textSize="@dimen/space_20"
+        font:name="Avenir_Heavy"
+        android:layout_gravity="right"
+        android:layout_marginRight="@dimen/space_16"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginBottom="@dimen/space_16" />
+
+</RelativeLayout>
