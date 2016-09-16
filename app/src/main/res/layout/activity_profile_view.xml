@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:font="http://schemas.android.com/apk/res-auto">
+
+    <include
+        android:id="@+id/tool_bar"
+        layout="@layout/tool_bar_banner">
+    </include>
+
+    <TextView
+        android:id="@+id/textView38"
+        android:layout_width="fill_parent"
+        android:layout_height="4dp"
+        android:textColor="@color/red"
+        android:background="@color/colorPrimary"
+        android:layout_below="@+id/tool_bar"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/textView38">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:layout_marginLeft="@dimen/space_16"
+                android:layout_marginRight="@dimen/space_16"
+                android:layout_marginTop="@dimen/space_5">
+
+                <LinearLayout
+                    android:id="@+id/layout_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+                    <ui.CustomtextView
+                        font:name = "Avenir_Light"
+                        android:textSize="@dimen/space_28"
+                        android:text="My name is"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight=".5" />
+
+                    <ui.CustomtextView
+                        android:id="@+id/txtName"
+                        android:text="Heart Patrol"
+                        font:name = "Avenir_Light"
+                        android:textSize="@dimen/space_22"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight=".4" />
+
+                </LinearLayout>
+                <View
+                    android:layout_width="fill_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginTop="@dimen/space_5"
+                    android:background="@color/grey_dark" />
+
+                <LinearLayout
+
+                    android:id="@+id/layout_birthdate"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="@dimen/space_5">
+                    <ui.CustomtextView
+                        font:name = "Avenir_Light"
+                        android:textSize="@dimen/space_28"
+                        android:text="@string/My_birthdate"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight=".5" />
+
+                    <ui.CustomtextView
+                        android:id="@+id/txtBirth"
+                        android:text="22 September 2016"
+                        font:name = "Avenir_Light"
+                        android:textSize="@dimen/space_22"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight=".4" />
+
+                </LinearLayout>
+
+                <View
+                    android:layout_width="fill_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginTop="@dimen/space_5"
+                    android:background="@color/grey_dark" />
+
+                <LinearLayout
+
+                    android:id="@+id/layout_email"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="@dimen/space_5">
+                    <ui.CustomtextView
+                        font:name = "Avenir_Light"
+                        android:textSize="@dimen/space_28"
+                        android:text="My email is"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight=".5" />
+
+                    <ui.CustomtextView
+                        android:id="@+id/txtEmail"
+                        android:text="email@email.com"
+                        font:name = "Avenir_Light"
+                        android:textSize="@dimen/space_22"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight=".4" />
+
+                </LinearLayout>
+
+                <View
+                    android:layout_width="fill_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginTop="@dimen/space_5"
+                    android:background="@color/grey_dark" />
+
+                <LinearLayout
+
+                    android:id="@+id/layout_ethnicity"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="@dimen/space_5">
+                    <ui.CustomtextView
+                        font:name = "Avenir_Light"
+                        android:textSize="@dimen/space_28"
+                        android:text="Ethnicity"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight=".5" />
+
+                    <ui.CustomtextView
+                        android:id="@+id/txtEthnicity"
+                        android:text="Caucasian"
+                        font:name = "Avenir_Light"
+                        android:textSize="@dimen/space_22"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight=".4" />
+
+                </LinearLayout>
+
+                <View
+                    android:layout_width="fill_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginTop="@dimen/space_5"
+                    android:background="@color/grey_dark" />
+            </LinearLayout>
+
+        </RelativeLayout>
+    </ScrollView>
+</RelativeLayout>

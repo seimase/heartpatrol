@@ -4,6 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:font="http://schemas.android.com/apk/res-auto"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context="com.unifam.heartpatrol.MainActivity">
 
     <com.aurelhubert.ahbottomnavigation.AHBottomNavigation
@@ -39,31 +40,22 @@
         <ImageView
             android:layout_width="@dimen/space_30"
             android:layout_height="@dimen/space_30"
-            android:id="@+id/imageView6"
+            android:id="@+id/img_setting"
             android:src="@drawable/uff_setting"
             android:layout_alignParentTop="true"
             android:layout_alignParentRight="true"
             android:layout_alignParentEnd="true"
             android:layout_margin="@dimen/space_10" />
 
-        <ImageView
-            android:layout_width="@dimen/space_140"
-            android:layout_height="@dimen/space_140"
-            android:id="@+id/imageView7"
-            android:layout_alignParentBottom="true"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
-            android:layout_marginBottom="@dimen/space_20"
-            android:layout_marginLeft="@dimen/space_20"
-            android:background="@color/white" />
+
 
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_toRightOf="@+id/imageView7"
             android:layout_toEndOf="@+id/imageView7"
             android:layout_alignTop="@+id/imageView7"
-            android:layout_alignBottom="@+id/imageView7">
+            android:layout_alignBottom="@+id/imageView7"
+            android:layout_toRightOf="@+id/imageView7">
 
             <ui.CustomtextView
                 font:name = "Avenir_Light"
@@ -91,6 +83,26 @@
                 android:layout_toRightOf="@+id/view"
                 android:layout_toEndOf="@+id/view"
                 android:layout_marginLeft="@dimen/space_5" />
-        </RelativeLayout>
+
+          </RelativeLayout>
+
+        <com.alexzh.circleimageview.CircleImageView
+            android:id="@+id/imageView7"
+            android:layout_width="140dp"
+            android:layout_height="140dp"
+            android:src="@drawable/heart"
+            app:view_backgroundColor="@color/white"
+            app:view_shadowRadius="4dp"
+            app:view_shadowDx="2dp"
+            app:view_shadowDy="0dp"
+            app:view_shadowColor="@color/grey"
+            app:view_borderWidth="0dp"
+            app:view_selectedColor="@color/colorPrimary"
+            app:view_borderColor="@android:color/darker_gray"
+            android:layout_marginBottom="@dimen/space_20"
+            android:layout_marginLeft="@dimen/space_20"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true" />
     </RelativeLayout>
 </RelativeLayout>

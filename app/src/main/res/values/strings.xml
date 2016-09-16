@@ -5,6 +5,7 @@
     <string name="Next">NEXT</string>
     <string name="Done">DONE</string>
     <string name="Setting">SETTING</string>
+    <string name="Settings">SETTINGS</string>
     <string name="Login_With">Login with</string>
     <string name="reg_email">Username or email</string>
     <string name="reg_email_sample">email@email.com</string>

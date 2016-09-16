@@ -19,6 +19,7 @@
     <!-- Greys -->
     <color name="soft_grey">#F7F7F7</color>
     <color name="cream_white">#FAF9F1</color>
+    <color name="greysoft">#f3f3f5</color>
     <color name="grey_sss">#eeeeee</color>
     <color name="grey_s">#E5E5E5</color>
     <color name="grey_ss">#E6E6E6</color>

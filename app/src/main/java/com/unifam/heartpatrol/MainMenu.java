@@ -3,7 +3,11 @@ package com.unifam.heartpatrol;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.view.View;
+import android.widget.ImageView;
 
+import com.alexzh.circleimageview.CircleImageView;
+import com.alexzh.circleimageview.ItemSelectedListener;
 import com.aurelhubert.ahbottomnavigation.AHBottomNavigation;
 import com.aurelhubert.ahbottomnavigation.AHBottomNavigationItem;
 import com.unifam.heartpatrol.profile.ProfileActivity;
@@ -13,7 +17,8 @@ import com.unifam.heartpatrol.profile.ProfileActivity;
  */
 public class MainMenu extends AppCompatActivity {
     AHBottomNavigation bottomNavigation;
-
+    ImageView imgSetting;
+    CircleImageView imgRecord;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -23,6 +28,9 @@ public class MainMenu extends AppCompatActivity {
     }
 
     void InitControl(){
+        imgSetting = (ImageView)findViewById(R.id.img_setting);
+        imgRecord = (CircleImageView)findViewById(R.id.imageView7);
+
         bottomNavigation = (AHBottomNavigation) findViewById(R.id.bottom_navigation);
         AHBottomNavigationItem item1 = new AHBottomNavigationItem("Profile", R.drawable.uff_profile, R.color.colorAccent);
         AHBottomNavigationItem item2 = new AHBottomNavigationItem("ECG Result", R.drawable.uff_ecg_result, R.color.colorAccent);
@@ -71,8 +79,25 @@ public class MainMenu extends AppCompatActivity {
         bottomNavigation.setOnNavigationPositionListener(new AHBottomNavigation.OnNavigationPositionListener() {
             @Override public void onPositionChange(int y) {
                 // Manage the new y position
+            }
+        });
 
+        imgSetting.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getBaseContext(), SettingsActivity.class);
+                startActivity(intent);
+            }
+        });
 
+        imgRecord.setOnItemSelectedClickListener(new ItemSelectedListener() {
+            @Override
+            public void onSelected(View view) {
+
+            }
+
+            @Override
+            public void onUnselected(View view) {
 
             }
         });

@@ -1,0 +1,264 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:font="http://schemas.android.com/apk/res-auto">
+
+    <include
+        android:id="@+id/tool_bar"
+        layout="@layout/tool_bar_banner">
+    </include>
+
+    <TextView
+        android:id="@+id/textView38"
+        android:layout_width="fill_parent"
+        android:layout_height="4dp"
+        android:textColor="@color/red"
+        android:background="@color/colorPrimary"
+        android:layout_below="@+id/tool_bar"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        />
+
+
+    <ui.CustomtextView
+        font:name = "Avenir_Light"
+        android:textSize="22dp"
+        android:paddingTop="@dimen/space_22"
+        android:layout_marginLeft="@dimen/space_30"
+        android:text="Link ECG Device"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textView38"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:id="@+id/view5" />
+
+    <ui.CustomtextView
+        android:text="@string/Next"
+        android:background="@drawable/btn_shape_grey_device"
+        android:layout_width="@dimen/space_187"
+        android:layout_height="@dimen/space_30"
+        android:textColor="@color/black"
+        android:gravity="center"
+        android:id="@+id/text_device"
+        android:layout_alignBottom="@+id/view5"
+        android:layout_centerHorizontal="true" />
+
+
+    <android.support.v7.widget.SwitchCompat
+        android:id="@+id/setting_intro_switch"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:checked="false"
+        font:switchMinWidth="@dimen/space_60"
+        font:switchTextAppearance="@style/x"
+        android:textOff="Off"
+        android:textOn="On"
+        android:thumb="@drawable/circle_switch"
+        font:showText="true"
+        android:padding="10dp"
+        android:layout_alignTop="@+id/text_device"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginRight="@dimen/space_16" />
+
+    <ui.CustomtextView
+        font:name = "Avenir_Light"
+        android:textSize="22dp"
+        android:paddingTop="@dimen/space_22"
+        android:text="Leads"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/view6"
+        android:layout_alignLeft="@+id/view5"
+        android:layout_alignStart="@+id/view5"
+        android:layout_below="@+id/setting_intro_switch" />
+
+    <RadioButton
+        android:id="@+id/rbo1"
+        android:layout_width="20sp"
+        android:layout_height="20sp"
+        android:background="@drawable/background_radiobutton_register"
+        android:buttonTint="@android:color/transparent"
+        android:theme="@style/radionbutton"
+        android:checked="true"
+        android:layout_alignBottom="@+id/view6"
+        android:layout_toRightOf="@+id/view6"
+        android:layout_toEndOf="@+id/view6"
+        android:layout_marginLeft="@dimen/space_35"
+        android:layout_marginBottom="@dimen/space_4" />
+
+    <ui.CustomtextView
+        font:name = "Avenir_Light"
+        android:textSize="22dp"
+        android:paddingTop="@dimen/space_22"
+        android:text="1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/view7"
+        android:layout_below="@+id/setting_intro_switch"
+        android:layout_toRightOf="@+id/rbo1"
+        android:layout_alignBottom="@+id/view6"
+        android:layout_marginLeft="@dimen/space_10" />
+
+    <RadioButton
+        android:id="@+id/rbo6"
+        android:layout_width="20sp"
+        android:layout_height="20sp"
+        android:background="@drawable/background_radiobutton_register"
+        android:buttonTint="@android:color/transparent"
+        android:theme="@style/radionbutton"
+
+        android:layout_alignTop="@+id/rbo1"
+        android:layout_toRightOf="@+id/view7"
+        android:layout_toEndOf="@+id/view7"
+        android:layout_marginLeft="@dimen/size_30" />
+
+    <ui.CustomtextView
+        font:name = "Avenir_Light"
+        android:textSize="22dp"
+        android:paddingTop="@dimen/space_22"
+        android:text="6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/view8"
+        android:layout_alignTop="@+id/view7"
+        android:layout_toRightOf="@+id/rbo6"
+        android:layout_toEndOf="@+id/rbo6"
+        android:layout_marginLeft="@dimen/space_10" />
+
+    <ui.CustomtextView
+        font:name = "Avenir_Light"
+        android:textSize="22dp"
+        android:paddingTop="@dimen/space_22"
+        android:text="Units"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/view9"
+        android:layout_below="@+id/view6"
+        android:layout_alignLeft="@+id/view6"
+        android:layout_alignStart="@+id/view6" />
+
+    <RadioButton
+        android:id="@+id/rboMetric"
+        android:checked="true"
+        android:layout_width="20sp"
+        android:layout_height="20sp"
+        android:background="@drawable/background_radiobutton_register"
+        android:buttonTint="@android:color/transparent"
+        android:theme="@style/radionbutton"
+        android:layout_alignBottom="@+id/view9"
+        android:layout_toLeftOf="@+id/view7"
+        android:layout_toStartOf="@+id/view7"
+        android:layout_marginBottom="@dimen/space_4" />
+
+    <ui.CustomtextView
+        font:name = "Avenir_Light"
+        android:textSize="22dp"
+        android:paddingTop="@dimen/space_22"
+        android:text="Metric"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/view10"
+        android:layout_alignTop="@+id/view9"
+        android:layout_alignLeft="@+id/view7"
+        android:layout_alignStart="@+id/view7" />
+
+    <RadioButton
+        android:id="@+id/rboImperial"
+        android:layout_width="20sp"
+        android:layout_height="20sp"
+        android:background="@drawable/background_radiobutton_register"
+        android:buttonTint="@android:color/transparent"
+        android:theme="@style/radionbutton"
+        android:layout_alignBottom="@+id/view10"
+        android:layout_alignLeft="@+id/view8"
+        android:layout_alignStart="@+id/view8"
+        android:layout_marginBottom="@dimen/space_4" />
+
+    <ui.CustomtextView
+        font:name = "Avenir_Light"
+        android:textSize="22dp"
+        android:paddingTop="@dimen/space_22"
+        android:text="Imperial"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/view11"
+        android:layout_alignTop="@+id/view10"
+        android:layout_toRightOf="@+id/rboImperial"
+        android:layout_toEndOf="@+id/rboImperial"
+        android:layout_marginLeft="@dimen/space_10" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/space_50"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:id="@+id/relativeLayout">
+
+        <ui.CustomtextView
+            font:name = "Avenir_Light"
+            font:type = "bold"
+            android:textSize="22dp"
+            android:id="@+id/txtLogOut"
+            android:text="Log Out"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentTop="true"
+            android:textColor="@color/colorAccent" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/space_50"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_above="@+id/relativeLayout">
+        <View
+            android:id="@+id/line1"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#939597"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true" />
+
+        <ui.CustomtextView
+            font:name = "Avenir_Light"
+            android:textSize="22dp"
+            android:id="@+id/txtHelp"
+            android:text="Help"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_marginLeft="@dimen/space_30"
+            android:gravity="center|left" />
+        <View
+            android:id="@+id/line2"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#939597" />
+
+        <ImageView
+            android:layout_width="@dimen/space_22"
+            android:layout_height="@dimen/space_22"
+            android:id="@+id/imageView6"
+            android:layout_alignParentTop="true"
+            android:src="@drawable/arrow_forward_grey"
+            android:backgroundTint="@color/abc_background_cache_hint_selector_material_light"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
+            android:layout_above="@+id/line1"
+            android:layout_marginRight="@dimen/space_16" />
+
+    </RelativeLayout>
+
+</RelativeLayout>
