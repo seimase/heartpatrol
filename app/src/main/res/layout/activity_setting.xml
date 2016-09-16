@@ -64,4 +64,19 @@
         android:layout_alignParentEnd="true"
         android:layout_marginBottom="@dimen/space_16" />
 
+    <android.support.v7.widget.SwitchCompat
+        android:id="@+id/setting_intro_switch"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:checked="false"
+        font:switchMinWidth="@dimen/space_60"
+        font:switchTextAppearance="@style/x"
+        android:textOff="Off"
+        android:textOn="On"
+        android:thumb="@drawable/circle_switch"
+        font:showText="true"
+        android:padding="10dp"
+        android:layout_alignTop="@+id/text_device"
+        android:layout_alignRight="@+id/btn_next"
+        android:layout_alignEnd="@+id/btn_next" />
 </RelativeLayout>

@@ -6,6 +6,7 @@ import android.support.v7.app.AppCompatActivity;
 
 import com.aurelhubert.ahbottomnavigation.AHBottomNavigation;
 import com.aurelhubert.ahbottomnavigation.AHBottomNavigationItem;
+import com.unifam.heartpatrol.profile.ProfileActivity;
 
 /**
  * Created by Unifam on 9/15/2016.
@@ -47,7 +48,8 @@ public class MainMenu extends AppCompatActivity {
                 switch (position){
 
                     case 0: //Profile
-
+                        mIntent = new Intent(getBaseContext(),ProfileActivity.class);
+                        startActivity(mIntent);
                         break;
                     case 1: //ECG Resul
 

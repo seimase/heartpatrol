@@ -50,5 +50,7 @@ dependencies {
     compile 'com.squareup.retrofit2:converter-gson:2.1.0'
     compile 'com.squareup.okhttp3:logging-interceptor:3.3.0'
 
+    //Maetial Tanggal-------------------------------------------
+    compile 'com.wdullaer:materialdatetimepicker:2.4.0'
     compile files('libs/picasso-2.5.2.jar')
 }

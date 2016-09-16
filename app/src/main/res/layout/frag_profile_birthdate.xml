@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:font="http://schemas.android.com/apk/res-auto">
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+
+        android:paddingTop="@dimen/space_10"
+        android:orientation="horizontal"
+        android:layout_toRightOf="@+id/texline2"
+        android:layout_toEndOf="@+id/texline2"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="@dimen/space_30"
+        android:layout_marginRight="@dimen/space_16"
+        android:id="@+id/linearLayout2">
+
+        <ui.CustomtextView
+            font:name = "Avenir_Light"
+            android:textSize="22dp"
+            android:text="@string/My_birthdate"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginTop="@dimen/space_22" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+
+            <View
+                android:id="@+id/line5"
+                android:layout_width="@dimen/space_225"
+                android:layout_height="1dp"
+
+                android:background="#939597"
+                android:layout_alignBottom="@+id/edt_birthdate"
+                android:layout_alignLeft="@+id/edt_birthdate"
+                android:layout_alignStart="@+id/edt_birthdate" />
+
+            <ui.CustomEditText
+                android:id="@+id/edt_birthdate"
+                android:layout_width="@dimen/space_225"
+                android:layout_height="@dimen/space_40"
+                android:background="@android:color/transparent"
+                android:hint="@string/ClickMe"
+                android:paddingBottom="@dimen/space_7"
+                android:paddingTop="0dp"
+                android:textSize="@dimen/space_16"
+                font:name="Avenir_Light"
+                android:gravity="center"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_marginTop="@dimen/space_10"
+                android:layout_marginLeft="@dimen/space_20"
+                android:clickable="true"
+                android:editable="false"/>
+
+
+        </RelativeLayout>
+
+    </LinearLayout>
+
+    <ui.CustomtextView
+        android:id="@+id/btn_next"
+        android:layout_width="@dimen/space_187"
+        android:layout_height="@dimen/space_60"
+        android:background="@drawable/btn_shape"
+        android:gravity="center"
+        android:onClick="onClick"
+        android:text="@string/Next"
+        android:textColor="#ffffff"
+        android:textSize="@dimen/space_20"
+        font:name="Avenir_Heavy"
+        android:layout_alignParentBottom="true"
+        android:layout_alignLeft="@+id/linearLayout2"
+        android:layout_alignRight="@+id/linearLayout2"
+        android:layout_alignEnd="@+id/linearLayout2"
+        android:layout_gravity="right"
+        android:layout_marginTop="@dimen/space_10"
+        android:layout_marginBottom="@dimen/space_35" />
+
+
+</RelativeLayout>
