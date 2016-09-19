@@ -10,6 +10,8 @@ import com.alexzh.circleimageview.CircleImageView;
 import com.alexzh.circleimageview.ItemSelectedListener;
 import com.aurelhubert.ahbottomnavigation.AHBottomNavigation;
 import com.aurelhubert.ahbottomnavigation.AHBottomNavigationItem;
+import com.unifam.heartpatrol.ecg.ecg_recording;
+import com.unifam.heartpatrol.ecg.ecg_result;
 import com.unifam.heartpatrol.profile.ProfileActivity;
 import com.unifam.heartpatrol.transaction.TransactionActivity;
 
@@ -60,8 +62,9 @@ public class MainMenu extends AppCompatActivity {
                         mIntent = new Intent(getBaseContext(),ProfileActivity.class);
                         startActivity(mIntent);
                         break;
-                    case 1: //ECG Resul
-
+                    case 1: //ECG Result
+                        mIntent = new Intent(getBaseContext(),ecg_result.class);
+                        startActivity(mIntent);
                         break;
                     case 2: //ECG Review
 
@@ -94,7 +97,8 @@ public class MainMenu extends AppCompatActivity {
         imgRecord.setOnItemSelectedClickListener(new ItemSelectedListener() {
             @Override
             public void onSelected(View view) {
-
+                Intent intent = new Intent(MainMenu.this, ecg_recording.class);
+                startActivity(intent);
             }
 
             @Override

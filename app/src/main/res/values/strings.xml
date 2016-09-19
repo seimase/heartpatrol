@@ -28,4 +28,10 @@
     <string name="ClickMe">Click Me</string>
     <string name="reg_male">Male</string>
     <string name="reg_female">Female</string>
+
+    <!--ECG-->
+    <string name="ecg_recording">ECG RECORDING</string>
+    <string name="ecg_result">ECG RESULT</string>
+    <string name="ecg_saved_result">Saved ECG Result</string>
+    <string name="ecg_average_beat">Avarage Beat</string>
 </resources>

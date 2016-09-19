@@ -21,6 +21,12 @@ android {
         }
     }
 
+    repositories {
+        maven {
+            url "https://jitpack.io"
+        }
+    }
+
     dexOptions {
         javaMaxHeapSize "4g"
     }
@@ -56,6 +62,9 @@ dependencies {
 
     //CircleImage
     compile 'com.alexzh:circleimageview:1.2.0'
+
+    //CheckBox
+    compile 'com.github.andyxialm:SmoothCheckBox:47f69d4ce8'
     
     compile files('libs/picasso-2.5.2.jar')
 }
