@@ -7,6 +7,9 @@ import android.widget.ImageView;
 
 import com.squareup.picasso.Picasso;
 
+import java.text.NumberFormat;
+import java.util.Locale;
+
 /**
  * Created by User on 9/15/2016.
  */
@@ -50,5 +53,31 @@ public class AppController extends Application {
         picasso.setIndicatorsEnabled(false);
         picasso.load(uri)
                 .into(imageView);
+    }
+
+    public static String toCurrency(double dValue) {
+        NumberFormat nf = NumberFormat.getCurrencyInstance(Locale.US);
+        String sCur = nf.format(dValue);
+        //sCur = sCur.replace("$", "Rp ");
+        sCur = sCur.replace("$", "");
+        sCur = sCur.replace(".00", "");
+        return sCur;
+    }
+
+    public static String toCurrency1(double dValue) {
+        NumberFormat nf = NumberFormat.getCurrencyInstance(Locale.US);
+        String sCur = nf.format(dValue);
+        sCur = sCur.replace("$", "");
+        sCur = sCur.replace(".00", "");
+        return sCur;
+    }
+
+    public static String toCurrencyRp(double dValue) {
+        NumberFormat nf = NumberFormat.getCurrencyInstance(Locale.US);
+        String sCur = nf.format(dValue);
+        sCur = sCur.replace("$", "Rp ");
+
+        sCur = sCur.replace(".00", "");
+        return sCur;
     }
 }

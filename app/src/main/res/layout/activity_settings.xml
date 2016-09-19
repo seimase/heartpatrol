@@ -36,7 +36,8 @@
         android:id="@+id/view5" />
 
     <ui.CustomtextView
-        android:text="@string/Next"
+        font:name = "Avenir_Light"
+        android:text="D 123456"
         android:background="@drawable/btn_shape_grey_device"
         android:layout_width="@dimen/space_187"
         android:layout_height="@dimen/space_30"

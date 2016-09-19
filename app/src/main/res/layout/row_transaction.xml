@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:font="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/space_16"
+        android:layout_marginRight="@dimen/space_16"
+        android:layout_marginTop="@dimen/space_10">
+
+        <RelativeLayout
+            android:id="@+id/layout_description"
+            android:layout_weight="1"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <ui.CustomtextView
+                    android:id = "@+id/textPackage"
+                    android:text="Package"
+                    font:name = "Avenir_Light"
+                    android:textSize="@dimen/space_22"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+                <ui.CustomtextView
+                    android:id = "@+id/textDate"
+                    font:name = "Avenir_Light"
+                    android:textSize="@dimen/space_22"
+                    android:text="Date"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+            </LinearLayout>
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/layout_value"
+            android:layout_weight="1"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <ui.CustomtextView
+                    android:id="@+id/textValue"
+                    font:name = "Avenir_Light"
+                    android:textSize="@dimen/space_22"
+                    android:text="Rp 120.000"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+                <ui.CustomtextView
+                    android:id="@+id/textCurrency"
+                    font:name = "Avenir_Light"
+                    android:textSize="@dimen/space_22"
+                    android:text="IDR"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+            </LinearLayout>
+
+        </RelativeLayout>
+    </LinearLayout>
+
+    <View
+        android:layout_width="fill_parent"
+        android:layout_height="1dp"
+        android:layout_marginTop="@dimen/space_5"
+        android:background="@color/grey_dark" />
+</LinearLayout>

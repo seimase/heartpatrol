@@ -11,6 +11,7 @@ import com.alexzh.circleimageview.ItemSelectedListener;
 import com.aurelhubert.ahbottomnavigation.AHBottomNavigation;
 import com.aurelhubert.ahbottomnavigation.AHBottomNavigationItem;
 import com.unifam.heartpatrol.profile.ProfileActivity;
+import com.unifam.heartpatrol.transaction.TransactionActivity;
 
 /**
  * Created by Unifam on 9/15/2016.
@@ -68,7 +69,7 @@ public class MainMenu extends AppCompatActivity {
                     case 3://Store
                         break;
                     case 4://Transaction
-                        mIntent = new Intent(getBaseContext(),SettingActivity.class);
+                        mIntent = new Intent(getBaseContext(),TransactionActivity.class);
                         startActivity(mIntent);
                         break;
 
