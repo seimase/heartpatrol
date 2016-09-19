@@ -12,16 +12,21 @@ import com.squareup.picasso.Picasso;
  */
 public class AppController extends Application {
     private static AppController mInstance;
-
+    private SessionManager sessionManager;
     @Override
     public void onCreate() {
         super.onCreate();
         mInstance = this;
+        sessionManager = new SessionManager(getApplicationContext());
 
     }
 
     public static Context getAppContext() {
         return mInstance;
+    }
+
+    public SessionManager getSessionManager() {
+        return sessionManager;
     }
 
     public static synchronized AppController getInstance() {
@@ -32,6 +37,12 @@ public class AppController extends Application {
     protected void attachBaseContext(Context base) {
         super.attachBaseContext(base);
         MultiDex.install(this);
+    }
+
+    public static String getStringData(Context ctx, String sData){
+        String sResult = "";
+        sResult = AppConstant.pref.getString(sData, AppConstant.EMPTY_STRING);
+        return  sResult;
     }
 
     public void displayImage(Context context,String uri, ImageView imageView) {
