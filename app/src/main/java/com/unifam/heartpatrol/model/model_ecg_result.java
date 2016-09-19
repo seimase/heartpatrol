@@ -9,6 +9,16 @@ public class Model_ecg_result {
     private String Atr2="";
     private String Atr3="";
     private String Atr4="";
+    private String Atr5="";
+    private boolean AtrCheck1=false;
+
+    public boolean getAtrCheck1() {
+        return(AtrCheck1);
+    }
+
+    public void setAtrCheck1(boolean nama) {
+        this.AtrCheck1=nama;
+    }
 
     public String getAtr4() {
         return(Atr4);

@@ -89,6 +89,12 @@ public class ecg_result extends AppCompatActivity {
 
                         break;
                     case 2: //Delete
+                        int iDelete = 0;
+                        for (Model_ecg_result dat: Arymodel_ecg_result){
+                            if (dat.getAtrCheck1()) iDelete += 1;
+                        }
+
+
                         break;
                 }
                 return true;

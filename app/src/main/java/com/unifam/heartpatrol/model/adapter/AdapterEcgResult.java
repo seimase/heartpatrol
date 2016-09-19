@@ -21,8 +21,15 @@ import cn.refactor.library.SmoothCheckBox;
  */
 public class AdapterEcgResult extends  RecyclerView.Adapter<AdapterEcgResult.ViewHolder>{
 
-    private ArrayList<Model_ecg_result> mCourseArrayList;
+    ArrayList<Model_ecg_result> mCourseArrayList;
     private Context context;
+    public int mSelectedItem = -1;
+
+    /*private OnCheckBoxClicked listener;
+
+    public interface OnBarcodeClicked {
+        public void OnBarcodeClicked(String sKode, boolean bCamera, boolean bSave);
+    }*/
 
     public AdapterEcgResult(Context context, ArrayList<Model_ecg_result> mCourseArrayList) {
         this.context = context;
@@ -55,6 +62,9 @@ public class AdapterEcgResult extends  RecyclerView.Adapter<AdapterEcgResult.Vie
         }
 
         holder.smoothCheckBox.setChecked(false);
+        //holder.smoothCheckBox.setChecked(position == mSelectedItem);
+
+        holder.smoothCheckBox.setChecked(listData.getAtrCheck1());
         holder.listData = listData;
     }
 
@@ -63,7 +73,7 @@ public class AdapterEcgResult extends  RecyclerView.Adapter<AdapterEcgResult.Vie
         return mCourseArrayList.size();
     }
 
-    public static class ViewHolder extends RecyclerView.ViewHolder
+    public class ViewHolder extends RecyclerView.ViewHolder
             implements View.OnClickListener, View.OnLongClickListener {
 
         TextView txtDate,
@@ -73,7 +83,7 @@ public class AdapterEcgResult extends  RecyclerView.Adapter<AdapterEcgResult.Vie
         RelativeLayout layoutBar;
 
         Model_ecg_result listData;
-        SmoothCheckBox smoothCheckBox;
+        final SmoothCheckBox smoothCheckBox;
         public ViewHolder(View itemView,
                           Context context,
                           final AdapterEcgResult mCourseAdapter) {
@@ -84,12 +94,20 @@ public class AdapterEcgResult extends  RecyclerView.Adapter<AdapterEcgResult.Vie
             txtDate = (TextView)itemView.findViewById(R.id.textDate);
             txtDescription = (TextView)itemView.findViewById(R.id.textDescription);
 
-            smoothCheckBox.setOnCheckedChangeListener(new SmoothCheckBox.OnCheckedChangeListener() {
+            smoothCheckBox.setOnClickListener(new View.OnClickListener() {
                 @Override
-                public void onCheckedChanged(SmoothCheckBox checkBox, boolean isChecked) {
-                    Log.d("SmoothCheckBox", String.valueOf(isChecked));
+                public void onClick(View v) {
+                    if (smoothCheckBox.isChecked()){
+                        mCourseArrayList.get(getAdapterPosition()).setAtrCheck1(false);
+                        smoothCheckBox.setChecked(false);
+                    }else{
+                        mCourseArrayList.get(getAdapterPosition()).setAtrCheck1(true);
+                        smoothCheckBox.setChecked(true);
+                    }
+
                 }
             });
+
         }
 
 
