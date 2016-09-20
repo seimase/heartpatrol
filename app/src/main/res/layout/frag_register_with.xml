@@ -92,18 +92,25 @@
                     android:layout_height="@dimen/space_60"
                     android:background="@drawable/btn_shape_google"
                     android:gravity="center"
-                    android:text="Google"
+                    android:text="Google+"
                     android:textColor="@color/white"
                     android:textSize="@dimen/title_size"
                     font:name="Roboto" />
+
+                <com.google.android.gms.common.SignInButton
+                    android:id="@+id/google_sign_in_button"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:visibility="gone" />
 
                 <ImageView
                     android:layout_width="30dp"
                     android:layout_height="40dp"
                     android:id="@+id/imageView5"
                     android:src="@drawable/google_plus"
-                    android:layout_marginTop="5dp"
-                    android:layout_marginLeft="5dp" />
+                    android:layout_marginLeft="5dp"
+                    android:layout_alignBottom="@+id/btn_login_google"
+                    android:layout_alignParentTop="true" />
 
             </RelativeLayout>
         </LinearLayout>

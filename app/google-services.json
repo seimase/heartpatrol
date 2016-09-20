@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "527455884074",
+    "project_id": "heartpatrol-144007"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:527455884074:android:2f475199ff224ff3",
+        "android_client_info": {
+          "package_name": "com.unifam.heartpatrol"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "527455884074-dqimgmmivl8hp01vl5ncbqb7n8fpah7h.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.unifam.heartpatrol",
+            "certificate_hash": "D26F3C903807E4464BC9B862E048E0A3B6C170F0"
+          }
+        },
+        {
+          "client_id": "527455884074-pol688v61mk0qoo3ug663nkribdm3r7h.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAMUQtBqFUUGazgk3vIiMEzkr7GTyVfhpI"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 1
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
