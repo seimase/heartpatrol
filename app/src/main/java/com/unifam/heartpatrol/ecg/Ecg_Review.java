@@ -19,7 +19,6 @@ import com.aurelhubert.ahbottomnavigation.AHBottomNavigationItem;
 import com.unifam.heartpatrol.R;
 import com.unifam.heartpatrol.ecg.adapter.AdapterEcgReview;
 import com.unifam.heartpatrol.model.Model_ecg_review;
-import com.unifam.heartpatrol.ecg.adapter.AdapterEcgResult;
 
 import java.util.ArrayList;
 
@@ -137,10 +136,10 @@ public class Ecg_Review extends AppCompatActivity{
             model_ecg_review = new Model_ecg_review();
             model_ecg_review.setAtr1("02 / 01 / 2015");
             model_ecg_review.setAtr2("9:37 PM");
-            model_ecg_review.setAtr3("Abnormality detected");
+            model_ecg_review.setAtr3("Submitted");
             model_ecg_review.setAtr4("1");
             if ((i%3)  == 0){
-                model_ecg_review.setAtr3("No abnormality detected");
+                model_ecg_review.setAtr3("Reviewed");
                 model_ecg_review.setAtr4("");
             }
 

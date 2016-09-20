@@ -5,6 +5,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -43,6 +45,7 @@ public class Ecg_Over_Read extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.ecg_over_read);
         InitControl();
+        setSupportActionBar(toolbar);
         FillGrid();
     }
 
@@ -91,5 +94,25 @@ public class Ecg_Over_Read extends AppCompatActivity {
         mAdapter = new AdapterEcgOverRead(this, AryListData);
         // set the adapter object to the Recyclerview
         mRecyclerView.setAdapter(mAdapter);
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        menu.clear();
+        getMenuInflater().inflate(R.menu.menu_home, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            // Respond to the action bar's Up/Home button
+            case R.id.action_home:
+                //NavUtils.navigateUpFromSameTask(this);
+                finish();
+                return true;
+        }
+
+        return super.onOptionsItemSelected(item);
     }
 }
