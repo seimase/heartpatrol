@@ -1,16 +1,15 @@
-package com.unifam.heartpatrol.model.adapter;
+package com.unifam.heartpatrol.ecg.adapter;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.unifam.heartpatrol.R;
-import com.unifam.heartpatrol.model.Model_ecg_result;
+import com.unifam.heartpatrol.model.Model_ecg_review;
+
 
 import java.util.ArrayList;
 
@@ -19,9 +18,10 @@ import cn.refactor.library.SmoothCheckBox;
 /**
  * Created by Unifam on 9/19/2016.
  */
-public class AdapterEcgResult extends  RecyclerView.Adapter<AdapterEcgResult.ViewHolder>{
+public class AdapterEcgReview extends  RecyclerView.Adapter<AdapterEcgReview.ViewHolder>{
 
-    ArrayList<Model_ecg_result> mCourseArrayList;
+
+    ArrayList<Model_ecg_review> mCourseArrayList;
     private Context context;
     public int mSelectedItem = -1;
 
@@ -31,7 +31,7 @@ public class AdapterEcgResult extends  RecyclerView.Adapter<AdapterEcgResult.Vie
         public void OnBarcodeClicked(String sKode, boolean bCamera, boolean bSave);
     }*/
 
-    public AdapterEcgResult(Context context, ArrayList<Model_ecg_result> mCourseArrayList) {
+    public AdapterEcgReview(Context context, ArrayList<Model_ecg_review> mCourseArrayList) {
         this.context = context;
         this.mCourseArrayList = mCourseArrayList;
         if (mCourseArrayList == null) {
@@ -43,26 +43,20 @@ public class AdapterEcgResult extends  RecyclerView.Adapter<AdapterEcgResult.Vie
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         //Inflate layout
         View itemView = LayoutInflater.from(parent.getContext()).inflate(
-                R.layout.row_ecg_result, null);
+                R.layout.row_ecg_review, null);
 
         return new ViewHolder(itemView, context, this);
     }
 
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
-        Model_ecg_result listData = mCourseArrayList.get(position);
+        Model_ecg_review listData = mCourseArrayList.get(position);
         //Set text
         holder.txtDate.setText(listData.getAtr1());
         holder.txtTime.setText(listData.getAtr2());
         holder.txtDescription.setText(listData.getAtr3());
 
-        holder.layoutBar.setBackgroundColor(context.getResources().getColor(R.color.red));
-        if (!listData.getAtr4().equals("")){
-            holder.layoutBar.setBackgroundColor(context.getResources().getColor(R.color.Green_atena));
-        }
-
         holder.smoothCheckBox.setChecked(false);
-        //holder.smoothCheckBox.setChecked(position == mSelectedItem);
 
         holder.smoothCheckBox.setChecked(listData.getAtrCheck1());
         holder.listData = listData;
@@ -80,15 +74,12 @@ public class AdapterEcgResult extends  RecyclerView.Adapter<AdapterEcgResult.Vie
                 txtTime,
                 txtDescription;
 
-        RelativeLayout layoutBar;
-
-        Model_ecg_result listData;
+        Model_ecg_review listData;
         final SmoothCheckBox smoothCheckBox;
         public ViewHolder(View itemView,
                           Context context,
-                          final AdapterEcgResult mCourseAdapter) {
+                          final AdapterEcgReview mCourseAdapter) {
             super(itemView);
-            layoutBar = (RelativeLayout)itemView.findViewById(R.id.relativeLayout4);
             smoothCheckBox = (SmoothCheckBox)itemView.findViewById(R.id.scb);
             txtTime = (TextView)itemView.findViewById(R.id.textTime);
             txtDate = (TextView)itemView.findViewById(R.id.textDate);
@@ -109,6 +100,7 @@ public class AdapterEcgResult extends  RecyclerView.Adapter<AdapterEcgResult.Vie
             });
 
         }
+
 
 
         @Override

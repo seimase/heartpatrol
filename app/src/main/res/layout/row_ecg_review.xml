@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:font="http://schemas.android.com/apk/res-auto"
+    xmlns:app="http://schemas.android.com/tools">
+
+    <RelativeLayout
+        android:layout_width="@dimen/space_16"
+        android:layout_height="@dimen/space_65"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:id="@+id/relativeLayout3">
+
+        <ui.CustomtextView
+            font:name = "Avenir_Light"
+            font:type = "bold"
+            android:textSize="@dimen/space_20"
+            android:text="02 / 01 / 2015"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentTop="true"
+            android:gravity="fill_vertical"
+            android:id="@+id/textDate"
+            android:layout_marginLeft="@dimen/space_20" />
+
+        <ui.CustomtextView
+            font:name = "Avenir_Light"
+            font:type = "bold"
+            android:textSize="@dimen/space_20"
+            android:text="11:45 AM"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="fill_vertical"
+            android:layout_alignParentTop="true"
+            android:layout_toRightOf="@+id/textDate"
+            android:layout_toEndOf="@+id/textDate"
+            android:layout_alignParentBottom="true"
+            android:layout_marginLeft="@dimen/space_16"
+            android:id="@+id/textTime" />
+
+        <ui.CustomtextView
+            android:id="@+id/textDescription"
+            font:name = "Avenir_Light"
+            font:type = "bold"
+            android:textSize="@dimen/space_20"
+            android:text="No abnormality detected"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="fill_vertical"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentBottom="true"
+            android:layout_toRightOf="@+id/textTime"
+            android:layout_alignRight="@+id/scb"
+            android:layout_alignEnd="@+id/scb"
+            android:layout_marginLeft="@dimen/space_16"
+            android:layout_marginRight="@dimen/space_40" />
+
+
+        <cn.refactor.library.SmoothCheckBox
+            android:id="@+id/scb"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:paddingTop="10dp"
+            app:color_checked="@color/colorAccent"
+            android:layout_centerVertical="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginRight="@dimen/space_10" />
+
+        <View
+            android:layout_width="fill_parent"
+            android:layout_height="1dp"
+            android:background="@color/grey_dark"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true" />
+    </RelativeLayout>
+
+</RelativeLayout>

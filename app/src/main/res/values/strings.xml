@@ -32,6 +32,13 @@
     <!--ECG-->
     <string name="ecg_recording">ECG RECORDING</string>
     <string name="ecg_result">ECG RESULT</string>
+    <string name="ecg_review">ECG REVIEW</string>
     <string name="ecg_saved_result">Saved ECG Result</string>
+    <string name="ecg_review_reports">Reviewed ECG Reports</string>
     <string name="ecg_average_beat">Avarage Beat</string>
+    <string name="ecg_over_read">ECG OVER READ</string>
+    <string name="Yes">Yes</string>
+    <string name="No">No</string>
+    <string name="Delete_ecg_report">Delete [2] ECG Reports?</string>
+
 </resources>

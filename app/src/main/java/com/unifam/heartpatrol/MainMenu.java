@@ -10,6 +10,7 @@ import com.alexzh.circleimageview.CircleImageView;
 import com.alexzh.circleimageview.ItemSelectedListener;
 import com.aurelhubert.ahbottomnavigation.AHBottomNavigation;
 import com.aurelhubert.ahbottomnavigation.AHBottomNavigationItem;
+import com.unifam.heartpatrol.ecg.Ecg_Review;
 import com.unifam.heartpatrol.ecg.ecg_recording;
 import com.unifam.heartpatrol.ecg.ecg_result;
 import com.unifam.heartpatrol.profile.ProfileActivity;
@@ -67,7 +68,8 @@ public class MainMenu extends AppCompatActivity {
                         startActivity(mIntent);
                         break;
                     case 2: //ECG Review
-
+                        mIntent = new Intent(getBaseContext(), Ecg_Review.class);
+                        startActivity(mIntent);
                         break;
                     case 3://Store
                         break;

@@ -7,6 +7,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.Window;
 import android.widget.ImageView;
@@ -15,16 +17,16 @@ import android.widget.TextView;
 import com.aurelhubert.ahbottomnavigation.AHBottomNavigation;
 import com.aurelhubert.ahbottomnavigation.AHBottomNavigationItem;
 import com.unifam.heartpatrol.R;
-import com.unifam.heartpatrol.model.Model_ecg_result;
+import com.unifam.heartpatrol.ecg.adapter.AdapterEcgReview;
+import com.unifam.heartpatrol.model.Model_ecg_review;
 import com.unifam.heartpatrol.ecg.adapter.AdapterEcgResult;
-
 
 import java.util.ArrayList;
 
 /**
- * Created by Unifam on 9/19/2016.
+ * Created by Unifam on 9/20/2016.
  */
-public class ecg_result extends AppCompatActivity {
+public class Ecg_Review extends AppCompatActivity{
     AHBottomNavigation bottomNavigation;
     private RecyclerView mRecyclerView;
     private RecyclerView.Adapter mAdapter;
@@ -33,14 +35,15 @@ public class ecg_result extends AppCompatActivity {
     ImageView imgBack;
     TextView txtLabel;
     Toolbar toolbar;
-    Model_ecg_result model_ecg_result;
-    ArrayList<Model_ecg_result> Arymodel_ecg_result;
+    Model_ecg_review model_ecg_review;
+    ArrayList<Model_ecg_review> Arymodel_ecg_review;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.ecg_result);
+        setContentView(R.layout.ecg_review);
 
         InitControl();
+        setSupportActionBar(toolbar);
         FillGrid();
     }
 
@@ -51,7 +54,7 @@ public class ecg_result extends AppCompatActivity {
         txtLabel = (TextView)findViewById(R.id.textLabel);
         mRecyclerView = (RecyclerView) findViewById(R.id.my_recycler_view);
 
-        txtLabel.setText(getResources().getText(R.string.ecg_result));
+        txtLabel.setText(getResources().getText(R.string.ecg_review));
         imgBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -67,14 +70,10 @@ public class ecg_result extends AppCompatActivity {
         mRecyclerView.setLayoutManager(mLayoutManager);
 
         AHBottomNavigationItem item1 = new AHBottomNavigationItem("Email ECG Result", R.drawable.ic_email_2, R.color.colorAccent);
-        AHBottomNavigationItem item2 = new AHBottomNavigationItem("Get ECG Over-Read", R.drawable.uff_ecg_review, R.color.colorAccent);
-        AHBottomNavigationItem item3 = new AHBottomNavigationItem("Delete", R.drawable.gns_delete, R.color.colorAccent);
+        AHBottomNavigationItem item2 = new AHBottomNavigationItem("Delete", R.drawable.gns_delete, R.color.colorAccent);
 
         bottomNavigation.addItem(item1);
         bottomNavigation.addItem(item2);
-        bottomNavigation.addItem(item3);
-
-
 
         bottomNavigation.setForceTitlesDisplay(true);
         bottomNavigation.setSelected(false);
@@ -87,13 +86,9 @@ public class ecg_result extends AppCompatActivity {
                     case 0: //Email ECG Result
 
                         break;
-                    case 1: //Get ECG Over-Read
-                        mIntent = new Intent(ecg_result.this, Ecg_Over_Read.class);
-                        startActivity(mIntent);
-                        break;
-                    case 2: //Delete
+                    case 1: //Delete
                         int iDelete = 0;
-                        for (Model_ecg_result dat: Arymodel_ecg_result){
+                        for (Model_ecg_review dat: Arymodel_ecg_review){
                             if (dat.getAtrCheck1()) iDelete += 1;
                         }
                         doDialog(Integer.toString(iDelete));
@@ -111,7 +106,7 @@ public class ecg_result extends AppCompatActivity {
     }
 
     private void doDialog(String sValue) {
-        final Dialog dialog = new Dialog(ecg_result.this);
+        final Dialog dialog = new Dialog(Ecg_Review.this);
         dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
         dialog.setContentView(R.layout.dialog_ecg_result_delete);
         //dialog.setTitle("Title...");
@@ -137,23 +132,43 @@ public class ecg_result extends AppCompatActivity {
         dialog.show();
     }
     void FillGrid(){
-        Arymodel_ecg_result = new ArrayList<>();
+        Arymodel_ecg_review = new ArrayList<>();
         for(int i = 1; i < 10 ; i++){
-            model_ecg_result = new Model_ecg_result();
-            model_ecg_result.setAtr1("02 / 01 / 2015");
-            model_ecg_result.setAtr2("9:37 PM");
-            model_ecg_result.setAtr3("Abnormality detected");
-            model_ecg_result.setAtr4("1");
+            model_ecg_review = new Model_ecg_review();
+            model_ecg_review.setAtr1("02 / 01 / 2015");
+            model_ecg_review.setAtr2("9:37 PM");
+            model_ecg_review.setAtr3("Abnormality detected");
+            model_ecg_review.setAtr4("1");
             if ((i%3)  == 0){
-                model_ecg_result.setAtr3("No abnormality detected");
-                model_ecg_result.setAtr4("");
+                model_ecg_review.setAtr3("No abnormality detected");
+                model_ecg_review.setAtr4("");
             }
 
-            Arymodel_ecg_result.add(model_ecg_result);
+            Arymodel_ecg_review.add(model_ecg_review);
         }
 
-        mAdapter = new AdapterEcgResult(this, Arymodel_ecg_result);
+        mAdapter = new AdapterEcgReview(this, Arymodel_ecg_review);
         // set the adapter object to the Recyclerview
         mRecyclerView.setAdapter(mAdapter);
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        menu.clear();
+        getMenuInflater().inflate(R.menu.menu_menu, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            // Respond to the action bar's Up/Home button
+            case R.id.action_menu:
+                //NavUtils.navigateUpFromSameTask(this);
+                finish();
+                return true;
+        }
+
+        return super.onOptionsItemSelected(item);
     }
 }
