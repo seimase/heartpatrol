@@ -41,4 +41,10 @@
     <string name="No">No</string>
     <string name="Delete_ecg_report">Delete [2] ECG Reports?</string>
 
+    <!--E-STORE-->
+    <string name="estore">E-STORE</string>
+    <string name="estore_package">Package</string>
+    <string name="estore_review">Review</string>
+    <string name="estore_payment">Payment</string>
+    <string name="estore_confirm">Confirm</string>
 </resources>

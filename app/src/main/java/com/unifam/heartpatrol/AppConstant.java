@@ -15,4 +15,8 @@ public final class AppConstant {
     public static final String SESSION_PREFERENCE = "sesion_preference";
     public static final String EMPTY_STRING = "";
     public static final String LANGUAGE_DEFAULT = "en";
+
+    public static final String DOMAIN_URL = "https://api.github.com";
+    public final static String API_VERSION = "/";
+
 }

@@ -13,6 +13,7 @@ import com.aurelhubert.ahbottomnavigation.AHBottomNavigationItem;
 import com.unifam.heartpatrol.ecg.Ecg_Review;
 import com.unifam.heartpatrol.ecg.ecg_recording;
 import com.unifam.heartpatrol.ecg.ecg_result;
+import com.unifam.heartpatrol.estore.EstoreActivity;
 import com.unifam.heartpatrol.profile.ProfileActivity;
 import com.unifam.heartpatrol.transaction.TransactionActivity;
 
@@ -72,6 +73,8 @@ public class MainMenu extends AppCompatActivity {
                         startActivity(mIntent);
                         break;
                     case 3://Store
+                        mIntent = new Intent(getBaseContext(), EstoreActivity.class);
+                        startActivity(mIntent);
                         break;
                     case 4://Transaction
                         mIntent = new Intent(getBaseContext(),TransactionActivity.class);

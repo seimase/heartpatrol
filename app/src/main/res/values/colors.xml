@@ -36,4 +36,9 @@
     <color name="pressed_color">#4d90fe</color>
     <color name="default_color">#ffffff</color>
 
+    <!-- Estore -->
+    <color name="colorPrimaryEstore">#9cb3dd</color>
+    <color name="step_inactive">#c5c7c9</color>
+    <color name="estore_text_color">#231f20</color>
+
 </resources>

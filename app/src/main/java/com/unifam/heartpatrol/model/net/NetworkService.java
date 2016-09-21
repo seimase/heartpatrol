@@ -24,7 +24,7 @@ public interface NetworkService {
     Call<GitHubUser> getUser(@Path("user") String user);
 
     @GET("test/location")
-    Call<LocationList> getLocationList() ;
+    Call<List<LocationList>> getLocationList() ;
 
     @GET("users")
     Call<List<LocationList>> getUserListNew() ;
