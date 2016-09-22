@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:font="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/space_60">
+
+    <LinearLayout
+        android:id="@+id/layout_bar"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:layout_marginTop="@dimen/space_3"
+            android:layout_marginBottom="@dimen/space_3"
+            android:layout_marginLeft="@dimen/space_3">
+
+            <ui.CustomtextView
+                font:name = "Avenir_Light"
+                font:type = "bold"
+                android:text="Package"
+                android:textSize="@dimen/space_22"
+                android:id="@+id/textPackage"
+                android:textColor="@color/black"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <ui.CustomtextView
+                font:name = "Avenir_Light"
+                android:text="Package"
+                android:textSize="@dimen/space_22"
+                android:id="@+id/textDescription"
+                android:textColor="@color/black"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+
+            <ui.CustomtextView
+                font:name = "Avenir_Light"
+                android:text="IDR 200.000"
+                android:textSize="@dimen/space_22"
+                android:id="@+id/textPrice"
+                android:textColor="@color/black"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentTop="true"
+                android:gravity="fill_vertical" />
+
+        </RelativeLayout>
+
+        <LinearLayout
+            android:id="@+id/ll_product_package_info"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:layout_weight="1"
+            android:layout_gravity="center"
+            android:gravity="center">
+            <TextView
+                android:id="@+id/btn_product_package_min"
+                android:layout_width="@dimen/space_30"
+                android:layout_height="@dimen/space_30"
+                android:layout_marginRight="@dimen/space_4"
+                android:textSize="@dimen/text_medium"
+                android:gravity="center"
+                android:textColor="@color/white"
+                android:background="@drawable/shape_rounded_violet"
+                android:text="-"/>
+            <EditText
+                android:id="@+id/txt_product_package_amount"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/space_30"
+                android:gravity="center"
+                android:editable="false"
+                android:minWidth="30dp"
+                android:background="@drawable/shape_rounded_soft_grey_box"
+                android:text="0"
+                android:paddingLeft="@dimen/space_10"
+                android:paddingRight="@dimen/space_10" />
+            <TextView
+                android:id="@+id/btn_product_package_plus"
+                android:layout_width="@dimen/space_30"
+                android:layout_height="@dimen/space_30"
+                android:layout_marginLeft="@dimen/space_4"
+                android:textSize="@dimen/text_medium"
+                android:gravity="center"
+                android:textColor="@color/white"
+                android:background="@drawable/shape_rounded_violet"
+                android:text="+"/>
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+</RelativeLayout>
