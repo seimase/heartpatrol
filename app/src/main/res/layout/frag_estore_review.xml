@@ -85,6 +85,14 @@
                     android:layout_alignParentStart="true" />
 
                 <View
+                    android:layout_width="fill_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/grey_dark"
+                    android:layout_alignParentTop="true"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true" />
+
+                <View
                     android:layout_width="1dp"
                     android:layout_height="fill_parent"
                     android:background="@color/grey_dark"
@@ -167,7 +175,7 @@
             <LinearLayout
                 android:orientation="horizontal"
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/space_55"
+                android:layout_height="@dimen/space_53"
                 android:id="@+id/linearLayout3">
                 <LinearLayout
                     android:orientation="vertical"
@@ -179,11 +187,11 @@
                     <EditText
                         android:id="@+id/txt_product_package_amount"
                         android:layout_width="match_parent"
-                        android:layout_height="@dimen/space_35"
+                        android:layout_height="@dimen/space_30"
                         android:gravity="center"
 
                         android:background="@drawable/shape_rounded_soft_grey_box"
-                        android:text="0"
+                        android:text="HRTPRLOL8"
                         android:paddingLeft="@dimen/space_10"
                         android:paddingRight="@dimen/space_10" />
 
@@ -253,7 +261,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="@dimen/space_5"
-                    android:layout_marginTop="@dimen/space_10">
+                    android:layout_marginTop="@dimen/space_5">
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -360,7 +368,8 @@
                         android:layout_alignParentBottom="true"
                         android:layout_alignParentLeft="true"
                         android:layout_alignParentStart="true"
-                        android:layout_marginTop="@dimen/space_5" />
+                        android:layout_marginTop="@dimen/space_5"
+                        android:layout_marginRight="@dimen/space_5" />
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -423,7 +432,7 @@
                 android:background="@drawable/btn_shape"
                 android:gravity="center"
                 android:onClick="onClick"
-                android:text="CONFIRM"
+                android:text="PAY"
                 android:textColor="#ffffff"
                 android:textSize="@dimen/space_20"
                 font:name="Avenir_Heavy"
