@@ -45,6 +45,7 @@
     <string name="estore">E-STORE</string>
     <string name="estore_package">Package</string>
     <string name="estore_review">Review</string>
+    <string name="estore_review_btn">REVIEW</string>
     <string name="estore_payment">Payment</string>
     <string name="estore_confirm">Confirm</string>
 </resources>

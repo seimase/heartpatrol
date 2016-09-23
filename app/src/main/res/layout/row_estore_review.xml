@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:font="http://schemas.android.com/apk/res-auto">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/space_35">
+
+        <ui.CustomtextView
+            font:name = "Avenir_Light"
+            font:type = "bold"
+            android:id="@+id/textDescription"
+            android:text="10"
+            android:textColor="@color/black"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:textSize="@dimen/space_12"
+            android:gravity="fill_vertical"
+            android:paddingLeft="@dimen/space_5"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_toLeftOf="@+id/textTotal"
+            android:layout_toStartOf="@+id/textTotal" />
+
+        <ui.CustomtextView
+            font:name = "Avenir_Light"
+            font:type = "bold"
+            android:id="@+id/textTotal"
+            android:text="10"
+            android:textColor="@color/black"
+            android:layout_width="@dimen/space_80"
+            android:layout_height="match_parent"
+            android:textSize="@dimen/space_12"
+            android:layout_toLeftOf="@+id/relativeLayout5"
+            android:gravity="center" />
+
+        <View
+            android:layout_width="1dp"
+            android:layout_height="fill_parent"
+            android:background="@color/grey_dark"
+            android:layout_alignParentTop="true"
+            android:layout_toRightOf="@+id/textDescription"
+            android:layout_toEndOf="@+id/textDescription" />
+        <RelativeLayout
+            android:layout_width="@dimen/space_80"
+            android:layout_height="match_parent"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
+            android:background="@color/grey_ss"
+            android:id="@+id/relativeLayout5">
+
+            <ui.CustomtextView
+                font:name = "Avenir_Light"
+                font:type = "bold"
+                android:id="@+id/text_credits"
+                android:text="10"
+                android:textColor="@color/black"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+
+                android:gravity="center"
+                android:textSize="@dimen/space_12" />
+
+        </RelativeLayout>
+
+    </RelativeLayout>
+</RelativeLayout>

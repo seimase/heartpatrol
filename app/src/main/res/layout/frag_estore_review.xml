@@ -1,0 +1,455 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:font="http://schemas.android.com/apk/res-auto">
+
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/textView38"
+        android:layout_marginTop="@dimen/space_5"
+        android:layout_marginBottom="@dimen/space_5">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+
+            <android.support.v7.widget.RecyclerView
+                android:id = "@+id/my_recycler_view"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_below="@+id/relativeLayout7"
+                android:layout_above="@+id/relativeLayout8"
+                android:layout_marginLeft="@dimen/space_5"></android.support.v7.widget.RecyclerView>
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/space_35"
+                android:id="@+id/relativeLayout7"
+                android:layout_marginLeft="@dimen/space_5">
+
+                <ui.CustomtextView
+                    font:name = "Avenir_Heavy"
+                    android:text="ITEM LIST"
+                    android:textColor="@color/black"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_toStartOf="@+id/view17"
+                    android:gravity="center"
+                    android:textSize="@dimen/space_12"
+                    android:layout_toLeftOf="@+id/view17"
+                    android:id="@+id/view18" />
+                <RelativeLayout
+                    android:layout_width="@dimen/space_80"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentTop="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_alignParentEnd="true"
+                    android:background="@color/grey"
+                    android:id="@+id/relativeLayout5">
+
+                    <ui.CustomtextView
+                        font:name = "Avenir_Heavy"
+                        android:text="CREDIT"
+                        android:textColor="@color/white"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+
+                        android:gravity="center"
+                        android:textSize="@dimen/space_12" />
+
+                </RelativeLayout>
+
+                <ui.CustomtextView
+                    font:name = "Avenir_Heavy"
+                    android:text="TOTAL"
+                    android:textColor="@color/black"
+                    android:layout_width="@dimen/space_80"
+                    android:layout_height="match_parent"
+
+                    android:gravity="center"
+                    android:textSize="@dimen/space_12"
+                    android:layout_toLeftOf="@+id/relativeLayout5"
+                    android:id="@+id/view17" />
+
+                <View
+                    android:layout_width="fill_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/grey_dark"
+                    android:layout_alignParentBottom="true"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true" />
+
+                <View
+                    android:layout_width="1dp"
+                    android:layout_height="fill_parent"
+                    android:background="@color/grey_dark"
+                    android:layout_alignParentBottom="true"
+                    android:layout_toLeftOf="@+id/view17"
+                    android:layout_toRightOf="@+id/view18"
+                    android:layout_toEndOf="@+id/view18" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/space_35"
+                android:layout_above="@+id/view14"
+                android:id="@+id/relativeLayout8"
+                android:layout_marginLeft="@dimen/space_5">
+
+                <ui.CustomtextView
+                    font:name = "Avenir_Heavy"
+                    android:text="TOTAL CREDITS"
+                    android:textColor="@color/white"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_toLeftOf="@+id/relativeLayout6"
+                    android:gravity="fill_vertical"
+                    android:background="@color/grey"
+                    android:id="@+id/view15"
+                    android:paddingLeft="@dimen/space_5"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true"
+                    android:textSize="@dimen/space_12" />
+                <RelativeLayout
+                    android:layout_width="@dimen/space_80"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentTop="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_alignParentEnd="true"
+                    android:background="@color/grey"
+                    android:id="@+id/relativeLayout6">
+
+                    <ui.CustomtextView
+                        font:name = "Avenir_Heavy"
+                        android:id="@+id/text_credits"
+                        android:text="70"
+                        android:textColor="@color/white"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+
+                        android:gravity="center"
+                        android:textSize="@dimen/space_12" />
+
+                </RelativeLayout>
+
+                <View
+                    android:layout_width="1dp"
+                    android:layout_height="match_parent"
+                    android:background="@color/white"
+                    android:layout_alignParentBottom="true"
+                    android:layout_toLeftOf="@+id/relativeLayout6"
+                    android:layout_toRightOf="@+id/view15"
+                    android:layout_toEndOf="@+id/view15" />
+            </RelativeLayout>
+            <ui.CustomtextView
+                font:name = "Avenir_Book"
+                android:textSize="@dimen/space_12"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:id="@+id/view14"
+                android:layout_marginLeft="@dimen/space_5"
+                android:layout_marginTop="@dimen/space_2" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/space_55"
+                android:id="@+id/linearLayout3">
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:layout_marginLeft="@dimen/space_5">
+
+                    <EditText
+                        android:id="@+id/txt_product_package_amount"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/space_35"
+                        android:gravity="center"
+
+                        android:background="@drawable/shape_rounded_soft_grey_box"
+                        android:text="0"
+                        android:paddingLeft="@dimen/space_10"
+                        android:paddingRight="@dimen/space_10" />
+
+                    <ui.CustomtextView
+                        font:name = "Avenir_Light"
+                        android:background="@color/grey"
+                        android:textColor="@color/white"
+                        android:text="PROMO CODE"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:paddingTop="@dimen/space_2"
+                        android:paddingBottom="@dimen/space_2" />
+                </LinearLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:layout_marginRight="@dimen/space_5"
+                    android:layout_marginLeft="@dimen/space_5">
+
+                    <ui.CustomtextView
+                        android:id="@+id/btn_Apply"
+                        android:layout_width="@dimen/space_187"
+                        android:layout_height="@dimen/space_60"
+                        android:background="@drawable/btn_shape"
+                        android:gravity="center"
+                        android:onClick="onClick"
+                        android:text="APPLY"
+                        android:textColor="#ffffff"
+                        android:textSize="@dimen/space_20"
+                        font:name="Avenir_Heavy"
+                        android:layout_gravity="right"
+                        android:layout_alignRight="@+id/relativeLayout9"
+                        android:layout_alignEnd="@+id/relativeLayout9"
+                        android:layout_alignParentBottom="true" />
+                </RelativeLayout>
+
+            </LinearLayout>
+
+            <ui.CustomtextView
+                font:name = "Avenir_Light"
+                android:id="@+id/lbl_promovalidate"
+                android:textColor="@color/colorAccent"
+                android:text="Promo code validated!"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/linearLayout3"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_marginRight="@dimen/space_5"
+                android:gravity="right"
+                android:layout_marginTop="@dimen/space_2" />
+
+            <RelativeLayout
+                android:background="@color/grey_s"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/lbl_promovalidate"
+                android:layout_marginLeft="@dimen/space_5"
+                android:layout_marginRight="@dimen/space_5"
+                android:id="@+id/relativeLayout11">
+
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/space_5"
+                    android:layout_marginTop="@dimen/space_10">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1">
+
+                            <ui.CustomtextView
+                                font:name = "Avenir_Heavy"
+                                android:textColor="@color/black"
+                                android:text="Subtotal"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content" />
+                        </RelativeLayout>
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="2">
+
+                            <ui.CustomtextView
+                                font:name = "Avenir_Light"
+                                android:id="@+id/txt_Subtotal"
+                                android:textColor="@color/black"
+                                android:text="150.000"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content" />
+                        </RelativeLayout>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/space_5">
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1">
+
+                            <ui.CustomtextView
+                                font:name = "Avenir_Heavy"
+                                android:textColor="@color/black"
+                                android:text="Promo"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content" />
+                        </RelativeLayout>
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="2">
+
+                            <ui.CustomtextView
+                                font:name = "Avenir_Light"
+                                android:id="@+id/txt_Promo"
+                                android:textColor="@color/black"
+                                android:text="50.000"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content" />
+                        </RelativeLayout>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/space_5">
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1">
+
+                            <ui.CustomtextView
+                                font:name = "Avenir_Heavy"
+                                android:textColor="@color/black"
+                                android:text="Transaction Fee"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content" />
+                        </RelativeLayout>
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="2">
+
+                            <ui.CustomtextView
+                                font:name = "Avenir_Light"
+                                android:id="@+id/txt_TransactionFee"
+                                android:textColor="@color/black"
+                                android:text="Free"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content" />
+                        </RelativeLayout>
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="fill_parent"
+                        android:layout_height="1dp"
+                        android:background="@color/grey_dark"
+                        android:layout_alignParentBottom="true"
+                        android:layout_alignParentLeft="true"
+                        android:layout_alignParentStart="true"
+                        android:layout_marginTop="@dimen/space_5" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/space_5"
+                        android:layout_marginBottom="@dimen/space_5">
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1">
+
+                            <ui.CustomtextView
+                                font:name = "Avenir_Heavy"
+                                android:textColor="@color/colorAccent"
+                                android:text="Total Payment"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content" />
+                        </RelativeLayout>
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="2">
+
+                            <ui.CustomtextView
+                                font:name = "Avenir_Heavy"
+                                android:id="@+id/txt_TotalPayment"
+                                android:textColor="@color/colorAccent"
+                                android:text="100.000"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content" />
+                        </RelativeLayout>
+                    </LinearLayout>
+                </LinearLayout>
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/relativeLayout11"
+                android:id="@+id/relativeLayout12">
+
+                <ui.CustomtextView
+                    font:name = "Avenir_Light"
+                    android:textSize="12dp"
+                    android:text="@string/Note_Register"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/view19"
+                    android:layout_marginLeft="@dimen/space_10"
+                    android:layout_marginTop="@dimen/space_5" />
+
+            </RelativeLayout>
+
+            <ui.CustomtextView
+                android:id="@+id/btn_Confirm"
+                android:layout_width="@dimen/space_187"
+                android:layout_height="@dimen/space_60"
+                android:background="@drawable/btn_shape"
+                android:gravity="center"
+                android:onClick="onClick"
+                android:text="CONFIRM"
+                android:textColor="#ffffff"
+                android:textSize="@dimen/space_20"
+                font:name="Avenir_Heavy"
+                android:layout_gravity="right"
+                android:layout_below="@+id/view20"
+                android:layout_alignRight="@+id/relativeLayout11"
+                android:layout_alignEnd="@+id/relativeLayout11"
+                android:layout_marginTop="@dimen/space_5" />
+
+            <ui.CustomtextView
+                font:name = "Avenir_Light"
+                font:type = "bold"
+                android:textSize="12dp"
+                android:text="@string/Term_condition"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/colorPrimary"
+                android:textStyle="bold"
+                android:layout_below="@+id/relativeLayout12"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:id="@+id/view20"
+                android:layout_marginLeft="@dimen/space_10" />
+
+        </RelativeLayout>
+
+    </LinearLayout>
+
+</RelativeLayout>
