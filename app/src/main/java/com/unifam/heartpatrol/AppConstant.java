@@ -1,6 +1,7 @@
 package com.unifam.heartpatrol;
 
 import android.content.SharedPreferences;
+import android.os.Environment;
 
 /**
  * Created by Unifam on 9/16/2016.
@@ -18,5 +19,8 @@ public final class AppConstant {
 
     public static final String DOMAIN_URL = "https://api.github.com";
     public final static String API_VERSION = "/";
+
+    public static String STORAGE_CARD_DOWNLOAD = "/HeartPatrol/Download/";
+    public static String STORAGE_CARD = Environment.getExternalStorageDirectory().toString() + "/HeartPatrol";
 
 }

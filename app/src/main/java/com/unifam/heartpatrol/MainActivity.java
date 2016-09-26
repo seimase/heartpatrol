@@ -3,6 +3,7 @@ package com.unifam.heartpatrol;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.RelativeLayout;
 import android.widget.Toast;
@@ -11,6 +12,7 @@ import com.unifam.heartpatrol.model.LocationList;
 import com.unifam.heartpatrol.model.net.NetworkManager;
 import com.unifam.heartpatrol.register.RegisterActivity;
 
+import java.io.File;
 import java.util.List;
 
 import retrofit2.Call;
@@ -26,6 +28,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         InitControl();
+        InitFolder();
     }
 
     void InitControl(){
@@ -66,5 +69,19 @@ public class MainActivity extends AppCompatActivity {
             Toast.makeText(this, e.getMessage(), Toast.LENGTH_LONG).show();
         }
 
+    }
+
+    void InitFolder(){
+
+        File folder;
+        try{
+            folder = new File(AppConstant.STORAGE_CARD);
+            if (!folder.exists()) folder.mkdirs();
+
+            folder = new File(AppConstant.STORAGE_CARD + "/Download");
+            if (!folder.exists()) folder.mkdirs();
+        }catch (Exception e){
+            Log.d("Error", e.getMessage());
+        }
     }
 }

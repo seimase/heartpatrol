@@ -1,6 +1,7 @@
 package com.unifam.heartpatrol.ecg.adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -8,6 +9,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.unifam.heartpatrol.R;
+import com.unifam.heartpatrol.ecg.Ecg_Review_PDF;
 import com.unifam.heartpatrol.model.Model_ecg_review;
 
 
@@ -59,6 +61,14 @@ public class AdapterEcgReview extends  RecyclerView.Adapter<AdapterEcgReview.Vie
         holder.smoothCheckBox.setChecked(false);
 
         holder.smoothCheckBox.setChecked(listData.getAtrCheck1());
+
+        holder.txtDescription.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(context, Ecg_Review_PDF.class);
+                context.startActivity(intent);
+            }
+        });
         holder.listData = listData;
     }
 
@@ -98,6 +108,8 @@ public class AdapterEcgReview extends  RecyclerView.Adapter<AdapterEcgReview.Vie
 
                 }
             });
+
+
 
         }
 

@@ -57,6 +57,12 @@ android {
 
 }
 
+repositories {
+    maven {
+        url 'https://dl.bintray.com/ayz4sci/maven/'
+    }
+}
+
 dependencies {
     compile 'com.android.support:multidex:1.0.1'
     compile fileTree(dir: 'libs', include: ['*.jar'])
@@ -93,6 +99,12 @@ dependencies {
 
     //CheckBox
     compile 'com.github.andyxialm:SmoothCheckBox:47f69d4ce8'
+
+    //PDFViewer
+    compile 'com.github.barteksc:AndroidPdfViewer:2.1.0'
+
+    //DownloadProgress
+    compile 'com.ayz4sci.androidfactory:downloadprogress:1.0.1'
     
     compile files('libs/picasso-2.5.2.jar')
 }
