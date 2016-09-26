@@ -13,6 +13,8 @@ import android.widget.Toast;
 
 import com.unifam.heartpatrol.R;
 import com.unifam.heartpatrol.estore.fragment.Frag_Estore_Package;
+import com.unifam.heartpatrol.estore.fragment.Frag_Estore_Payment;
+import com.unifam.heartpatrol.estore.fragment.Frag_Estore_Payment_Next;
 import com.unifam.heartpatrol.estore.fragment.Frag_Estore_Review;
 
 import ui.util.FragmentUtil;
@@ -38,8 +40,8 @@ public class EstoreActivity extends AppCompatActivity {
     private Class[] fragments = new Class[]{
             Frag_Estore_Package.class,
             Frag_Estore_Review.class,
-            Frag_Estore_Package.class,
-            Frag_Estore_Package.class,
+            Frag_Estore_Payment.class,
+            Frag_Estore_Payment_Next.class,
             Frag_Estore_Package.class
     };
 

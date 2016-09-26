@@ -11,6 +11,7 @@ import android.widget.TextView;
 
 import com.unifam.heartpatrol.R;
 import com.unifam.heartpatrol.ecg.adapter.AdapterEcgOverRead;
+import com.unifam.heartpatrol.estore.EstoreActivity;
 import com.unifam.heartpatrol.estore.adapter.AdapterEstoreReview;
 import com.unifam.heartpatrol.model.ListData;
 import com.unifam.heartpatrol.model.Model_Estore_Review;
@@ -28,7 +29,7 @@ public class Frag_Estore_Review extends Fragment {
 
     Model_Estore_Review listData;
     ArrayList<Model_Estore_Review> AryListData;
-    TextView txtCredit;
+    TextView txtCredit, txtPay;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -46,11 +47,19 @@ public class Frag_Estore_Review extends Fragment {
 
     void InitControl(View v){
         txtCredit = (TextView) v.findViewById(R.id.text_credits);
+        txtPay = (TextView)v.findViewById(R.id.btn_pay);
         mRecyclerView = (RecyclerView)v.findViewById(R.id.my_recycler_view);
         mRecyclerView.setHasFixedSize(true);
         mLayoutManager = new LinearLayoutManager(v.getContext());
 
         mRecyclerView.setLayoutManager(mLayoutManager);
+
+        txtPay.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ((EstoreActivity)getActivity()).nextStep();
+            }
+        });
     }
 
     void FillGrid(){

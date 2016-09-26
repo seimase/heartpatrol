@@ -426,13 +426,13 @@
             </RelativeLayout>
 
             <ui.CustomtextView
-                android:id="@+id/btn_Confirm"
+                android:id="@+id/btn_pay"
                 android:layout_width="@dimen/space_187"
                 android:layout_height="@dimen/space_60"
                 android:background="@drawable/btn_shape"
                 android:gravity="center"
                 android:onClick="onClick"
-                android:text="PAY"
+                android:text="@string/Pay"
                 android:textColor="#ffffff"
                 android:textSize="@dimen/space_20"
                 font:name="Avenir_Heavy"
