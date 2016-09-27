@@ -9,6 +9,7 @@ import android.widget.RadioButton;
 import android.widget.TextView;
 
 import com.unifam.heartpatrol.R;
+import com.unifam.heartpatrol.estore.EstoreActivity;
 
 /**
  * Created by Unifam on 9/26/2016.
@@ -35,5 +36,12 @@ public class Frag_Estore_Payment extends Fragment {
         rboCreditCard = (RadioButton)v.findViewById(R.id.rboCreditCard);
         txtPay = (TextView)v.findViewById(R.id.btn_pay);
         txtAmount = (TextView)v.findViewById(R.id.text_amount);
+
+        txtPay.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ((EstoreActivity)getActivity()).nextStep();
+            }
+        });
     }
 }

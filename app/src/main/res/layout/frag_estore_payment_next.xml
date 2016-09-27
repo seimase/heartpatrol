@@ -1,0 +1,383 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:font="http://schemas.android.com/apk/res-auto"
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/space_3"
+                android:id="@+id/linearLayout4">
+                <ImageView
+                    android:src="@drawable/circle_1"
+                    android:layout_width="@dimen/space_35"
+                    android:layout_height="@dimen/space_35" />
+
+                <ui.CustomtextView
+                    font:name = "Avenir_Light"
+                    android:text="Lakukan Transfer"
+                    android:textSize="@dimen/space_16"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="fill_vertical"
+                    android:layout_marginLeft="@dimen/space_3" />
+
+            </LinearLayout>
+
+            <ui.CustomtextView
+                font:name = "Avenir_Light"
+                android:text="Segera transfer pembayaran Andan dengan jumlah yang tepat ke renkening berikut:"
+                android:textSize="@dimen/space_14"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="fill_vertical"
+                android:layout_below="@+id/linearLayout4"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_marginLeft="@dimen/space_40"
+                android:paddingRight="@dimen/space_3"
+                android:id="@+id/view21" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/space_55"
+                android:layout_below="@+id/view21"
+                android:layout_alignLeft="@+id/view21"
+                android:layout_alignStart="@+id/view21"
+                android:layout_alignRight="@+id/view21"
+                android:layout_alignEnd="@+id/view21"
+                android:layout_marginTop="@dimen/space_3"
+                android:layout_marginBottom="@dimen/space_3">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/grey_m" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+
+                    android:background="@color/grey_m"
+                    android:layout_alignParentBottom="true" />
+
+                <TextView
+                    android:layout_width="1dp"
+                    android:layout_height="match_parent"
+                    android:background="@color/grey_m"
+                     />
+                <TextView
+                    android:layout_width="1dp"
+                    android:layout_height="match_parent"
+                    android:background="@color/grey_m"
+                    android:layout_alignParentRight="true" />
+
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <ui.CustomtextView
+                        font:name = "Avenir_Light"
+                        android:text="sisa waktu"
+                        android:textColor="@color/colorAccent"
+                        android:textSize="@dimen/space_16"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:gravity="fill_vertical"
+                        android:layout_below="@+id/linearLayout4"
+                        android:layout_alignParentLeft="true"
+                        android:layout_alignParentStart="true"
+                        android:id="@+id/sisa_waktu"
+                        android:layout_marginLeft="@dimen/space_10" />
+
+                    <ui.CustomtextView
+                        font:name = "Avenir_Light"
+                        android:text="1 jam 20 menit"
+                        android:textColor="@color/colorAccent"
+                        android:textSize="@dimen/space_20"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:gravity="fill_vertical"
+
+                        android:id="@+id/text_time"
+                        android:layout_marginLeft="@dimen/space_10" />
+                </LinearLayout>
+            </RelativeLayout>
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/space_3"
+                android:id="@+id/linearLayout5">
+                <ImageView
+                    android:src="@drawable/circle_2"
+                    android:layout_width="@dimen/space_35"
+                    android:layout_height="@dimen/space_35" />
+
+                <ui.CustomtextView
+                    font:name = "Avenir_Light"
+                    android:text="Konfirmasikan pembyaran Anda"
+                    android:textSize="@dimen/space_16"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="fill_vertical"
+                    android:layout_marginLeft="@dimen/space_3" />
+
+            </LinearLayout>
+
+            <ui.CustomtextView
+                font:name = "Avenir_Light"
+                android:text="Setelah Anda melakukan transfer, segera konfirmasikan dengan menekan tombol berikut:"
+                android:textSize="@dimen/space_14"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="fill_vertical"
+                android:layout_below="@+id/linearLayout5"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_marginLeft="@dimen/space_40"
+                android:paddingRight="@dimen/space_3" />
+
+        </RelativeLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/space_150"
+            android:layout_margin="@dimen/space_10">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/grey_m" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+
+                android:background="@color/grey_m"
+                android:layout_alignParentBottom="true" />
+
+            <TextView
+                android:layout_width="1dp"
+                android:layout_height="match_parent"
+                android:background="@color/grey_m"
+                android:id="@+id/textView5" />
+            <TextView
+                android:layout_width="1dp"
+                android:layout_height="match_parent"
+                android:background="@color/grey_m"
+                android:layout_alignParentRight="true" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/relativeLayout13"
+                android:layout_marginTop="@dimen/space_10">
+
+                <ui.CustomtextView
+                    font:name = "Avenir_Light"
+                    android:text="Jumlah Transfer"
+                    android:textSize="@dimen/space_10"
+                    android:layout_width="110dp"
+                    android:layout_height="wrap_content"
+                    android:gravity="fill_vertical"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true"
+                    android:paddingRight="@dimen/space_3"
+                    android:layout_marginTop="@dimen/space_3"
+                    android:layout_marginLeft="@dimen/space_3" />
+
+            </RelativeLayout>
+
+            <ui.CustomtextView
+                font:name = "Avenir_Light"
+                font:type = "bold"
+                android:textColor="@color/colorAccent"
+                android:text="Rp 200.000"
+                android:textSize="@dimen/space_14"
+                android:layout_width="110dp"
+                android:layout_height="wrap_content"
+                android:gravity="fill_vertical"
+                android:paddingRight="@dimen/space_3"
+                android:layout_below="@+id/relativeLayout13"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:id="@+id/text_amount"
+                android:layout_marginLeft="@dimen/space_3" />
+
+            <ui.CustomtextView
+                font:name = "Avenir_Light"
+                font:type = "bold"
+                android:background="@color/colorAccent"
+                android:textColor="@color/white"
+                android:text="Mohon transfer sesuai jumlah yang tertera (termasuk 3 digit terakhir)"
+                android:textSize="@dimen/space_10"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="fill_vertical"
+                android:paddingRight="@dimen/space_3"
+                android:layout_alignBottom="@+id/text_amount"
+                android:layout_toRightOf="@+id/text_amount"
+                android:layout_toEndOf="@+id/text_amount"
+                android:layout_alignParentTop="true"
+                android:paddingLeft="@dimen/space_3"
+                android:layout_marginTop="@dimen/space_10"
+                android:layout_marginRight="@dimen/space_3"
+                android:id="@+id/view23" />
+
+            <ui.CustomtextView
+                font:name = "Avenir_Light"
+                android:text="Bank Tujuan Transfer"
+                android:textSize="@dimen/space_10"
+                android:layout_width="110dp"
+                android:layout_height="wrap_content"
+                android:gravity="fill_vertical"
+                android:paddingRight="@dimen/space_3"
+                android:layout_below="@+id/text_amount"
+                android:layout_toRightOf="@+id/textView5"
+                android:layout_toEndOf="@+id/textView5"
+                android:layout_marginTop="@dimen/space_14"
+                android:layout_marginLeft="@dimen/space_3"
+                android:id="@+id/view24" />
+
+            <ui.CustomtextView
+                font:name = "Avenir_Light"
+                android:text="Bank Central Asia (BCA)"
+                android:textSize="@dimen/space_18"
+                android:layout_width="110dp"
+                android:layout_height="wrap_content"
+                android:gravity="fill_vertical"
+                android:paddingRight="@dimen/space_3"
+                android:layout_below="@+id/view24"
+                android:layout_alignLeft="@+id/view24"
+                android:layout_alignStart="@+id/view24"
+                android:layout_alignRight="@+id/view23"
+                android:layout_alignEnd="@+id/view23"
+                android:id="@+id/view25" />
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/view25"
+                android:layout_marginTop="@dimen/space_10"
+                android:layout_marginLeft="@dimen/space_3"
+                android:layout_marginRight="@dimen/space_3">
+
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <ui.CustomtextView
+                        font:name = "Avenir_Light"
+                        android:text="Nama Penerima"
+                        android:layout_width="@dimen/space_100"
+                        android:layout_height="match_parent"
+                        android:textSize="@dimen/space_10"
+                        android:gravity="fill_vertical" />
+
+                    <ui.CustomtextView
+                        font:name = "Avenir_Light"
+                        android:text="PT. Trinusa Travelindo"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textSize="@dimen/space_12" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <ui.CustomtextView
+                        font:name = "Avenir_Light"
+                        android:text="Kantor Cabang"
+                        android:layout_width="@dimen/space_100"
+                        android:layout_height="match_parent"
+                        android:textSize="@dimen/space_10"
+                        android:gravity="fill_vertical" />
+
+                    <ui.CustomtextView
+                        font:name = "Avenir_Light"
+                        android:text="KCP Permata Hijau"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textSize="@dimen/space_12" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <ui.CustomtextView
+                        font:name = "Avenir_Light"
+                        android:text="Nomor Rekening"
+                        android:layout_width="@dimen/space_100"
+                        android:layout_height="match_parent"
+                        android:textSize="@dimen/space_10"
+                        android:gravity="fill_vertical" />
+
+                    <ui.CustomtextView
+                        font:name = "Avenir_Light"
+                        android:text="178 304 1143"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textSize="@dimen/space_12" />
+                </LinearLayout>
+            </LinearLayout>
+
+
+        </RelativeLayout>
+        <ui.CustomtextView
+            android:id="@+id/btn_Confirm"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/space_60"
+            android:background="@drawable/btn_shape"
+            android:gravity="center"
+            android:onClick="onClick"
+            android:text="@string/estore_sudah_bayar"
+            android:textColor="#ffffff"
+            android:textSize="@dimen/space_20"
+            font:name="Avenir_Book"
+            android:layout_gravity="right"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginRight="@dimen/space_10"
+            android:paddingLeft="@dimen/space_10"
+            android:paddingRight="@dimen/space_10" />
+    </LinearLayout>
+</LinearLayout>

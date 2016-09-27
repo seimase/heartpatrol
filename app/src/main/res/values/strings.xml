@@ -49,4 +49,5 @@
     <string name="estore_review_btn">REVIEW</string>
     <string name="estore_payment">Payment</string>
     <string name="estore_confirm">Confirm</string>
+    <string name="estore_sudah_bayar">SAYA SUDAH BAYAR</string>
 </resources>
