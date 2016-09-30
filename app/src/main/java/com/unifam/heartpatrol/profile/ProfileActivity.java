@@ -12,6 +12,7 @@ import android.widget.TextView;
 
 import com.unifam.heartpatrol.R;
 import com.unifam.heartpatrol.profile.fragment.Frag_Profile_Birthdate;
+import com.unifam.heartpatrol.profile.fragment.Frag_Profile_Height;
 import com.unifam.heartpatrol.register.fragment.Frag_Register_Done;
 import com.unifam.heartpatrol.register.fragment.Frag_Register_Password;
 import com.unifam.heartpatrol.register.fragment.Frag_Register_With;
@@ -50,10 +51,13 @@ public class ProfileActivity extends AppCompatActivity {
                 fragment = new Frag_Profile_Birthdate();
                 break;
             case 1:
-                fragment = new Frag_Register_Password();
+                fragment = new Frag_Profile_Height();
                 break;
             case 2:
                 fragment = new Frag_Register_Done();
+                break;
+            case 3:
+                fragment = new Frag_Profile_Height();
                 break;
         }
 

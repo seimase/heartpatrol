@@ -29,6 +29,8 @@
     <string name="ClickMe">Click Me</string>
     <string name="reg_male">Male</string>
     <string name="reg_female">Female</string>
+    <string name="profile_change_to_ft"><u>CHANGE TO FT</u></string>
+    <string name="profile_change_to_cm"><u>CHANGE TO CM</u></string>
 
     <!--ECG-->
     <string name="ecg_recording">ECG RECORDING</string>

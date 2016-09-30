@@ -36,6 +36,7 @@ public class Frag_Register_Done extends Fragment {
         txtDone.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 getActivity().finish();
                 Intent intent = new Intent(getActivity(), MainMenu.class);
                 startActivity(intent);

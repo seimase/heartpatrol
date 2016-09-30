@@ -42,7 +42,7 @@ public class Frag_Profile_Birthdate extends Fragment implements com.wdullaer.mat
         textNext.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                ((ProfileActivity)getActivity()).displayView(2);
+                ((ProfileActivity)getActivity()).displayView(1);
             }
         });
 
