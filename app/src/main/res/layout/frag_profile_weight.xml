@@ -9,7 +9,7 @@
         font:name = "Avenir_Light"
         android:textSize="@dimen/space_22"
         android:textColor="@color/blue"
-        android:text="@string/profile_change_to_ft"
+        android:text="@string/profile_change_to_lbs"
         android:gravity="right"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -20,7 +20,7 @@
     <ui.CustomtextView
         font:name = "Avenir_Light"
         android:textSize="@dimen/space_22"
-        android:text="My Height is"
+        android:text="My Weight is"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/view22"
@@ -136,7 +136,7 @@
 
     <ui.CustomtextView
         font:name = "Avenir_Light"
-        android:text="cm"
+        android:text="kg"
         android:textColor="@color/colorAccent"
         android:textSize="@dimen/space_30"
         android:layout_width="wrap_content"

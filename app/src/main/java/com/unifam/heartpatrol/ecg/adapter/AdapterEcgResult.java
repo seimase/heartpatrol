@@ -9,8 +9,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.unifam.heartpatrol.R;
-import com.unifam.heartpatrol.model.Model_ecg_result;
-import com.unifam.heartpatrol.model.Model_ecg_review;
+import com.unifam.heartpatrol.model.model_ecg_result;
 
 import java.util.ArrayList;
 
@@ -21,7 +20,7 @@ import cn.refactor.library.SmoothCheckBox;
  */
 public class AdapterEcgResult extends  RecyclerView.Adapter<AdapterEcgResult.ViewHolder>{
 
-    ArrayList<Model_ecg_result> mCourseArrayList;
+    ArrayList<model_ecg_result> mCourseArrayList;
     private Context context;
     public int mSelectedItem = -1;
 
@@ -31,7 +30,7 @@ public class AdapterEcgResult extends  RecyclerView.Adapter<AdapterEcgResult.Vie
         public void OnBarcodeClicked(String sKode, boolean bCamera, boolean bSave);
     }*/
 
-    public AdapterEcgResult(Context context, ArrayList<Model_ecg_result> mCourseArrayList) {
+    public AdapterEcgResult(Context context, ArrayList<model_ecg_result> mCourseArrayList) {
         this.context = context;
         this.mCourseArrayList = mCourseArrayList;
         if (mCourseArrayList == null) {
@@ -50,7 +49,7 @@ public class AdapterEcgResult extends  RecyclerView.Adapter<AdapterEcgResult.Vie
 
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
-        Model_ecg_result listData = mCourseArrayList.get(position);
+        model_ecg_result listData = mCourseArrayList.get(position);
         //Set text
         holder.txtDate.setText(listData.getAtr1());
         holder.txtTime.setText(listData.getAtr2());
@@ -82,7 +81,7 @@ public class AdapterEcgResult extends  RecyclerView.Adapter<AdapterEcgResult.Vie
 
         RelativeLayout layoutBar;
 
-        Model_ecg_result listData;
+        model_ecg_result listData;
         final SmoothCheckBox smoothCheckBox;
         public ViewHolder(View itemView,
                           Context context,

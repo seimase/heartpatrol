@@ -15,7 +15,7 @@ import android.widget.TextView;
 import com.aurelhubert.ahbottomnavigation.AHBottomNavigation;
 import com.aurelhubert.ahbottomnavigation.AHBottomNavigationItem;
 import com.unifam.heartpatrol.R;
-import com.unifam.heartpatrol.model.Model_ecg_result;
+import com.unifam.heartpatrol.model.model_ecg_result;
 import com.unifam.heartpatrol.ecg.adapter.AdapterEcgResult;
 
 
@@ -33,8 +33,8 @@ public class ecg_result extends AppCompatActivity {
     ImageView imgBack;
     TextView txtLabel;
     Toolbar toolbar;
-    Model_ecg_result model_ecg_result;
-    ArrayList<Model_ecg_result> Arymodel_ecg_result;
+    com.unifam.heartpatrol.model.model_ecg_result model_ecg_result;
+    ArrayList<com.unifam.heartpatrol.model.model_ecg_result> Arymodel_ecg_result;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -93,7 +93,7 @@ public class ecg_result extends AppCompatActivity {
                         break;
                     case 2: //Delete
                         int iDelete = 0;
-                        for (Model_ecg_result dat: Arymodel_ecg_result){
+                        for (com.unifam.heartpatrol.model.model_ecg_result dat: Arymodel_ecg_result){
                             if (dat.getAtrCheck1()) iDelete += 1;
                         }
                         doDialog(Integer.toString(iDelete));
@@ -139,7 +139,7 @@ public class ecg_result extends AppCompatActivity {
     void FillGrid(){
         Arymodel_ecg_result = new ArrayList<>();
         for(int i = 1; i < 10 ; i++){
-            model_ecg_result = new Model_ecg_result();
+            model_ecg_result = new model_ecg_result();
             model_ecg_result.setAtr1("02 / 01 / 2015");
             model_ecg_result.setAtr2("9:37 PM");
             model_ecg_result.setAtr3("Abnormality detected");

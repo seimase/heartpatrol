@@ -31,6 +31,8 @@
     <string name="reg_female">Female</string>
     <string name="profile_change_to_ft"><u>CHANGE TO FT</u></string>
     <string name="profile_change_to_cm"><u>CHANGE TO CM</u></string>
+    <string name="profile_change_to_lbs"><u>CHANGE TO LBS</u></string>
+    <string name="profile_change_to_kg"><u>CHANGE TO KG</u></string>
 
     <!--ECG-->
     <string name="ecg_recording">ECG RECORDING</string>

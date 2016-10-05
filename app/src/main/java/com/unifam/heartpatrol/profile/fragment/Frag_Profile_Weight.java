@@ -15,14 +15,14 @@ import ui.widget.RulerView;
 /**
  * Created by User on 9/30/2016.
  */
-public class Frag_Profile_Height extends Fragment {
+public class Frag_Profile_Weight extends Fragment {
 
     RulerView rulerView;
     TextView txtHeight, btnNext;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.frag_profile_height, container, false);
+        View view = inflater.inflate(R.layout.frag_profile_weight, container, false);
 
         return view;
     }
@@ -40,7 +40,7 @@ public class Frag_Profile_Height extends Fragment {
         btnNext.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                ((ProfileActivity)getActivity()).displayView(2);
+                getActivity().finish();
             }
         });
 

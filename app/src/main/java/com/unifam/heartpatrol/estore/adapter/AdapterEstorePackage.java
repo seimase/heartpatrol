@@ -7,16 +7,12 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.unifam.heartpatrol.R;
 import com.unifam.heartpatrol.model.Model_Estore_Package;
-import com.unifam.heartpatrol.model.Model_ecg_result;
 
 import java.util.ArrayList;
-
-import cn.refactor.library.SmoothCheckBox;
 
 /**
  * Created by Unifam on 9/19/2016.

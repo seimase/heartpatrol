@@ -3,7 +3,7 @@ package com.unifam.heartpatrol.model;
 /**
  * Created by Unifam on 9/19/2016.
  */
-public class Model_ecg_result {
+public class model_ecg_result {
 
     private String Atr1="";
     private String Atr2="";
