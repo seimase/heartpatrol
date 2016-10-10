@@ -16,7 +16,7 @@ import com.unifam.heartpatrol.R;
 public class ecg_recording extends AppCompatActivity {
     ImageView imgBack;
     TextView txtLabel;
-    CircleImageView imgRecord;
+    ImageView imgRecord;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -38,14 +38,9 @@ public class ecg_recording extends AppCompatActivity {
         });
         imgRecord = (CircleImageView)findViewById(R.id.imageView7);
 
-        imgRecord.setOnItemSelectedClickListener(new ItemSelectedListener() {
+        imgRecord.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onSelected(View view) {
-
-            }
-
-            @Override
-            public void onUnselected(View view) {
+            public void onClick(View view) {
 
             }
         });

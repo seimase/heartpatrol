@@ -206,7 +206,7 @@
             </RelativeLayout>
         </LinearLayout>
 
-        <com.alexzh.circleimageview.CircleImageView
+        <ui.CircleImageView
             android:id="@+id/imageView7"
             android:layout_width="140dp"
             android:layout_height="140dp"

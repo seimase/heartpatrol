@@ -23,7 +23,7 @@ import com.unifam.heartpatrol.transaction.TransactionActivity;
 public class MainMenu extends AppCompatActivity {
     AHBottomNavigation bottomNavigation;
     ImageView imgSetting;
-    CircleImageView imgRecord;
+    ImageView imgRecord;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -34,7 +34,7 @@ public class MainMenu extends AppCompatActivity {
 
     void InitControl(){
         imgSetting = (ImageView)findViewById(R.id.img_setting);
-        imgRecord = (CircleImageView)findViewById(R.id.imageView7);
+        imgRecord = (ImageView)findViewById(R.id.imageView7);
 
         bottomNavigation = (AHBottomNavigation) findViewById(R.id.bottom_navigation);
         AHBottomNavigationItem item1 = new AHBottomNavigationItem("Profile", R.drawable.uff_profile, R.color.colorAccent);
@@ -99,17 +99,13 @@ public class MainMenu extends AppCompatActivity {
             }
         });
 
-        imgRecord.setOnItemSelectedClickListener(new ItemSelectedListener() {
+        imgRecord.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onSelected(View view) {
+            public void onClick(View view) {
                 Intent intent = new Intent(MainMenu.this, ecg_recording.class);
                 startActivity(intent);
             }
-
-            @Override
-            public void onUnselected(View view) {
-
-            }
         });
+
     }
 }
