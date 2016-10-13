@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:font="http://schemas.android.com/apk/res-auto"
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:background="@drawable/btn_shape_kotak"
+        android:orientation="vertical"
+        android:layout_width="110dp"
+        android:layout_height="110dp"
+        android:weightSum="1">
+
+        <ImageView
+            android:id="@+id/img_menu"
+            android:src="@drawable/heart_96"
+            android:layout_gravity="fill_vertical"
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            android:layout_weight="0.12" />
+
+        <ui.CustomtextView
+            font:name = "Avenir_Book"
+            android:id="@+id/text_menu"
+            android:textSize="@dimen/space_14"
+            android:layout_marginTop="@dimen/space_6"
+            android:text="ECG Review"
+            android:gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+    </LinearLayout>
+</RelativeLayout>

@@ -3,11 +3,15 @@ import com.unifam.heartpatrol.model.ApiGithub;
 import com.unifam.heartpatrol.model.GitHubUser;
 import com.unifam.heartpatrol.model.ListUser;
 import com.unifam.heartpatrol.model.LocationList;
+import com.unifam.heartpatrol.model.Register;
 
 import java.util.List;
 
 import retrofit2.Call;
+import retrofit2.http.Field;
+import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.GET;
+import retrofit2.http.POST;
 import retrofit2.http.Path;
 
 /**
@@ -26,7 +30,12 @@ public interface NetworkService {
     @GET("test/location")
     Call<List<LocationList>> getLocationList() ;
 
-    @GET("users")
-    Call<List<LocationList>> getUserListNew() ;
-
+    @FormUrlEncoded
+    @POST("register")
+    Call<Register> getRegister(@Field("name") String name, @Field("password") String password,
+                               @Field("source") String source, @Field("first_name") String first_name,
+                               @Field("last_name") String last_name);
+    @FormUrlEncoded
+    @POST("register.php")
+    Call<Register> getRegister(@Field("username") String name);
 }

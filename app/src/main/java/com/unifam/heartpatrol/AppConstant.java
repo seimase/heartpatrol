@@ -17,10 +17,14 @@ public final class AppConstant {
     public static final String EMPTY_STRING = "";
     public static final String LANGUAGE_DEFAULT = "en";
 
-    public static final String DOMAIN_URL = "https://api.github.com";
-    public final static String API_VERSION = "/";
+    public static final String DOMAIN_URL = "http://192.168.0.121/heart-patrol";
+    public final static String API_VERSION = "/v1/";
 
     public static String STORAGE_CARD_DOWNLOAD = "/HeartPatrol/Download/";
     public static String STORAGE_CARD = Environment.getExternalStorageDirectory().toString() + "/HeartPatrol";
 
+    public static String AUTH_USERNAME;
+    public static String AUTH_SOURCE;
+    public static String AUTH_FIRST_NAME;
+    public static String AUTH_LAST_NAME;
 }

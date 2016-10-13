@@ -208,17 +208,9 @@
 
         <ui.CircleImageView
             android:id="@+id/imageView7"
-            android:layout_width="140dp"
+            android:layout_width="@dimen/space_60"
             android:layout_height="140dp"
             android:src="@drawable/heart"
-            app:view_backgroundColor="@color/white"
-            app:view_shadowRadius="4dp"
-            app:view_shadowDx="2dp"
-            app:view_shadowDy="0dp"
-            app:view_shadowColor="@color/grey"
-            app:view_borderWidth="0dp"
-            app:view_selectedColor="@color/colorPrimary"
-            app:view_borderColor="@android:color/darker_gray"
             android:layout_alignParentBottom="true"
             android:layout_centerHorizontal="true" />
 

@@ -7,6 +7,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.EditText;
 import android.widget.TextView;
 
 import com.google.android.gms.auth.api.Auth;
@@ -21,8 +22,11 @@ import com.google.android.gms.common.api.ResultCallback;
 import com.google.android.gms.common.api.Scope;
 import com.google.android.gms.common.api.Status;
 import com.google.android.gms.plus.Plus;
+import com.unifam.heartpatrol.AppConstant;
 import com.unifam.heartpatrol.R;
 import com.unifam.heartpatrol.register.RegisterActivity;
+
+import org.w3c.dom.Text;
 
 /**
  * Created by Unifam on 9/15/2016.
@@ -30,6 +34,7 @@ import com.unifam.heartpatrol.register.RegisterActivity;
 public class Frag_Register_With extends Fragment implements GoogleApiClient.OnConnectionFailedListener{
     private static final int RC_SIGN_IN = 9001;
     private TextView btnFacebook, btnLoginGoogle;
+    private EditText txtEmail;
     private SignInButton btnGoogle;
     private GoogleApiClient mGoogleApiClient;
     String TAG = "Notifikasi";
@@ -50,10 +55,12 @@ public class Frag_Register_With extends Fragment implements GoogleApiClient.OnCo
     }
 
     void InitControl(View v){
+        txtEmail = (EditText) v.findViewById(R.id.nav_login_email_edit_text);
         textRegister = (TextView)v.findViewById(R.id.register_button);
         textRegister.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                AppConstant.AUTH_USERNAME = txtEmail.getText().toString();
                 ((RegisterActivity)getActivity()).displayView(1);
             }
         });

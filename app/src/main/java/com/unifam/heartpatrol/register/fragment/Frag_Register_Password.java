@@ -1,12 +1,17 @@
 package com.unifam.heartpatrol.register.fragment;
 
+import android.app.Dialog;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.Window;
+import android.widget.EditText;
 import android.widget.TextView;
 
+import com.unifam.heartpatrol.AppConstant;
 import com.unifam.heartpatrol.R;
 import com.unifam.heartpatrol.register.RegisterActivity;
 
@@ -15,7 +20,7 @@ import com.unifam.heartpatrol.register.RegisterActivity;
  */
 public class Frag_Register_Password extends Fragment {
     TextView textNext;
-
+    EditText edtPassword, edtPasswordConfirm;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -32,12 +37,40 @@ public class Frag_Register_Password extends Fragment {
     }
 
     void InitControl(View v){
+        edtPassword = (EditText)v.findViewById(R.id.edt_password);
+        edtPasswordConfirm = (EditText)v.findViewById(R.id.edt_password_confirm);
         textNext = (TextView)v.findViewById(R.id.btn_next);
         textNext.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                String sPassword, sPasswordConfirm;
+                sPassword = edtPassword.getText().toString();
+                sPasswordConfirm = edtPasswordConfirm.getText().toString();
+
+                if (sPassword.equals(sPasswordConfirm)){
+                    CustomeDialog();
+                }
+
+
                 ((RegisterActivity)getActivity()).displayView(2);
             }
         });
+    }
+
+    void CustomeDialog(){
+        final Dialog dialog = new Dialog(getActivity());
+        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+        dialog.setContentView(R.layout.custom_dialog);
+        dialog.getWindow().setBackgroundDrawable(new ColorDrawable(android.graphics.Color.TRANSPARENT));
+
+        TextView txtDismis = (TextView)dialog.findViewById(R.id.text_dismiss);
+        txtDismis.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                dialog.dismiss();
+            }
+        });
+
+        dialog.show();
     }
 }

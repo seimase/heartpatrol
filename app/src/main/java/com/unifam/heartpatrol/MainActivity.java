@@ -15,6 +15,7 @@ import com.unifam.heartpatrol.register.RegisterActivity;
 import java.io.File;
 import java.util.List;
 
+import potrait.Potrait_MainMenuActivity;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -38,7 +39,7 @@ public class MainActivity extends AppCompatActivity {
         layoutLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getBaseContext(), LoginActivity.class);
+                Intent intent = new Intent(getBaseContext(), Potrait_MainMenuActivity.class);
                 startActivity(intent);
             }
         });

@@ -36,7 +36,7 @@ public class ecg_recording extends AppCompatActivity {
                 finish();
             }
         });
-        imgRecord = (CircleImageView)findViewById(R.id.imageView7);
+        imgRecord = (ImageView)findViewById(R.id.imageView7);
 
         imgRecord.setOnClickListener(new View.OnClickListener() {
             @Override
