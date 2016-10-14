@@ -1,6 +1,7 @@
 package com.unifam.heartpatrol.register.fragment;
 
 import android.app.Dialog;
+import android.app.ProgressDialog;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -12,6 +13,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import com.unifam.heartpatrol.AppConstant;
+import com.unifam.heartpatrol.AppController;
 import com.unifam.heartpatrol.R;
 import com.unifam.heartpatrol.register.RegisterActivity;
 
@@ -21,6 +23,7 @@ import com.unifam.heartpatrol.register.RegisterActivity;
 public class Frag_Register_Password extends Fragment {
     TextView textNext;
     EditText edtPassword, edtPasswordConfirm;
+    ProgressDialog progress;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -47,30 +50,14 @@ public class Frag_Register_Password extends Fragment {
                 sPassword = edtPassword.getText().toString();
                 sPasswordConfirm = edtPasswordConfirm.getText().toString();
 
-                if (sPassword.equals(sPasswordConfirm)){
-                    CustomeDialog();
+                if (!sPassword.equals(sPasswordConfirm)){
+                    AppController.getInstance().CustomeDialog(getActivity(),"Incorrect Password, Try Again !");
+                }else {
+                    ((RegisterActivity)getActivity()).displayView(2);
                 }
 
-
-                ((RegisterActivity)getActivity()).displayView(2);
             }
         });
     }
 
-    void CustomeDialog(){
-        final Dialog dialog = new Dialog(getActivity());
-        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
-        dialog.setContentView(R.layout.custom_dialog);
-        dialog.getWindow().setBackgroundDrawable(new ColorDrawable(android.graphics.Color.TRANSPARENT));
-
-        TextView txtDismis = (TextView)dialog.findViewById(R.id.text_dismiss);
-        txtDismis.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                dialog.dismiss();
-            }
-        });
-
-        dialog.show();
-    }
-}
+ }

@@ -30,6 +30,13 @@ public class MainActivity extends AppCompatActivity {
 
         InitControl();
         InitFolder();
+
+        //AppController.getInstance().getSessionManager().setUserAccount(null);
+        AppConstant.bExit = false;
+        if (AppController.getInstance().getSessionManager().isUserLogon()){finish();
+            Intent intent = new Intent(MainActivity.this, MainMenu.class);
+            startActivity(intent);
+        }
     }
 
     void InitControl(){
@@ -69,6 +76,8 @@ public class MainActivity extends AppCompatActivity {
         }catch (Exception e){
             Toast.makeText(this, e.getMessage(), Toast.LENGTH_LONG).show();
         }
+
+
 
     }
 

@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.alexzh.circleimageview.CircleImageView;
 import com.alexzh.circleimageview.ItemSelectedListener;
@@ -14,6 +15,7 @@ import com.unifam.heartpatrol.ecg.Ecg_Review;
 import com.unifam.heartpatrol.ecg.ecg_recording;
 import com.unifam.heartpatrol.ecg.ecg_result;
 import com.unifam.heartpatrol.estore.EstoreActivity;
+import com.unifam.heartpatrol.model.Register;
 import com.unifam.heartpatrol.profile.ProfileActivity;
 import com.unifam.heartpatrol.transaction.TransactionActivity;
 
@@ -24,17 +26,25 @@ public class MainMenu extends AppCompatActivity {
     AHBottomNavigation bottomNavigation;
     ImageView imgSetting;
     ImageView imgRecord;
+    TextView txtName;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main_menu);
 
         InitControl();
+
+        Register register = AppController.getInstance().getSessionManager().getUserProfile();
+
+        if (register !=null){
+            txtName.setText("Hi, " + register.first_name);
+        }
     }
 
     void InitControl(){
         imgSetting = (ImageView)findViewById(R.id.img_setting);
         imgRecord = (ImageView)findViewById(R.id.imageView7);
+        txtName = (TextView)findViewById(R.id.text_name);
 
         bottomNavigation = (AHBottomNavigation) findViewById(R.id.bottom_navigation);
         AHBottomNavigationItem item1 = new AHBottomNavigationItem("Profile", R.drawable.uff_profile, R.color.colorAccent);
@@ -107,5 +117,12 @@ public class MainMenu extends AppCompatActivity {
             }
         });
 
+    }
+
+    @Override
+    protected void onResume() {
+        // TODO Auto-generated method stub
+        super.onResume();
+        if (AppConstant.bExit)finish();
     }
 }

@@ -7,6 +7,9 @@ import android.widget.ImageView;
 import android.widget.RadioButton;
 import android.widget.TextView;
 
+import com.google.android.gms.fitness.data.Application;
+import com.unifam.heartpatrol.model.Register;
+
 /**
  * Created by Unifam on 9/16/2016.
  */
@@ -30,7 +33,11 @@ public class SettingsActivity extends AppCompatActivity {
         txtLogOut.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                finish();
+                Register register = null;
+                AppConstant.bExit = true;
+                AppController.getInstance().getSessionManager().setUserAccount(register);
+                int pid = android.os.Process.myPid();
+                android.os.Process.killProcess(pid);
             }
         });
 
@@ -72,6 +79,8 @@ public class SettingsActivity extends AppCompatActivity {
         imgBack = (ImageView)findViewById(R.id.arrow_back);
         txtLabel = (TextView)findViewById(R.id.textLabel);
         txtLogOut  = (TextView)findViewById(R.id.txtLogOut);
+
+
         txtLabel.setText(getResources().getText(R.string.Settings));
         rbo1 = (RadioButton)findViewById(R.id.rbo1);
         rbo6 = (RadioButton)findViewById(R.id.rbo6);

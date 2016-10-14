@@ -10,6 +10,9 @@ import android.content.res.Configuration;
 import android.content.res.Resources;
 import android.util.DisplayMetrics;
 
+import com.google.gson.Gson;
+import com.unifam.heartpatrol.model.Register;
+
 import java.util.Locale;
 
 public class SessionManager {
@@ -36,23 +39,6 @@ public class SessionManager {
     public static final String REFRESH_TOKEN = "refresh_token";
     public static final String LANGUAGE = "language";
     public static final String USER_ACCOUNT = "user_account";
-    public static final String KLINIK_REVIEW = "klinik_review";
-    public static final String DOCTOR_MODEL = "doctor_model";
-    public static final String HOME_MENU_DOCTOR = "home_menu_doctor";
-    public static final String HOME_MENU_DOCTOR_EN = "home_menu_doctor_en";
-    public static final String HOME_MENU_PRACTICES = "home_menu_practices";
-    public static final String HOME_MENU_PRACTICES_EN = "home_menu_practices_en";
-    public static final String DOCTOR_APPOINTMENT = "doctor_appointment";
-    public static final String DOCTOR_REVIEW = "doctor_review";
-    public static final String TELEDOC_DATA = "teledoc_data";
-    public static final String CHAT_RETRICTION = "chat_retriction";
-    public static final String UPCOMING_TELEDOC_DATA = "upcomig_teledoc";
-    public static final String DETAIL_MEMBERSHIP_TRANSACTION = "detail_membership_tranaction";
-    public static final String DETAIL_MEMBERSHIP_TRANSFER = "detail_membership_transfer";
-    public static final String TAG_BANNER = "banner_home";
-    public static final String TAG_VOUCHER = "voucher";
-    public static final String ESTORE_CATEGORY_TAGS = "estore_category_tags";
-    public static final String ESTORE_CATALOG = "estore_catalog";
 
     private final String SESSION_PREFERENCE = "session_pref";
 
@@ -244,6 +230,20 @@ public class SessionManager {
         Configuration conf = res.getConfiguration();
         conf.locale = myLocale;
         res.updateConfiguration(conf, dm);
+    }
+
+
+    public void setUserAccount(Register userData) {
+        if (userData != null) {
+            String data = new Gson().toJson(userData);
+            putStringData(USER_ACCOUNT, data);
+        } else {
+            putStringData(USER_ACCOUNT, "");
+        }
+    }
+
+    public Register getUserProfile() {
+        return new Gson().fromJson(getStringData(USER_ACCOUNT), Register.class);
     }
 
 }

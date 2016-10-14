@@ -27,4 +27,6 @@ public final class AppConstant {
     public static String AUTH_SOURCE;
     public static String AUTH_FIRST_NAME;
     public static String AUTH_LAST_NAME;
+
+    public static boolean bExit;
 }

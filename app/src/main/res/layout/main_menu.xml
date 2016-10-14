@@ -35,7 +35,7 @@
             android:layout_alignStart="@+id/imageView7"
             android:layout_marginBottom="@dimen/space_18"
             android:textSize="@dimen/space_28"
-            android:id="@+id/view3" />
+            android:id="@+id/text_name" />
 
         <ImageView
             android:layout_width="@dimen/space_30"

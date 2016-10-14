@@ -16,6 +16,7 @@
 
         <ui.CustomtextView
             font:name = "Avenir_Heavy"
+            android:id="@+id/text_isi"
             android:textColor="@color/black"
             android:textSize="@dimen/space_14"
             android:gravity="center"

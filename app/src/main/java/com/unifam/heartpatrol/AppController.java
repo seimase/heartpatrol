@@ -1,9 +1,14 @@
 package com.unifam.heartpatrol;
 
 import android.app.Application;
+import android.app.Dialog;
 import android.content.Context;
+import android.graphics.drawable.ColorDrawable;
 import android.support.multidex.MultiDex;
+import android.view.View;
+import android.view.Window;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.squareup.picasso.Picasso;
 
@@ -79,5 +84,25 @@ public class AppController extends Application {
 
         sCur = sCur.replace(".00", "");
         return sCur;
+    }
+
+    public void CustomeDialog(Context context, String sTextIsi){
+        final Dialog dialog = new Dialog(context);
+        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+        dialog.setContentView(R.layout.custom_dialog);
+        dialog.getWindow().setBackgroundDrawable(new ColorDrawable(android.graphics.Color.TRANSPARENT));
+
+        TextView txtIsi = (TextView)dialog.findViewById(R.id.text_isi);
+        TextView txtDismis = (TextView)dialog.findViewById(R.id.text_dismiss);
+
+        txtIsi.setText(sTextIsi);
+        txtDismis.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                dialog.dismiss();
+            }
+        });
+
+        dialog.show();
     }
 }

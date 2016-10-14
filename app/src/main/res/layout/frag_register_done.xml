@@ -34,7 +34,7 @@
 
 
             <ui.CustomEditText
-                android:id="@+id/edt_password"
+                android:id="@+id/edt_first"
                 android:layout_width="@dimen/space_225"
                 android:layout_height="@dimen/space_40"
                 android:layout_alignParentRight="false"
@@ -54,9 +54,9 @@
                 android:layout_height="1dp"
 
                 android:background="#939597"
-                android:layout_below="@+id/edt_password"
-                android:layout_alignLeft="@+id/edt_password"
-                android:layout_alignStart="@+id/edt_password" />
+                android:layout_below="@+id/edt_first"
+                android:layout_alignLeft="@+id/edt_first"
+                android:layout_alignStart="@+id/edt_first" />
 
             <ui.CustomEditText
                 android:id="@+id/edt_last"
@@ -69,8 +69,8 @@
                 android:textSize="@dimen/space_16"
                 font:name="Avenir_Light"
                 android:layout_alignParentTop="true"
-                android:layout_toRightOf="@+id/edt_password"
-                android:layout_toEndOf="@+id/edt_password"
+                android:layout_toRightOf="@+id/edt_first"
+                android:layout_toEndOf="@+id/edt_first"
                 android:layout_marginLeft="@dimen/space_20"
                 android:gravity="center" />
 
