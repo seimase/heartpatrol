@@ -63,7 +63,7 @@ public class Frag_Register_Done extends Fragment {
                 try{
                     Call<Register> call = NetworkManager.getNetworkService(getActivity()).getRegister(
                             AppConstant.AUTH_USERNAME,
-                            "email",
+                            AppConstant.AUTH_PASSWORD,
                             AppConstant.AUTH_USERNAME,
                             txtFirst.getText().toString().trim(),
                             txtLast.getText().toString().trim());

@@ -175,7 +175,7 @@
             <LinearLayout
                 android:orientation="horizontal"
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/space_53"
+                android:layout_height="@dimen/space_40"
                 android:id="@+id/linearLayout3">
                 <LinearLayout
                     android:orientation="vertical"
@@ -187,7 +187,7 @@
                     <EditText
                         android:id="@+id/txt_product_package_amount"
                         android:layout_width="match_parent"
-                        android:layout_height="@dimen/space_30"
+                        android:layout_height="@dimen/space_25"
                         android:gravity="center"
 
                         android:background="@drawable/shape_rounded_soft_grey_box"
@@ -199,6 +199,7 @@
                         font:name = "Avenir_Light"
                         android:background="@color/grey"
                         android:textColor="@color/white"
+                        android:textSize="@dimen/space_10"
                         android:text="PROMO CODE"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"

@@ -3,6 +3,8 @@ package com.unifam.heartpatrol;
 import android.content.SharedPreferences;
 import android.os.Environment;
 
+import com.unifam.heartpatrol.model.Profile;
+
 /**
  * Created by Unifam on 9/16/2016.
  */
@@ -24,9 +26,11 @@ public final class AppConstant {
     public static String STORAGE_CARD = Environment.getExternalStorageDirectory().toString() + "/HeartPatrol";
 
     public static String AUTH_USERNAME;
+    public static String AUTH_PASSWORD;
     public static String AUTH_SOURCE;
     public static String AUTH_FIRST_NAME;
     public static String AUTH_LAST_NAME;
+    public static Profile profile;
 
     public static boolean bExit;
 }

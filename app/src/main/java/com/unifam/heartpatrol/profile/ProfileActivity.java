@@ -1,5 +1,6 @@
 package com.unifam.heartpatrol.profile;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -10,7 +11,12 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.unifam.heartpatrol.AppConstant;
+import com.unifam.heartpatrol.AppController;
+import com.unifam.heartpatrol.MainMenu;
 import com.unifam.heartpatrol.R;
+import com.unifam.heartpatrol.model.Profile;
+import com.unifam.heartpatrol.model.net.NetworkManager;
 import com.unifam.heartpatrol.profile.fragment.Frag_Profile_Birthdate;
 import com.unifam.heartpatrol.profile.fragment.Frag_Profile_Height;
 import com.unifam.heartpatrol.profile.fragment.Frag_Profile_Weight;
@@ -19,12 +25,18 @@ import com.unifam.heartpatrol.register.fragment.Frag_Register_Password;
 import com.unifam.heartpatrol.register.fragment.Frag_Register_With;
 import com.wdullaer.materialdatetimepicker.date.DatePickerDialog;
 
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+
 /**
  * Created by Unifam on 9/16/2016.
  */
 public class ProfileActivity extends AppCompatActivity {
     ImageView imgBack;
     TextView txtLabel;
+
+    Profile profile;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,6 +55,8 @@ public class ProfileActivity extends AppCompatActivity {
 
 
         displayView(0);
+
+
     }
 
     public void displayView(int position) {

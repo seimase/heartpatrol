@@ -9,30 +9,25 @@ import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.unifam.heartpatrol.AppController;
 import com.unifam.heartpatrol.R;
-import com.unifam.heartpatrol.model.Model_Estore_Package;
+import com.unifam.heartpatrol.model.Package;
 
-import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by Unifam on 9/19/2016.
  */
 public class AdapterEstorePackage extends  RecyclerView.Adapter<AdapterEstorePackage.ViewHolder>{
 
-    ArrayList<Model_Estore_Package> mCourseArrayList;
     private Context context;
     public int mSelectedItem = -1;
 
-    /*private OnCheckBoxClicked listener;
-
-    public interface OnBarcodeClicked {
-        public void OnBarcodeClicked(String sKode, boolean bCamera, boolean bSave);
-    }*/
-
-    public AdapterEstorePackage(Context context, ArrayList<Model_Estore_Package> mCourseArrayList) {
+    Package aPackage;
+    public AdapterEstorePackage(Context context, Package aPackage) {
         this.context = context;
-        this.mCourseArrayList = mCourseArrayList;
-        if (mCourseArrayList == null) {
+        this.aPackage = aPackage;
+        if (aPackage == null) {
             throw new IllegalArgumentException("courses ArrayList must not be null");
         }
     }
@@ -48,11 +43,11 @@ public class AdapterEstorePackage extends  RecyclerView.Adapter<AdapterEstorePac
 
     @Override
     public void onBindViewHolder(final ViewHolder holder, final int position) {
-        final Model_Estore_Package listData = mCourseArrayList.get(position);
+        final List<Package.Datum> listData = aPackage.data;
         //Set text
-        holder.txtPackage.setText(listData.getAtr1());
-        holder.txtDescription.setText(listData.getAtr2());
-        holder.txtPrice.setText(listData.getAtr3());
+        holder.txtPackage.setText(listData.get(position).package_name);
+        holder.txtDescription.setText(Integer.toString(listData.get(position).credits) + " Credits");
+        holder.txtPrice.setText(listData.get(position).currency + " " + AppController.toCurrency(listData.get(position).price));
 
         if ((position % 2) ==0){
             holder.layoutBar.setBackgroundColor(context.getResources().getColor(R.color.grey_ss));
@@ -65,9 +60,9 @@ public class AdapterEstorePackage extends  RecyclerView.Adapter<AdapterEstorePac
             @Override
             public void onClick(View v) {
 
-                if(listData.getAtrAmount() > 0){
-                    listData.setAtrAmount(listData.getAtrAmount() - 1);
-                    holder.txtValue.setText(Integer.toString(listData.getAtrAmount() ));
+                if(listData.get(position).qty > 0){
+                    listData.get(position).qty = listData.get(position).qty - 1;
+                    holder.txtValue.setText(Integer.toString(listData.get(position).qty ));
                 }
                 //setEstimatedCost(holder, item);
             }
@@ -75,8 +70,8 @@ public class AdapterEstorePackage extends  RecyclerView.Adapter<AdapterEstorePac
         holder.btnPlus.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                listData.setAtrAmount(listData.getAtrAmount() + 1);
-                holder.txtValue.setText(Integer.toString(listData.getAtrAmount()));
+                listData.get(position).qty = listData.get(position).qty + 1;
+                holder.txtValue.setText(Integer.toString(listData.get(position).qty ));
                 //setEstimatedCost(holder, item);
             }
         });
@@ -87,7 +82,7 @@ public class AdapterEstorePackage extends  RecyclerView.Adapter<AdapterEstorePac
 
     @Override
     public int getItemCount() {
-        return mCourseArrayList.size();
+        return aPackage.data.size();
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder
@@ -104,7 +99,7 @@ public class AdapterEstorePackage extends  RecyclerView.Adapter<AdapterEstorePac
 
         LinearLayout layoutBar;
 
-        Model_Estore_Package listData;
+        List<Package.Datum> listData;
         public ViewHolder(View itemView,
                           Context context,
                           final AdapterEstorePackage mCourseAdapter) {
@@ -116,9 +111,6 @@ public class AdapterEstorePackage extends  RecyclerView.Adapter<AdapterEstorePac
             btnMin = (TextView)itemView.findViewById(R.id.btn_product_package_min);
             btnPlus = (TextView)itemView.findViewById(R.id.btn_product_package_plus);
             txtValue = (EditText) itemView.findViewById(R.id.txt_product_package_amount);
-
-
-
         }
 
 

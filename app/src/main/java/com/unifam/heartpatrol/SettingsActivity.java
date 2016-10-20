@@ -33,11 +33,8 @@ public class SettingsActivity extends AppCompatActivity {
         txtLogOut.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Register register = null;
                 AppConstant.bExit = true;
-                AppController.getInstance().getSessionManager().setUserAccount(register);
-                int pid = android.os.Process.myPid();
-                android.os.Process.killProcess(pid);
+                finish();
             }
         });
 

@@ -3,6 +3,8 @@ import com.unifam.heartpatrol.model.ApiGithub;
 import com.unifam.heartpatrol.model.GitHubUser;
 import com.unifam.heartpatrol.model.ListUser;
 import com.unifam.heartpatrol.model.LocationList;
+import com.unifam.heartpatrol.model.Package;
+import com.unifam.heartpatrol.model.Profile;
 import com.unifam.heartpatrol.model.Register;
 
 import java.util.List;
@@ -36,6 +38,17 @@ public interface NetworkService {
                                @Field("source") String source, @Field("first_name") String first_name,
                                @Field("last_name") String last_name);
     @FormUrlEncoded
-    @POST("register.php")
-    Call<Register> getRegister(@Field("username") String name);
+    @POST("login")
+    Call<Register> getLogin(@Field("name") String name, @Field("password") String password);
+
+    @FormUrlEncoded
+    @POST("loginSocmed")
+    Call<Register> getLoginSocMed(@Field("name") String name);
+
+    @FormUrlEncoded
+    @POST("profile")
+    Call<Profile> getProfile(@Field("user_name") String user_name);
+
+    @POST("package")
+    Call<Package> getPackage();
 }

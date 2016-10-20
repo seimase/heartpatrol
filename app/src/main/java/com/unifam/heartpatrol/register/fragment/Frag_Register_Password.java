@@ -50,12 +50,16 @@ public class Frag_Register_Password extends Fragment {
                 sPassword = edtPassword.getText().toString();
                 sPasswordConfirm = edtPasswordConfirm.getText().toString();
 
-                if (!sPassword.equals(sPasswordConfirm)){
-                    AppController.getInstance().CustomeDialog(getActivity(),"Incorrect Password, Try Again !");
-                }else {
-                    ((RegisterActivity)getActivity()).displayView(2);
+                if (sPassword.length() < 8){
+                    AppController.getInstance().CustomeDialog(getActivity(),"minimum 8 character, Try Again !");
+                }else{
+                    if (!sPassword.equals(sPasswordConfirm)){
+                        AppController.getInstance().CustomeDialog(getActivity(),"Incorrect Password, Try Again !");
+                    }else {
+                        AppConstant.AUTH_PASSWORD = sPassword;
+                        ((RegisterActivity)getActivity()).displayView(2);
+                    }
                 }
-
             }
         });
     }

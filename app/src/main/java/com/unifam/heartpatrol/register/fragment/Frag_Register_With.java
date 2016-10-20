@@ -150,9 +150,13 @@ public class Frag_Register_With extends Fragment implements GoogleApiClient.OnCo
 
             signOut();
             try{
+                progress = ProgressDialog.show(getActivity(), "Information",
+                        "Registration", true);
+                progress.show();
+
                 Call<Register> call = NetworkManager.getNetworkService(getActivity()).getRegister(
                         email,
-                        "email",
+                        "google",
                         email,
                         personName,
                         personName);
@@ -161,7 +165,7 @@ public class Frag_Register_With extends Fragment implements GoogleApiClient.OnCo
                     public void onResponse(Call<Register> call, Response<Register> response) {
                         int code = response.code();
                         register = response.body();
-
+                        progress.dismiss();
                         if (code == 200){
                             if (!register.error){
                                 AppController.getInstance().getSessionManager().setUserAccount(register);
@@ -176,6 +180,7 @@ public class Frag_Register_With extends Fragment implements GoogleApiClient.OnCo
 
                     @Override
                     public void onFailure(Call<Register> call, Throwable t) {
+                        progress.dismiss();
                     }
                 });
             }catch (Exception e){

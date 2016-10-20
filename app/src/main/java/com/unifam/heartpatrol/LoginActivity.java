@@ -7,6 +7,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -23,6 +24,12 @@ import com.google.android.gms.common.api.ResultCallback;
 import com.google.android.gms.common.api.Scope;
 import com.google.android.gms.common.api.Status;
 import com.google.android.gms.plus.Plus;
+import com.unifam.heartpatrol.model.Register;
+import com.unifam.heartpatrol.model.net.NetworkManager;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 /**
  * Created by Unifam on 9/14/2016.
@@ -32,16 +39,23 @@ public class LoginActivity extends AppCompatActivity implements GoogleApiClient.
     Toolbar toolbar;
     ImageView imgBack;
     TextView txtLabel;
-    private TextView btnFacebook, btnLoginGoogle;
+
+    EditText txtEmail, txtPassword;
+    private TextView btnFacebook, btnLoginGoogle, btnLogin;
     private SignInButton btnGoogle;
     private GoogleApiClient mGoogleApiClient;
     String TAG = "Notifikasi";
+
+    Register register;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
         toolbar = (Toolbar)findViewById(R.id.tool_bar);
+        txtEmail = (EditText)findViewById(R.id.nav_login_email_edit_text);
+        txtPassword = (EditText)findViewById(R.id.nav_login_password_edit_text);
+        btnLogin = (TextView)findViewById(R.id.nav_login_button);
         imgBack = (ImageView)findViewById(R.id.arrow_back);
         txtLabel = (TextView)findViewById(R.id.textLabel);
         btnGoogle = (SignInButton)findViewById(R.id.google_sign_in_button);
@@ -81,6 +95,13 @@ public class LoginActivity extends AppCompatActivity implements GoogleApiClient.
                 startActivityForResult(signInIntent, RC_SIGN_IN);
             }
         });
+
+        btnLogin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                LoginEmail();
+            }
+        });
     }
 
 
@@ -108,12 +129,11 @@ public class LoginActivity extends AppCompatActivity implements GoogleApiClient.
             Log.e(TAG, "display name: " + acct.getDisplayName());
 
             String personName = acct.getDisplayName();
-            String personPhotoUrl = acct.getPhotoUrl().toString();
+            //String personPhotoUrl = acct.getPhotoUrl().toString();
             String email = acct.getEmail();
 
-            Log.e(TAG, "Name: " + personName + ", email: " + email
-                    + ", Image: " + personPhotoUrl);
             signOut();
+            LoginSocmed(email);
         } else {
             // Signed out, show unauthenticated UI.
             //updateUI(false);
@@ -138,5 +158,67 @@ public class LoginActivity extends AppCompatActivity implements GoogleApiClient.
                     public void onResult(Status status) {
                     }
                 });
+    }
+
+    void LoginEmail(){
+        try{
+            Call<Register> call = NetworkManager.getNetworkService(this).getLogin(
+                    txtEmail.getText().toString().trim(),txtPassword.getText().toString());
+            call.enqueue(new Callback<Register>() {
+                @Override
+                public void onResponse(Call<Register> call, Response<Register> response) {
+                    int code = response.code();
+                    if (code == 200){
+                        register = response.body();
+                        if (!register.error){
+                            AppController.getInstance().getSessionManager().setUserAccount(register);
+                            finish();
+                            Intent intent = new Intent(LoginActivity.this, MainMenu.class);
+                            startActivity(intent);
+                        }else{
+                            AppController.getInstance().CustomeDialog(LoginActivity.this,register.message);
+                        }
+                    }
+                }
+
+                @Override
+                public void onFailure(Call<Register> call, Throwable t) {
+
+                }
+            });
+        }catch (Exception e){
+
+        }
+    }
+
+    void LoginSocmed(String sEmail){
+        try{
+            Call<Register> call = NetworkManager.getNetworkService(this).getLoginSocMed(
+                    sEmail);
+            call.enqueue(new Callback<Register>() {
+                @Override
+                public void onResponse(Call<Register> call, Response<Register> response) {
+                    int code = response.code();
+                    if (code == 200){
+                        register = response.body();
+                        if (!register.error){
+                            AppController.getInstance().getSessionManager().setUserAccount(register);
+                            finish();
+                            Intent intent = new Intent(LoginActivity.this, MainMenu.class);
+                            startActivity(intent);
+                        }else{
+                            AppController.getInstance().CustomeDialog(LoginActivity.this,register.message);
+                        }
+                    }
+                }
+
+                @Override
+                public void onFailure(Call<Register> call, Throwable t) {
+
+                }
+            });
+        }catch (Exception e){
+
+        }
     }
 }
