@@ -49,6 +49,14 @@ public interface NetworkService {
     @POST("profile")
     Call<Profile> getProfile(@Field("user_name") String user_name);
 
+    @FormUrlEncoded
+    @POST("UpdateProfile")
+    Call<Profile> postUpdateProfile(@Field("user_name") String user_name,
+                                    @Field("birth_date") String birth_date,
+                                    @Field("weight") int weight,
+                                    @Field("height") int height,
+                                    @Field("gender") String gender);
+
     @POST("package")
     Call<Package> getPackage();
 }

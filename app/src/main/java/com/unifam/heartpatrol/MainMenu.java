@@ -38,6 +38,7 @@ public class MainMenu extends AppCompatActivity {
     TextView txtName;
 
     Profile profile;
+    ProgressDialog progress;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -83,10 +84,9 @@ public class MainMenu extends AppCompatActivity {
                 switch (position){
 
                     case 0: //Profile
-                        final ProgressDialog progress;
-                        progress = ProgressDialog.show(getBaseContext(), "Information",
+                        /*progress = ProgressDialog.show(getBaseContext(), "Information",
                                 "Get data", true);
-                        progress.show();
+                        progress.show();*/
 
                         try{
                             Call<Profile> call = NetworkManager.getNetworkService(getBaseContext()).getProfile(AppConstant.AUTH_USERNAME);
@@ -95,7 +95,7 @@ public class MainMenu extends AppCompatActivity {
                                 public void onResponse(Call<Profile> call, Response<Profile> response) {
                                     int code = response.code();
                                     profile = response.body();
-                                    progress.dismiss();
+                                    //progress.dismiss();
                                     if (!profile.error){
                                         if (profile.data.size() > 0){
                                             Intent mIntent = new Intent(getBaseContext(),ProfileViewActivity.class);
@@ -112,12 +112,12 @@ public class MainMenu extends AppCompatActivity {
 
                                 @Override
                                 public void onFailure(Call<Profile> call, Throwable t) {
-                                    progress.dismiss();
+                                    //progress.dismiss();
                                 }
                             });
                         }catch (Exception e){
                             AppController.getInstance().CustomeDialog(getBaseContext(), e.getMessage());
-                            progress.dismiss();
+                           // progress.dismiss();
                         }
                         break;
                     case 1: //ECG Result

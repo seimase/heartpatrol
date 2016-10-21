@@ -33,4 +33,10 @@ public final class AppConstant {
     public static Profile profile;
 
     public static boolean bExit;
+
+    //PROFILE---------------------------------------------------------------------------------------
+    public static String PROFILE_BIRTH_DATE;
+    public static String PROFILE_GENDER;
+    public static int PROFILE_WEIGHT;
+    public static int PROFILE_HEIGHT;
 }

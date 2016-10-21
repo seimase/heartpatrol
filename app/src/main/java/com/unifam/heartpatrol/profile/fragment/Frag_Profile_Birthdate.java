@@ -6,8 +6,11 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
+import android.widget.RadioButton;
 import android.widget.TextView;
 
+import com.unifam.heartpatrol.AppConstant;
+import com.unifam.heartpatrol.AppController;
 import com.unifam.heartpatrol.R;
 import com.unifam.heartpatrol.profile.ProfileActivity;
 import com.unifam.heartpatrol.register.RegisterActivity;
@@ -21,6 +24,8 @@ import java.util.Calendar;
 public class Frag_Profile_Birthdate extends Fragment implements com.wdullaer.materialdatetimepicker.date.DatePickerDialog.OnDateSetListener{
     TextView textNext;
     EditText txtDate;
+    RadioButton rboMale, rboFemale;
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -39,10 +44,18 @@ public class Frag_Profile_Birthdate extends Fragment implements com.wdullaer.mat
     void InitControl(View v){
         textNext = (TextView)v.findViewById(R.id.btn_next);
         txtDate = (EditText)v.findViewById(R.id.edt_birthdate);
+        rboMale = (RadioButton) v.findViewById(R.id.rboMale);
+        rboFemale = (RadioButton) v.findViewById(R.id.rboFemale);
         textNext.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                ((ProfileActivity)getActivity()).displayView(1);
+                if (Validasi()){
+                    if(rboMale.isChecked()) AppConstant.PROFILE_GENDER = "Male";
+                    if(rboFemale.isChecked()) AppConstant.PROFILE_GENDER = "Female";
+                    AppConstant.PROFILE_BIRTH_DATE = txtDate.getText().toString().trim();
+
+                    ((ProfileActivity)getActivity()).displayView(1);
+                }
             }
         });
 
@@ -75,5 +88,21 @@ public class Frag_Profile_Birthdate extends Fragment implements com.wdullaer.mat
 
         String strDate = year + "-" + sMonth + "-" + sDay;
         txtDate.setText(strDate);
+    }
+
+    boolean Validasi(){
+        boolean bDone = true;
+        String sDate = txtDate.getText().toString().trim();
+
+        if (sDate.equals("")){
+            AppController.getInstance().CustomeDialog(getActivity(), "Please input birth date first, Try Again !");
+            return false;
+        }
+
+        if (!rboMale.isChecked() && !rboFemale.isChecked()){
+            AppController.getInstance().CustomeDialog(getActivity(), "Please select gender, Try Again !");
+            return false;
+        }
+        return bDone;
     }
 }

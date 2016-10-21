@@ -7,6 +7,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import com.unifam.heartpatrol.AppConstant;
 import com.unifam.heartpatrol.R;
 import com.unifam.heartpatrol.profile.ProfileActivity;
 
@@ -48,6 +49,7 @@ public class Frag_Profile_Height extends Fragment {
             @Override
             public void onScaleChanged(int scale) {
                 txtHeight.setText(Integer.toString(scale));
+                AppConstant.PROFILE_HEIGHT = scale;
             }
         });
     }
