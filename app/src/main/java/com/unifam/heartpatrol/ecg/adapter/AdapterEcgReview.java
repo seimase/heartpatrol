@@ -10,6 +10,7 @@ import android.widget.TextView;
 
 import com.unifam.heartpatrol.R;
 import com.unifam.heartpatrol.ecg.Ecg_Review_PDF;
+import com.unifam.heartpatrol.model.Ecg_Result_Model;
 import com.unifam.heartpatrol.model.Model_ecg_review;
 
 
@@ -21,9 +22,7 @@ import cn.refactor.library.SmoothCheckBox;
  * Created by Unifam on 9/19/2016.
  */
 public class AdapterEcgReview extends  RecyclerView.Adapter<AdapterEcgReview.ViewHolder>{
-
-
-    ArrayList<Model_ecg_review> mCourseArrayList;
+    Ecg_Result_Model ecgResultModel;
     private Context context;
     public int mSelectedItem = -1;
 
@@ -33,10 +32,10 @@ public class AdapterEcgReview extends  RecyclerView.Adapter<AdapterEcgReview.Vie
         public void OnBarcodeClicked(String sKode, boolean bCamera, boolean bSave);
     }*/
 
-    public AdapterEcgReview(Context context, ArrayList<Model_ecg_review> mCourseArrayList) {
+    public AdapterEcgReview(Context context, Ecg_Result_Model ecgResultModel) {
         this.context = context;
-        this.mCourseArrayList = mCourseArrayList;
-        if (mCourseArrayList == null) {
+        this.ecgResultModel = ecgResultModel;
+        if (ecgResultModel == null) {
             throw new IllegalArgumentException("courses ArrayList must not be null");
         }
     }
@@ -52,15 +51,16 @@ public class AdapterEcgReview extends  RecyclerView.Adapter<AdapterEcgReview.Vie
 
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
-        Model_ecg_review listData = mCourseArrayList.get(position);
+        Ecg_Result_Model.Data listData = ecgResultModel.data.get(position);
         //Set text
-        holder.txtDate.setText(listData.getAtr1());
-        holder.txtTime.setText(listData.getAtr2());
-        holder.txtDescription.setText(listData.getAtr3());
+        String sDate[] = listData.ecg_date.split(" ");
+        holder.txtDate.setText(sDate[0].trim());
+        holder.txtTime.setText(sDate[1].trim());
+        holder.txtDescription.setText(listData.status_description);
 
         holder.smoothCheckBox.setChecked(false);
 
-        holder.smoothCheckBox.setChecked(listData.getAtrCheck1());
+        holder.smoothCheckBox.setChecked(listData.flag);
 
         holder.txtDescription.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -74,7 +74,7 @@ public class AdapterEcgReview extends  RecyclerView.Adapter<AdapterEcgReview.Vie
 
     @Override
     public int getItemCount() {
-        return mCourseArrayList.size();
+        return ecgResultModel.data.size();
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder
@@ -84,7 +84,7 @@ public class AdapterEcgReview extends  RecyclerView.Adapter<AdapterEcgReview.Vie
                 txtTime,
                 txtDescription;
 
-        Model_ecg_review listData;
+        Ecg_Result_Model.Data listData;
         final SmoothCheckBox smoothCheckBox;
         public ViewHolder(View itemView,
                           Context context,
@@ -99,10 +99,10 @@ public class AdapterEcgReview extends  RecyclerView.Adapter<AdapterEcgReview.Vie
                 @Override
                 public void onClick(View v) {
                     if (smoothCheckBox.isChecked()){
-                        mCourseArrayList.get(getAdapterPosition()).setAtrCheck1(false);
+                        ecgResultModel.data.get(getAdapterPosition()).flag = false;
                         smoothCheckBox.setChecked(false);
                     }else{
-                        mCourseArrayList.get(getAdapterPosition()).setAtrCheck1(true);
+                        ecgResultModel.data.get(getAdapterPosition()).flag = true;
                         smoothCheckBox.setChecked(true);
                     }
 

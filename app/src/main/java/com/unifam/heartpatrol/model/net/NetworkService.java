@@ -1,5 +1,6 @@
 package com.unifam.heartpatrol.model.net;
 import com.unifam.heartpatrol.model.ApiGithub;
+import com.unifam.heartpatrol.model.Ecg_Result_Model;
 import com.unifam.heartpatrol.model.GitHubUser;
 import com.unifam.heartpatrol.model.ListUser;
 import com.unifam.heartpatrol.model.LocationList;
@@ -57,6 +58,15 @@ public interface NetworkService {
                                     @Field("height") int height,
                                     @Field("gender") String gender);
 
+    @FormUrlEncoded
     @POST("package")
     Call<Package> getPackage();
+
+    @FormUrlEncoded
+    @POST("ecg_result")
+    Call<Ecg_Result_Model> getEcgResult(@Field("user_name") String user_name);
+
+    @FormUrlEncoded
+    @POST("ecg_review")
+    Call<Ecg_Result_Model> getEcgReview(@Field("user_name") String user_name);
 }

@@ -210,6 +210,7 @@
             android:id="@+id/imageView7"
             android:layout_width="@dimen/space_60"
             android:layout_height="140dp"
+            android:layout_margin="@dimen/space_3"
             android:src="@drawable/heart"
             android:layout_alignParentBottom="true"
             android:layout_centerHorizontal="true" />

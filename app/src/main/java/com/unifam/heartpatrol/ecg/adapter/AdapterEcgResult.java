@@ -9,6 +9,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.unifam.heartpatrol.R;
+import com.unifam.heartpatrol.model.Ecg_Result_Model;
 import com.unifam.heartpatrol.model.model_ecg_result;
 
 import java.util.ArrayList;
@@ -20,7 +21,7 @@ import cn.refactor.library.SmoothCheckBox;
  */
 public class AdapterEcgResult extends  RecyclerView.Adapter<AdapterEcgResult.ViewHolder>{
 
-    ArrayList<model_ecg_result> mCourseArrayList;
+    Ecg_Result_Model ecgResultModel;
     private Context context;
     public int mSelectedItem = -1;
 
@@ -30,10 +31,10 @@ public class AdapterEcgResult extends  RecyclerView.Adapter<AdapterEcgResult.Vie
         public void OnBarcodeClicked(String sKode, boolean bCamera, boolean bSave);
     }*/
 
-    public AdapterEcgResult(Context context, ArrayList<model_ecg_result> mCourseArrayList) {
+    public AdapterEcgResult(Context context, Ecg_Result_Model ecgResultModel) {
         this.context = context;
-        this.mCourseArrayList = mCourseArrayList;
-        if (mCourseArrayList == null) {
+        this.ecgResultModel = ecgResultModel;
+        if (ecgResultModel == null) {
             throw new IllegalArgumentException("courses ArrayList must not be null");
         }
     }
@@ -49,27 +50,28 @@ public class AdapterEcgResult extends  RecyclerView.Adapter<AdapterEcgResult.Vie
 
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
-        model_ecg_result listData = mCourseArrayList.get(position);
+        Ecg_Result_Model.Data listData = ecgResultModel.data.get(position);
         //Set text
-        holder.txtDate.setText(listData.getAtr1());
-        holder.txtTime.setText(listData.getAtr2());
-        holder.txtDescription.setText(listData.getAtr3());
+        String sDate[] = listData.ecg_date.split(" ");
+        holder.txtDate.setText(sDate[0].trim());
+        holder.txtTime.setText(sDate[1].trim());
+        holder.txtDescription.setText(listData.ecg_status_document_description);
 
         holder.layoutBar.setBackgroundColor(context.getResources().getColor(R.color.red));
-        if (!listData.getAtr4().equals("")){
+        if (listData.ecg_status_document.equals("1")){
             holder.layoutBar.setBackgroundColor(context.getResources().getColor(R.color.Green_atena));
         }
 
         holder.smoothCheckBox.setChecked(false);
         //holder.smoothCheckBox.setChecked(position == mSelectedItem);
 
-        holder.smoothCheckBox.setChecked(listData.getAtrCheck1());
+        holder.smoothCheckBox.setChecked(listData.flag);
         holder.listData = listData;
     }
 
     @Override
     public int getItemCount() {
-        return mCourseArrayList.size();
+        return ecgResultModel.data.size();
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder
@@ -81,7 +83,7 @@ public class AdapterEcgResult extends  RecyclerView.Adapter<AdapterEcgResult.Vie
 
         RelativeLayout layoutBar;
 
-        model_ecg_result listData;
+        Ecg_Result_Model.Data listData;
         final SmoothCheckBox smoothCheckBox;
         public ViewHolder(View itemView,
                           Context context,
@@ -97,10 +99,10 @@ public class AdapterEcgResult extends  RecyclerView.Adapter<AdapterEcgResult.Vie
                 @Override
                 public void onClick(View v) {
                     if (smoothCheckBox.isChecked()){
-                        mCourseArrayList.get(getAdapterPosition()).setAtrCheck1(false);
+                        ecgResultModel.data.get(getAdapterPosition()).flag = false;
                         smoothCheckBox.setChecked(false);
                     }else{
-                        mCourseArrayList.get(getAdapterPosition()).setAtrCheck1(true);
+                        ecgResultModel.data.get(getAdapterPosition()).flag = true;
                         smoothCheckBox.setChecked(true);
                     }
 

@@ -10,16 +10,25 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.view.Window;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.aurelhubert.ahbottomnavigation.AHBottomNavigation;
 import com.aurelhubert.ahbottomnavigation.AHBottomNavigationItem;
+import com.unifam.heartpatrol.AppConstant;
+import com.unifam.heartpatrol.AppController;
 import com.unifam.heartpatrol.R;
+import com.unifam.heartpatrol.model.Ecg_Result_Model;
 import com.unifam.heartpatrol.model.model_ecg_result;
 import com.unifam.heartpatrol.ecg.adapter.AdapterEcgResult;
+import com.unifam.heartpatrol.model.net.NetworkManager;
 
 
 import java.util.ArrayList;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 /**
  * Created by Unifam on 9/19/2016.
@@ -35,13 +44,18 @@ public class ecg_result extends AppCompatActivity {
     Toolbar toolbar;
     com.unifam.heartpatrol.model.model_ecg_result model_ecg_result;
     ArrayList<com.unifam.heartpatrol.model.model_ecg_result> Arymodel_ecg_result;
+
+    Ecg_Result_Model ecgResultModel;
+    RelativeLayout layoutLoading;
+    boolean isLoading;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.ecg_result);
-
+        isLoading = false;
         InitControl();
         FillGrid();
+
     }
 
     void InitControl(){
@@ -50,6 +64,7 @@ public class ecg_result extends AppCompatActivity {
         imgBack = (ImageView)findViewById(R.id.arrow_back);
         txtLabel = (TextView)findViewById(R.id.textLabel);
         mRecyclerView = (RecyclerView) findViewById(R.id.my_recycler_view);
+        layoutLoading = (RelativeLayout)findViewById(R.id.layout_loading);
 
         txtLabel.setText(getResources().getText(R.string.ecg_result));
         imgBack.setOnClickListener(new View.OnClickListener() {
@@ -92,11 +107,17 @@ public class ecg_result extends AppCompatActivity {
                         startActivity(mIntent);
                         break;
                     case 2: //Delete
-                        int iDelete = 0;
-                        for (com.unifam.heartpatrol.model.model_ecg_result dat: Arymodel_ecg_result){
-                            if (dat.getAtrCheck1()) iDelete += 1;
+                        try{
+                            int iDelete = 0;
+                            if (!isLoading){
+                                for (Ecg_Result_Model.Data dat: ecgResultModel.data){
+                                    if (dat.flag) iDelete += 1;
+                                }
+                                doDialog(Integer.toString(iDelete));
+                            }
+                        }catch (Exception e){
+
                         }
-                        doDialog(Integer.toString(iDelete));
                         //CustomAlertDialogBuilder builder = new CustomAlertDialogBuilder(getActivity(), getResources().getColor(R.color.green_xxl));
                         break;
                 }
@@ -137,23 +158,37 @@ public class ecg_result extends AppCompatActivity {
         dialog.show();
     }
     void FillGrid(){
-        Arymodel_ecg_result = new ArrayList<>();
-        for(int i = 1; i < 10 ; i++){
-            model_ecg_result = new model_ecg_result();
-            model_ecg_result.setAtr1("02 / 01 / 2015");
-            model_ecg_result.setAtr2("9:37 PM");
-            model_ecg_result.setAtr3("Abnormality detected");
-            model_ecg_result.setAtr4("1");
-            if ((i%3)  == 0){
-                model_ecg_result.setAtr3("No abnormality detected");
-                model_ecg_result.setAtr4("");
-            }
+        isLoading = true;
+        layoutLoading.setVisibility(View.VISIBLE);
+        try{
+            Call<Ecg_Result_Model> call = NetworkManager.getNetworkService(this).getEcgResult(AppConstant.AUTH_USERNAME);
+            call.enqueue(new Callback<Ecg_Result_Model>() {
+                @Override
+                public void onResponse(Call<Ecg_Result_Model> call, Response<Ecg_Result_Model> response) {
+                    int code = response.code();
+                    isLoading = false;
+                    if (code == 200){
+                        ecgResultModel = response.body();
+                        if (!ecgResultModel.error){
+                            layoutLoading.setVisibility(View.GONE);
+                            mAdapter = new AdapterEcgResult(getBaseContext(), ecgResultModel);
+                            // set the adapter object to the Recyclerview
+                            mRecyclerView.setAdapter(mAdapter);
+                        }else{
+                            AppController.getInstance().CustomeDialog(getBaseContext(),ecgResultModel.message);
+                        }
+                    }
+                }
 
-            Arymodel_ecg_result.add(model_ecg_result);
+                @Override
+                public void onFailure(Call<Ecg_Result_Model> call, Throwable t) {
+                    isLoading = false;
+                    layoutLoading.setVisibility(View.GONE);
+                }
+            });
+        }catch (Exception e){
+            isLoading = false;
+            layoutLoading.setVisibility(View.GONE);
         }
-
-        mAdapter = new AdapterEcgResult(this, Arymodel_ecg_result);
-        // set the adapter object to the Recyclerview
-        mRecyclerView.setAdapter(mAdapter);
     }
 }
