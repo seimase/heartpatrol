@@ -1,6 +1,7 @@
 package com.unifam.heartpatrol.ecg;
 
 import android.app.Dialog;
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -25,6 +26,7 @@ import com.unifam.heartpatrol.model.net.NetworkManager;
 
 
 import java.util.ArrayList;
+import java.util.List;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -46,7 +48,10 @@ public class ecg_result extends AppCompatActivity {
     ArrayList<com.unifam.heartpatrol.model.model_ecg_result> Arymodel_ecg_result;
 
     Ecg_Result_Model ecgResultModel;
+    Ecg_Result_Model resultModel;
     RelativeLayout layoutLoading;
+
+    List<String> listEcg;
     boolean isLoading;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -103,15 +108,29 @@ public class ecg_result extends AppCompatActivity {
 
                         break;
                     case 1: //Get ECG Over-Read
-                        mIntent = new Intent(ecg_result.this, Ecg_Over_Read.class);
-                        startActivity(mIntent);
+                        int iOverRead = 0;
+                        listEcg = new ArrayList<String>();
+                        if (!isLoading){
+                            for (Ecg_Result_Model.Data dat: ecgResultModel.data){
+                                if (dat.flag){
+                                    listEcg.add(dat.ecg_id);
+                                    iOverRead += 1;
+                                }
+                            }
+                            doDialogResult(Integer.toString(iOverRead));
+                        }
+
                         break;
                     case 2: //Delete
                         try{
                             int iDelete = 0;
+                            listEcg = new ArrayList<String>();
                             if (!isLoading){
                                 for (Ecg_Result_Model.Data dat: ecgResultModel.data){
-                                    if (dat.flag) iDelete += 1;
+                                    if (dat.flag){
+                                        listEcg.add(dat.ecg_id);
+                                        iDelete += 1;
+                                    }
                                 }
                                 doDialog(Integer.toString(iDelete));
                             }
@@ -146,6 +165,37 @@ public class ecg_result extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 dialog.dismiss();
+                DeleteEcgResult(listEcg);
+            }
+        });
+
+        txtNo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialog.dismiss();
+            }
+        });
+        dialog.show();
+    }
+
+    private void doDialogResult(String sValue) {
+        final Dialog dialog = new Dialog(ecg_result.this);
+        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+        dialog.setContentView(R.layout.dialog_ecg_result_delete);
+        //dialog.setTitle("Title...");
+        // set the custom dialog components - text, image and button
+        TextView txtMessege = (TextView) dialog.findViewById(R.id.message);
+        TextView txtYes = (TextView) dialog.findViewById(R.id.positive_button);
+        TextView txtNo = (TextView) dialog.findViewById(R.id.negative_button);
+        txtMessege.setText(getResources().getText(R.string.Over_read_ecg_report).toString().replace("[2]",sValue));
+
+        txtYes.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialog.dismiss();
+                AppConstant.ECG_LIST = listEcg;
+                Intent mIntent = new Intent(ecg_result.this, Ecg_Over_Read.class);
+                startActivity(mIntent);
             }
         });
 
@@ -160,6 +210,7 @@ public class ecg_result extends AppCompatActivity {
     void FillGrid(){
         isLoading = true;
         layoutLoading.setVisibility(View.VISIBLE);
+        ecgResultModel = null;
         try{
             Call<Ecg_Result_Model> call = NetworkManager.getNetworkService(this).getEcgResult(AppConstant.AUTH_USERNAME);
             call.enqueue(new Callback<Ecg_Result_Model>() {
@@ -167,15 +218,17 @@ public class ecg_result extends AppCompatActivity {
                 public void onResponse(Call<Ecg_Result_Model> call, Response<Ecg_Result_Model> response) {
                     int code = response.code();
                     isLoading = false;
+                    layoutLoading.setVisibility(View.GONE);
                     if (code == 200){
                         ecgResultModel = response.body();
                         if (!ecgResultModel.error){
-                            layoutLoading.setVisibility(View.GONE);
-                            mAdapter = new AdapterEcgResult(getBaseContext(), ecgResultModel);
-                            // set the adapter object to the Recyclerview
-                            mRecyclerView.setAdapter(mAdapter);
+                            if (ecgResultModel.data.size() > 0){
+                                mAdapter = new AdapterEcgResult(getBaseContext(), ecgResultModel);
+                                mRecyclerView.setAdapter(mAdapter);
+                            }
                         }else{
-                            AppController.getInstance().CustomeDialog(getBaseContext(),ecgResultModel.message);
+                            mAdapter = new AdapterEcgResult(getBaseContext(), ecgResultModel);
+                            mRecyclerView.setAdapter(mAdapter);
                         }
                     }
                 }
@@ -189,6 +242,36 @@ public class ecg_result extends AppCompatActivity {
         }catch (Exception e){
             isLoading = false;
             layoutLoading.setVisibility(View.GONE);
+        }
+    }
+
+    void DeleteEcgResult(List<String> ecgList){
+        final ProgressDialog progress;
+        progress = ProgressDialog.show(this, "Information",
+                "Delete data", true);
+        layoutLoading.setVisibility(View.VISIBLE);
+        try{
+            Call<Ecg_Result_Model> call = NetworkManager.getNetworkService(this).postEcgResultDelete(AppConstant.AUTH_USERNAME,
+                    ecgList);
+            call.enqueue(new Callback<Ecg_Result_Model>() {
+                @Override
+                public void onResponse(Call<Ecg_Result_Model> call, Response<Ecg_Result_Model> response) {
+                    int code = response.code();
+                    progress.dismiss();
+                    if (code == 200){
+                        resultModel = response.body();
+                        if(!resultModel.error){
+                            FillGrid();
+                        }
+                    }
+                }
+                @Override
+                public void onFailure(Call<Ecg_Result_Model> call, Throwable t) {
+                    progress.dismiss();
+                }
+            });
+        }catch (Exception e){
+            progress.dismiss();
         }
     }
 }

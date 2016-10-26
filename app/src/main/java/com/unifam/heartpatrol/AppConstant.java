@@ -5,6 +5,8 @@ import android.os.Environment;
 
 import com.unifam.heartpatrol.model.Profile;
 
+import java.util.List;
+
 /**
  * Created by Unifam on 9/16/2016.
  */
@@ -39,4 +41,6 @@ public final class AppConstant {
     public static String PROFILE_GENDER;
     public static int PROFILE_WEIGHT;
     public static int PROFILE_HEIGHT;
+
+    public static List<String> ECG_LIST;
 }

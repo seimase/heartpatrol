@@ -45,6 +45,7 @@
     <string name="Yes">Yes</string>
     <string name="No">No</string>
     <string name="Delete_ecg_report">Delete [2] ECG Reports?</string>
+    <string name="Over_read_ecg_report">Over Read [2] ECG Reports?</string>
 
     <!--E-STORE-->
     <string name="estore">E-STORE</string>

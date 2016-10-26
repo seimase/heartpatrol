@@ -16,6 +16,7 @@ import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.GET;
 import retrofit2.http.POST;
 import retrofit2.http.Path;
+import retrofit2.http.Query;
 
 /**
  * Created by User on 20/07/2016.
@@ -65,6 +66,11 @@ public interface NetworkService {
     @FormUrlEncoded
     @POST("ecg_result")
     Call<Ecg_Result_Model> getEcgResult(@Field("user_name") String user_name);
+
+    @FormUrlEncoded
+    @POST("ecg_result_delete")
+    Call<Ecg_Result_Model> postEcgResultDelete(@Field("user_name") String user_name,
+                                               @Field("ecg_list[]") List<String> ecgList);
 
     @FormUrlEncoded
     @POST("ecg_review")

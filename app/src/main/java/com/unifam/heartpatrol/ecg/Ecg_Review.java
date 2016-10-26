@@ -96,7 +96,13 @@ public class Ecg_Review extends AppCompatActivity{
                 switch (position){
 
                     case 0: //Email ECG Result
-
+                        int iResult = 0;
+                        if (!isLoading){
+                            for (Ecg_Result_Model.Data dat: ecgResultModel.data){
+                                if (dat.flag) iResult += 1;
+                            }
+                            doDialog(Integer.toString(iResult));
+                        }
                         break;
                     case 1: //Delete
                         int iDelete = 0;
@@ -117,6 +123,33 @@ public class Ecg_Review extends AppCompatActivity{
                 // Manage the new y position
             }
         });
+    }
+
+    private void doDialogResult(String sValue) {
+        final Dialog dialog = new Dialog(Ecg_Review.this);
+        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+        dialog.setContentView(R.layout.dialog_ecg_result_delete);
+        //dialog.setTitle("Title...");
+        // set the custom dialog components - text, image and button
+        TextView txtMessege = (TextView) dialog.findViewById(R.id.message);
+        TextView txtYes = (TextView) dialog.findViewById(R.id.positive_button);
+        TextView txtNo = (TextView) dialog.findViewById(R.id.negative_button);
+        txtMessege.setText(getResources().getText(R.string.Delete_ecg_report).toString().replace("[2]",sValue));
+
+        txtYes.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialog.dismiss();
+            }
+        });
+
+        txtNo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialog.dismiss();
+            }
+        });
+        dialog.show();
     }
 
     private void doDialog(String sValue) {
@@ -145,6 +178,7 @@ public class Ecg_Review extends AppCompatActivity{
         });
         dialog.show();
     }
+
     void FillGrid(){
         Arymodel_ecg_review = new ArrayList<>();
 /*        for(int i = 1; i < 10 ; i++){
@@ -163,6 +197,7 @@ public class Ecg_Review extends AppCompatActivity{
 
         isLoading = true;
         layoutLoading.setVisibility(View.VISIBLE);
+        ecgResultModel = null;
         try{
             Call<Ecg_Result_Model> call = NetworkManager.getNetworkService(this).getEcgReview(AppConstant.AUTH_USERNAME);
             call.enqueue(new Callback<Ecg_Result_Model>() {
@@ -177,7 +212,8 @@ public class Ecg_Review extends AppCompatActivity{
                             mAdapter = new AdapterEcgReview(getBaseContext(), ecgResultModel);
                             mRecyclerView.setAdapter(mAdapter);
                         }else{
-                            AppController.getInstance().CustomeDialog(getBaseContext(), ecgResultModel.message);
+                            mAdapter = new AdapterEcgReview(getBaseContext(), ecgResultModel);
+                            mRecyclerView.setAdapter(mAdapter);
                         }
                     }
                 }
