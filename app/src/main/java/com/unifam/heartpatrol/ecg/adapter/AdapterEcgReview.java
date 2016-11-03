@@ -26,15 +26,16 @@ public class AdapterEcgReview extends  RecyclerView.Adapter<AdapterEcgReview.Vie
     private Context context;
     public int mSelectedItem = -1;
 
-    /*private OnCheckBoxClicked listener;
+    public interface OnDownloadClicked {
+        public void OnDownloadClicked(String sUrl, boolean bStatus);
+    }
 
-    public interface OnBarcodeClicked {
-        public void OnBarcodeClicked(String sKode, boolean bCamera, boolean bSave);
-    }*/
+    private OnDownloadClicked listener;
 
-    public AdapterEcgReview(Context context, Ecg_Result_Model ecgResultModel) {
+    public AdapterEcgReview(Context context, Ecg_Result_Model ecgResultModel, OnDownloadClicked listener) {
         this.context = context;
         this.ecgResultModel = ecgResultModel;
+        this.listener = listener;
         if (ecgResultModel == null) {
             throw new IllegalArgumentException("courses ArrayList must not be null");
         }
@@ -65,8 +66,7 @@ public class AdapterEcgReview extends  RecyclerView.Adapter<AdapterEcgReview.Vie
         holder.txtDescription.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(context, Ecg_Review_PDF.class);
-                context.startActivity(intent);
+                listener.OnDownloadClicked("http://unec.edu.az/application/uploads/2014/12/pdf-sample.pdf", true);
             }
         });
         holder.listData = listData;

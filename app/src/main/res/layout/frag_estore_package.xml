@@ -23,23 +23,90 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_alignParentTop="true"
-        android:layout_above="@+id/btn_review" />
+        android:layout_above="@+id/layoutReview" />
 
-    <ui.CustomtextView
-        android:id="@+id/btn_review"
-        android:layout_width="@dimen/space_187"
-        android:layout_height="@dimen/space_60"
-        android:background="@drawable/btn_shape"
-        android:gravity="center"
-        android:onClick="onClick"
-        android:text="@string/estore_review_btn"
-        android:textColor="#ffffff"
-        android:textSize="@dimen/space_20"
-        font:name="Avenir_Heavy"
-        android:layout_gravity="bottom|right"
+    <RelativeLayout
+        android:id="@+id/layoutReview"
         android:layout_alignParentBottom="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
-        android:layout_marginBottom="@dimen/space_10"
-        android:layout_marginRight="@dimen/space_16" />
+        android:layout_width="match_parent"
+        android:layout_height="65dp">
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_toLeftOf="@+id/btn_review"
+            android:layout_toStartOf="@+id/btn_review">
+
+            <include
+                layout="@layout/estore_notif"
+                android:id="@+id/estore_notif"
+                />
+
+            <View
+                android:background="@color/grey"
+                android:layout_marginTop="@dimen/space_7"
+                android:layout_marginBottom="@dimen/space_7"
+                android:layout_width="1dp"
+                android:layout_height="match_parent"/>
+
+            <LinearLayout
+                android:gravity="fill_horizontal|center"
+                android:layout_marginLeft="@dimen/space_7"
+
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <ui.CustomtextView
+                    font:name = "Avenir_Book"
+                    android:text="Estimated Price"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+                <ui.CustomtextView
+                    font:name = "Avenir_Black"
+                    font:type = "bold"
+                    android:id="@+id/text_amount"
+                    android:textSize="@dimen/space_18"
+                    android:textColor="@color/colorPrimary"
+                    android:text="Rp 0"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+            </LinearLayout>
+        </LinearLayout>
+
+        <View
+            android:background="@color/colorAccent"
+            android:layout_width="match_parent"
+            android:layout_height="3dp"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:id="@+id/view28" />
+
+        <ui.CustomtextView
+            android:id="@+id/btn_review"
+            android:layout_width="@dimen/space_160"
+            android:layout_height="@dimen/space_60"
+            android:background="@drawable/btn_shape"
+            android:gravity="center"
+            android:onClick="onClick"
+            android:text="@string/estore_review_btn"
+            android:textColor="#ffffff"
+            android:textSize="@dimen/space_20"
+            font:name="Avenir_Heavy"
+            android:layout_gravity="bottom|right"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginRight="13dp"
+            android:layout_marginBottom="@dimen/space_3"
+            android:layout_marginTop="@dimen/space_3"
+            android:layout_marginEnd="13dp"
+            android:layout_below="@+id/view28" />
+
+    </RelativeLayout>
+
+
 </RelativeLayout>

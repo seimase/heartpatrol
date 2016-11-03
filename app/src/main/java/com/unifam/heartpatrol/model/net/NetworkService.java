@@ -6,6 +6,7 @@ import com.unifam.heartpatrol.model.ListUser;
 import com.unifam.heartpatrol.model.LocationList;
 import com.unifam.heartpatrol.model.Package;
 import com.unifam.heartpatrol.model.Profile;
+import com.unifam.heartpatrol.model.Promo;
 import com.unifam.heartpatrol.model.Register;
 
 import java.util.List;
@@ -59,7 +60,6 @@ public interface NetworkService {
                                     @Field("height") int height,
                                     @Field("gender") String gender);
 
-    @FormUrlEncoded
     @POST("package")
     Call<Package> getPackage();
 
@@ -68,11 +68,31 @@ public interface NetworkService {
     Call<Ecg_Result_Model> getEcgResult(@Field("user_name") String user_name);
 
     @FormUrlEncoded
+    @POST("ecg_over_read")
+    Call<Ecg_Result_Model> getEcgOverRead(@Field("user_name") String user_name,
+                                          @Field("ecg_list[]") List<String> ecgList);
+
+    @FormUrlEncoded
+    @POST("ecg_over_read_confirm")
+    Call<Ecg_Result_Model> getEcgOverReadConfirm(@Field("user_name") String user_name,
+                                          @Field("ecg_list[]") List<String> ecgList);
+
+
+    @FormUrlEncoded
     @POST("ecg_result_delete")
     Call<Ecg_Result_Model> postEcgResultDelete(@Field("user_name") String user_name,
                                                @Field("ecg_list[]") List<String> ecgList);
 
     @FormUrlEncoded
+    @POST("ecg_review_delete")
+    Call<Ecg_Result_Model> postEcgReviewDelete(@Field("user_name") String user_name,
+                                               @Field("ecg_list[]") List<String> ecgList);
+
+    @FormUrlEncoded
     @POST("ecg_review")
     Call<Ecg_Result_Model> getEcgReview(@Field("user_name") String user_name);
+
+    @FormUrlEncoded
+    @POST("promo")
+    Call<Promo> getPromo(@Field("promo_code") String user_name);
 }

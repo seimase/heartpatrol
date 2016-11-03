@@ -140,7 +140,7 @@
 
                 <ui.CustomtextView
                     font:name = "Avenir_Light"
-                    android:text="Konfirmasikan pembyaran Anda"
+                    android:text="Konfirmasikan pembayaran Anda"
                     android:textSize="@dimen/space_16"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"

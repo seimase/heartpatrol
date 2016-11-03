@@ -22,244 +22,268 @@
         />
 
     <LinearLayout
-        android:orientation="horizontal"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_above="@+id/bottom_navigation"
         android:layout_below="@+id/textView38"
-        android:layout_marginTop="@dimen/space_5"
-        android:layout_marginBottom="@dimen/space_5">
+        android:orientation="vertical">
 
         <RelativeLayout
+            android:id="@+id/layout_loading"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_weight="1">
+            android:layout_alignTop="@+id/layout_content">
 
-            <android.support.v7.widget.RecyclerView
-                android:id = "@+id/my_recycler_view"
+            <ProgressBar
+                android:id="@+id/progress_bar"
+                android:progressTint="@color/colorAccent"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_centerHorizontal="true" />
+        </RelativeLayout>
+
+        <LinearLayout
+            android:id="@+id/layout_content"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="@dimen/space_5"
+            android:layout_marginBottom="@dimen/space_5">
+
+            <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_below="@+id/relativeLayout7"
-                android:layout_above="@+id/relativeLayout8"
-                android:layout_marginLeft="@dimen/space_5"></android.support.v7.widget.RecyclerView>
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/space_35"
-                android:id="@+id/relativeLayout7"
-                android:layout_marginLeft="@dimen/space_5">
+                android:layout_weight="1">
 
-                <ui.CustomtextView
-                    font:name = "Avenir_Heavy"
-                    android:text="ECG REPORTS TO BE REVIEWED"
-                    android:textColor="@color/black"
+                <android.support.v7.widget.RecyclerView
+                    android:id = "@+id/my_recycler_view"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:layout_toLeftOf="@+id/relativeLayout5"
-                    android:layout_toStartOf="@+id/relativeLayout5"
-                    android:gravity="center"
-                    android:textSize="@dimen/space_12" />
+                    android:layout_below="@+id/relativeLayout7"
+                    android:layout_above="@+id/relativeLayout8"
+                    android:layout_marginLeft="@dimen/space_5"></android.support.v7.widget.RecyclerView>
                 <RelativeLayout
-                    android:layout_width="@dimen/space_80"
-                    android:layout_height="match_parent"
-                    android:layout_alignParentTop="true"
-                    android:layout_alignParentRight="true"
-                    android:layout_alignParentEnd="true"
-                    android:background="@color/grey"
-                    android:id="@+id/relativeLayout5">
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/space_35"
+                    android:id="@+id/relativeLayout7"
+                    android:layout_marginLeft="@dimen/space_5">
 
                     <ui.CustomtextView
                         font:name = "Avenir_Heavy"
-                        android:text="CREDIT"
+                        android:text="ECG REPORTS TO BE REVIEWED"
+                        android:textColor="@color/black"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_toLeftOf="@+id/relativeLayout5"
+                        android:layout_toStartOf="@+id/relativeLayout5"
+                        android:gravity="center"
+                        android:textSize="@dimen/space_12" />
+                    <RelativeLayout
+                        android:layout_width="@dimen/space_80"
+                        android:layout_height="match_parent"
+                        android:layout_alignParentTop="true"
+                        android:layout_alignParentRight="true"
+                        android:layout_alignParentEnd="true"
+                        android:background="@color/grey"
+                        android:id="@+id/relativeLayout5">
+
+                        <ui.CustomtextView
+                            font:name = "Avenir_Heavy"
+                            android:text="CREDIT"
+                            android:textColor="@color/white"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+
+                            android:gravity="center"
+                            android:textSize="@dimen/space_12" />
+
+                    </RelativeLayout>
+
+                    <View
+                        android:layout_width="fill_parent"
+                        android:layout_height="1dp"
+                        android:background="@color/grey_dark"
+                        android:layout_alignParentBottom="true"
+                        android:layout_alignParentLeft="true"
+                        android:layout_alignParentStart="true" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/space_35"
+                    android:layout_above="@+id/view14"
+                    android:id="@+id/relativeLayout8"
+                    android:layout_marginLeft="@dimen/space_5">
+
+                    <ui.CustomtextView
+                        font:name = "Avenir_Heavy"
+                        android:text="TOTAL CREDITS"
                         android:textColor="@color/white"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-
-                        android:gravity="center"
+                        android:layout_toLeftOf="@+id/relativeLayout6"
+                        android:gravity="fill_vertical"
+                        android:background="@color/grey"
+                        android:id="@+id/view15"
+                        android:paddingLeft="@dimen/space_5"
+                        android:layout_alignParentLeft="true"
+                        android:layout_alignParentStart="true"
                         android:textSize="@dimen/space_12" />
+                    <RelativeLayout
+                        android:layout_width="@dimen/space_80"
+                        android:layout_height="match_parent"
+                        android:layout_alignParentTop="true"
+                        android:layout_alignParentRight="true"
+                        android:layout_alignParentEnd="true"
+                        android:background="@color/grey"
+                        android:id="@+id/relativeLayout6">
 
+                        <ui.CustomtextView
+                            font:name = "Avenir_Heavy"
+                            android:id="@+id/text_credits"
+                            android:text="70"
+                            android:textColor="@color/white"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+
+                            android:gravity="center"
+                            android:textSize="@dimen/space_12" />
+
+                    </RelativeLayout>
+
+                    <View
+                        android:layout_width="1dp"
+                        android:layout_height="match_parent"
+                        android:background="@color/white"
+                        android:layout_alignParentBottom="true"
+                        android:layout_toLeftOf="@+id/relativeLayout6"
+                        android:layout_toRightOf="@+id/view15"
+                        android:layout_toEndOf="@+id/view15" />
                 </RelativeLayout>
-
-                <View
-                    android:layout_width="fill_parent"
-                    android:layout_height="1dp"
-                    android:background="@color/grey_dark"
-                    android:layout_alignParentBottom="true"
-                    android:layout_alignParentLeft="true"
-                    android:layout_alignParentStart="true" />
-            </RelativeLayout>
-
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/space_35"
-                android:layout_above="@+id/view14"
-                android:id="@+id/relativeLayout8"
-                android:layout_marginLeft="@dimen/space_5">
-
                 <ui.CustomtextView
-                    font:name = "Avenir_Heavy"
-                    android:text="TOTAL CREDITS"
-                    android:textColor="@color/white"
+                    font:name = "Avenir_Book"
+                    android:textSize="@dimen/space_12"
+                    android:text="*Please check all item before continue to confirm"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_toLeftOf="@+id/relativeLayout6"
-                    android:gravity="fill_vertical"
-                    android:background="@color/grey"
-                    android:id="@+id/view15"
-                    android:paddingLeft="@dimen/space_5"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
                     android:layout_alignParentLeft="true"
                     android:layout_alignParentStart="true"
-                    android:textSize="@dimen/space_12" />
-                <RelativeLayout
-                    android:layout_width="@dimen/space_80"
-                    android:layout_height="match_parent"
-                    android:layout_alignParentTop="true"
-                    android:layout_alignParentRight="true"
-                    android:layout_alignParentEnd="true"
-                    android:background="@color/grey"
-                    android:id="@+id/relativeLayout6">
-
-                    <ui.CustomtextView
-                        font:name = "Avenir_Heavy"
-                        android:id="@+id/text_credits"
-                        android:text="70"
-                        android:textColor="@color/white"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-
-                        android:gravity="center"
-                        android:textSize="@dimen/space_12" />
-
-                </RelativeLayout>
-
-                <View
-                    android:layout_width="1dp"
-                    android:layout_height="match_parent"
-                    android:background="@color/white"
-                    android:layout_alignParentBottom="true"
-                    android:layout_toLeftOf="@+id/relativeLayout6"
-                    android:layout_toRightOf="@+id/view15"
-                    android:layout_toEndOf="@+id/view15" />
+                    android:id="@+id/view14"
+                    android:layout_marginLeft="@dimen/space_5"
+                    android:layout_marginTop="@dimen/space_2" />
             </RelativeLayout>
-            <ui.CustomtextView
-                font:name = "Avenir_Book"
-                android:textSize="@dimen/space_12"
-                android:text="*Please check all item before continue to confirm"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_alignParentBottom="true"
-                android:layout_alignParentLeft="true"
-                android:layout_alignParentStart="true"
-                android:id="@+id/view14"
-                android:layout_marginLeft="@dimen/space_5"
-                android:layout_marginTop="@dimen/space_2" />
-        </RelativeLayout>
-
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="1">
 
             <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/space_35"
-                android:id="@+id/relativeLayout9"
-                android:layout_marginLeft="@dimen/space_5"
-                android:layout_marginRight="@dimen/space_5">
+                android:layout_height="match_parent"
+                android:layout_weight="1">
 
-                <ui.CustomtextView
-                    font:name = "Avenir_Heavy"
-                    android:text="YOUR CREDITS"
-                    android:textColor="@color/white"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_toStartOf="@+id/relativeLayout10"
-                    android:layout_toLeftOf="@+id/relativeLayout10"
-                    android:gravity="fill_vertical"
-                    android:background="@color/grey"
-                    android:id="@+id/view16"
-                    android:paddingLeft="@dimen/space_5"
-                    android:textSize="@dimen/space_12" />
                 <RelativeLayout
-                    android:layout_width="@dimen/space_80"
-                    android:layout_height="match_parent"
-                    android:layout_alignParentTop="true"
-                    android:layout_alignParentRight="true"
-                    android:layout_alignParentEnd="true"
-                    android:background="@color/grey"
-                    android:id="@+id/relativeLayout10">
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/space_35"
+                    android:id="@+id/relativeLayout9"
+                    android:layout_marginLeft="@dimen/space_5"
+                    android:layout_marginRight="@dimen/space_5">
 
                     <ui.CustomtextView
                         font:name = "Avenir_Heavy"
-                        android:id="@+id/text_your_credits"
-                        android:text="80"
+                        android:text="YOUR CREDITS"
                         android:textColor="@color/white"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:gravity="center"
+                        android:layout_toStartOf="@+id/relativeLayout10"
+                        android:layout_toLeftOf="@+id/relativeLayout10"
+                        android:gravity="fill_vertical"
+                        android:background="@color/grey"
+                        android:id="@+id/view16"
+                        android:paddingLeft="@dimen/space_5"
                         android:textSize="@dimen/space_12" />
+                    <RelativeLayout
+                        android:layout_width="@dimen/space_80"
+                        android:layout_height="match_parent"
+                        android:layout_alignParentTop="true"
+                        android:layout_alignParentRight="true"
+                        android:layout_alignParentEnd="true"
+                        android:background="@color/grey"
+                        android:id="@+id/relativeLayout10">
+
+                        <ui.CustomtextView
+                            font:name = "Avenir_Heavy"
+                            android:id="@+id/text_your_credits"
+                            android:text="80"
+                            android:textColor="@color/white"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:gravity="center"
+                            android:textSize="@dimen/space_12" />
+
+                    </RelativeLayout>
+
+                    <View
+                        android:layout_width="1dp"
+                        android:layout_height="match_parent"
+                        android:background="@color/white"
+                        android:layout_alignParentBottom="true"
+                        android:layout_toLeftOf="@+id/relativeLayout10"
+                        android:layout_toRightOf="@+id/view16"
+                        android:layout_toEndOf="@+id/view16" />
 
                 </RelativeLayout>
 
-                <View
-                    android:layout_width="1dp"
-                    android:layout_height="match_parent"
-                    android:background="@color/white"
+                <ui.CustomtextView
+                    android:id="@+id/btn_Confirm"
+                    android:layout_width="@dimen/space_187"
+                    android:layout_height="@dimen/space_60"
+                    android:background="@drawable/btn_shape"
+                    android:gravity="center"
+                    android:onClick="onClick"
+                    android:text="CONFIRM"
+                    android:textColor="#ffffff"
+                    android:textSize="@dimen/space_20"
+                    font:name="Avenir_Heavy"
+                    android:layout_gravity="right"
                     android:layout_alignParentBottom="true"
-                    android:layout_toLeftOf="@+id/relativeLayout10"
-                    android:layout_toRightOf="@+id/view16"
-                    android:layout_toEndOf="@+id/view16" />
+                    android:layout_alignRight="@+id/relativeLayout9"
+                    android:layout_alignEnd="@+id/relativeLayout9"
+                    android:layout_marginBottom="@dimen/space_16" />
+
+                <ui.CustomtextView
+                    android:id="@+id/btn_buy"
+                    android:layout_width="@dimen/space_187"
+                    android:layout_height="@dimen/space_60"
+                    android:background="@drawable/btn_shape"
+                    android:gravity="center"
+                    android:onClick="onClick"
+                    android:text="BUY CREDITS"
+                    android:textColor="#ffffff"
+                    android:textSize="@dimen/space_20"
+                    font:name="Avenir_Heavy"
+                    android:layout_gravity="right"
+                    android:layout_above="@+id/btn_Confirm"
+                    android:layout_alignLeft="@+id/btn_Confirm"
+                    android:layout_alignStart="@+id/btn_Confirm"
+                    android:layout_marginBottom="@dimen/space_10" />
+
+                <ui.CustomtextView
+                    font:name="Avenir_Heavy"
+                    android:text="INSUFFICIENT CREDITS"
+                    android:id="@+id/text_insufficient_credits"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_above="@+id/btn_buy"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true"
+                    android:textColor="@color/colorAccent"
+                    android:layout_marginBottom="@dimen/space_5"
+                    android:gravity="right"
+                    android:layout_alignRight="@+id/btn_buy"
+                    android:layout_alignEnd="@+id/btn_buy" />
 
             </RelativeLayout>
 
-            <ui.CustomtextView
-                android:id="@+id/btn_Confirm"
-                android:layout_width="@dimen/space_187"
-                android:layout_height="@dimen/space_60"
-                android:background="@drawable/btn_shape"
-                android:gravity="center"
-                android:onClick="onClick"
-                android:text="CONFIRM"
-                android:textColor="#ffffff"
-                android:textSize="@dimen/space_20"
-                font:name="Avenir_Heavy"
-                android:layout_gravity="right"
-                android:layout_alignParentBottom="true"
-                android:layout_alignRight="@+id/relativeLayout9"
-                android:layout_alignEnd="@+id/relativeLayout9"
-                android:layout_marginBottom="@dimen/space_16" />
-
-            <ui.CustomtextView
-                android:id="@+id/btn_buy"
-                android:layout_width="@dimen/space_187"
-                android:layout_height="@dimen/space_60"
-                android:background="@drawable/btn_shape"
-                android:gravity="center"
-                android:onClick="onClick"
-                android:text="BUY CREDITS"
-                android:textColor="#ffffff"
-                android:textSize="@dimen/space_20"
-                font:name="Avenir_Heavy"
-                android:layout_gravity="right"
-                android:layout_above="@+id/btn_Confirm"
-                android:layout_alignLeft="@+id/btn_Confirm"
-                android:layout_alignStart="@+id/btn_Confirm"
-                android:layout_marginBottom="@dimen/space_10" />
-
-            <ui.CustomtextView
-                font:name="Avenir_Heavy"
-                android:text="INSUFFICIENT CREDITS"
-                android:id="@+id/text_insufficient_credits"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_above="@+id/btn_buy"
-                android:layout_alignParentLeft="true"
-                android:layout_alignParentStart="true"
-                android:textColor="@color/colorAccent"
-                android:layout_marginBottom="@dimen/space_5"
-                android:gravity="right"
-                android:layout_alignRight="@+id/btn_buy"
-                android:layout_alignEnd="@+id/btn_buy" />
-
-        </RelativeLayout>
+        </LinearLayout>
 
     </LinearLayout>
 

@@ -1,6 +1,7 @@
 package com.unifam.heartpatrol.estore;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
@@ -11,6 +12,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.unifam.heartpatrol.MainMenu;
 import com.unifam.heartpatrol.R;
 import com.unifam.heartpatrol.estore.fragment.Frag_Estore_Package;
 import com.unifam.heartpatrol.estore.fragment.Frag_Estore_Payment;
@@ -56,7 +58,8 @@ public class EstoreActivity extends AppCompatActivity {
         imgBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                finish();
+                //finish();
+                onBackPressed();
             }
         });
 
@@ -111,7 +114,7 @@ public class EstoreActivity extends AppCompatActivity {
             }
 
         } else {
-            //close(null);
+            finish();
         }
     }
 

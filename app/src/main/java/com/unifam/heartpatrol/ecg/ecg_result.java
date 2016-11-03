@@ -117,7 +117,13 @@ public class ecg_result extends AppCompatActivity {
                                     iOverRead += 1;
                                 }
                             }
-                            doDialogResult(Integer.toString(iOverRead));
+
+                            if (listEcg.size() > 0){
+                                doDialogResult(Integer.toString(iOverRead));
+                            }else{
+                                AppController.getInstance().CustomeDialog(ecg_result.this, "Please select ECG Result, Try Again!");
+                            }
+
                         }
 
                         break;
@@ -132,7 +138,11 @@ public class ecg_result extends AppCompatActivity {
                                         iDelete += 1;
                                     }
                                 }
-                                doDialog(Integer.toString(iDelete));
+                                if (listEcg.size() > 0){
+                                    doDialog(Integer.toString(iDelete));
+                                }else{
+                                    AppController.getInstance().CustomeDialog(ecg_result.this, "Please select ECG Result, Try Again!");
+                                }
                             }
                         }catch (Exception e){
 
@@ -178,7 +188,7 @@ public class ecg_result extends AppCompatActivity {
         dialog.show();
     }
 
-    private void doDialogResult(String sValue) {
+    private void doDialogResult(final String sValue) {
         final Dialog dialog = new Dialog(ecg_result.this);
         dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
         dialog.setContentView(R.layout.dialog_ecg_result_delete);
@@ -273,5 +283,12 @@ public class ecg_result extends AppCompatActivity {
         }catch (Exception e){
             progress.dismiss();
         }
+    }
+
+    @Override
+    protected void onResume() {
+        // TODO Auto-generated method stub
+        super.onResume();
+        FillGrid();
     }
 }

@@ -9,6 +9,7 @@ import java.util.List;
 public class Ecg_Result_Model {
     public boolean error;
     public String message;
+    public int credits;
     public List<Data> data ;
 
     public class Data

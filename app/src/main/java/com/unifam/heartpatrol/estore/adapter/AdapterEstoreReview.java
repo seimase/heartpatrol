@@ -10,6 +10,7 @@ import android.widget.TextView;
 import com.unifam.heartpatrol.R;
 import com.unifam.heartpatrol.model.ListData;
 import com.unifam.heartpatrol.model.Model_Estore_Review;
+import com.unifam.heartpatrol.model.Package;
 
 import java.util.ArrayList;
 
@@ -17,14 +18,13 @@ import java.util.ArrayList;
  * Created by Unifam on 9/19/2016.
  */
 public class AdapterEstoreReview extends  RecyclerView.Adapter<AdapterEstoreReview.ViewHolder>{
-
-    private ArrayList<Model_Estore_Review> mCourseArrayList;
+    Package aPackage;
     private Context context;
 
-    public AdapterEstoreReview(Context context, ArrayList<Model_Estore_Review> mCourseArrayList) {
+    public AdapterEstoreReview(Context context, Package aPackage) {
         this.context = context;
-        this.mCourseArrayList = mCourseArrayList;
-        if (mCourseArrayList == null) {
+        this.aPackage = aPackage;
+        if (aPackage == null) {
             throw new IllegalArgumentException("courses ArrayList must not be null");
         }
     }
@@ -40,11 +40,11 @@ public class AdapterEstoreReview extends  RecyclerView.Adapter<AdapterEstoreRevi
 
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
-        Model_Estore_Review listData = mCourseArrayList.get(position);
+        Package.Datum listData = aPackage.data.get(position);
         //Set text
-        holder.txtDescription.setText(listData.getAtr1());
-        holder.txtTotal.setText(listData.getAtr2());
-        holder.txtCredits.setText(listData.getAtr3());
+        holder.txtDescription.setText(listData.package_name);
+        holder.txtTotal.setText(String.valueOf(listData.qty));
+        holder.txtCredits.setText(String.valueOf(listData.credits));
 
         if ((position % 2) ==0){
             holder.txtDescription.setBackgroundColor(context.getResources().getColor(R.color.grey_ss));
@@ -58,7 +58,7 @@ public class AdapterEstoreReview extends  RecyclerView.Adapter<AdapterEstoreRevi
 
     @Override
     public int getItemCount() {
-        return mCourseArrayList.size();
+        return aPackage.data.size();
     }
 
     public static class ViewHolder extends RecyclerView.ViewHolder
@@ -68,7 +68,7 @@ public class AdapterEstoreReview extends  RecyclerView.Adapter<AdapterEstoreRevi
                 txtTotal,
                 txtCredits;
 
-        Model_Estore_Review listData;
+        Package.Datum listData;
         public ViewHolder(View itemView,
                           Context context,
                           final AdapterEstoreReview mCourseAdapter) {

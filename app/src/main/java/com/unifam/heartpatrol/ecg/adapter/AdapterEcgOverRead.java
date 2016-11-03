@@ -8,6 +8,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.unifam.heartpatrol.R;
+import com.unifam.heartpatrol.model.Ecg_Result_Model;
 import com.unifam.heartpatrol.model.ListData;
 
 import java.util.ArrayList;
@@ -16,14 +17,13 @@ import java.util.ArrayList;
  * Created by Unifam on 9/19/2016.
  */
 public class AdapterEcgOverRead extends  RecyclerView.Adapter<AdapterEcgOverRead.ViewHolder>{
-
-    private ArrayList<ListData> mCourseArrayList;
+    Ecg_Result_Model ecgResultModel;
     private Context context;
 
-    public AdapterEcgOverRead(Context context, ArrayList<ListData> mCourseArrayList) {
+    public AdapterEcgOverRead(Context context, Ecg_Result_Model ecgResultModel) {
         this.context = context;
-        this.mCourseArrayList = mCourseArrayList;
-        if (mCourseArrayList == null) {
+        this.ecgResultModel = ecgResultModel;
+        if (ecgResultModel == null) {
             throw new IllegalArgumentException("courses ArrayList must not be null");
         }
     }
@@ -39,10 +39,10 @@ public class AdapterEcgOverRead extends  RecyclerView.Adapter<AdapterEcgOverRead
 
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
-        ListData listData = mCourseArrayList.get(position);
+        Ecg_Result_Model.Data listData = ecgResultModel.data.get(position);
         //Set text
-        holder.txtDescription.setText(listData.getAtr1());
-        holder.txtCredits.setText(listData.getAtr2());
+        holder.txtDescription.setText("Report " + listData.ecg_date);
+        holder.txtCredits.setText("10");
 
         if ((position % 2) ==0){
             holder.txtDescription.setBackgroundColor(context.getResources().getColor(R.color.grey_ss));
@@ -54,7 +54,7 @@ public class AdapterEcgOverRead extends  RecyclerView.Adapter<AdapterEcgOverRead
 
     @Override
     public int getItemCount() {
-        return mCourseArrayList.size();
+        return ecgResultModel.data.size();
     }
 
     public static class ViewHolder extends RecyclerView.ViewHolder
@@ -63,7 +63,7 @@ public class AdapterEcgOverRead extends  RecyclerView.Adapter<AdapterEcgOverRead
         TextView txtDescription,
                 txtCredits;
 
-        ListData listData;
+        Ecg_Result_Model.Data listData;
         public ViewHolder(View itemView,
                           Context context,
                           final AdapterEcgOverRead mCourseAdapter) {

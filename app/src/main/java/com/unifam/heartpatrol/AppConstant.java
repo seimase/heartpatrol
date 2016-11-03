@@ -3,6 +3,7 @@ package com.unifam.heartpatrol;
 import android.content.SharedPreferences;
 import android.os.Environment;
 
+import com.unifam.heartpatrol.model.Package;
 import com.unifam.heartpatrol.model.Profile;
 
 import java.util.List;
@@ -43,4 +44,5 @@ public final class AppConstant {
     public static int PROFILE_HEIGHT;
 
     public static List<String> ECG_LIST;
+    public static Package EstorePackage;
 }

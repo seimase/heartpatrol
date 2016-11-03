@@ -24,13 +24,20 @@ public class AdapterEstorePackage extends  RecyclerView.Adapter<AdapterEstorePac
     public int mSelectedItem = -1;
 
     Package aPackage;
-    public AdapterEstorePackage(Context context, Package aPackage) {
+    public AdapterEstorePackage(Context context, Package aPackage, OnQtyClicked listener) {
         this.context = context;
         this.aPackage = aPackage;
+        this.listener = listener;
         if (aPackage == null) {
             throw new IllegalArgumentException("courses ArrayList must not be null");
         }
     }
+
+    public interface OnQtyClicked {
+        public void OnQtyClicked();
+    }
+
+    private OnQtyClicked listener;
 
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
@@ -63,6 +70,8 @@ public class AdapterEstorePackage extends  RecyclerView.Adapter<AdapterEstorePac
                 if(listData.get(position).qty > 0){
                     listData.get(position).qty = listData.get(position).qty - 1;
                     holder.txtValue.setText(Integer.toString(listData.get(position).qty ));
+
+                    listener.OnQtyClicked();
                 }
                 //setEstimatedCost(holder, item);
             }
@@ -72,6 +81,7 @@ public class AdapterEstorePackage extends  RecyclerView.Adapter<AdapterEstorePac
             public void onClick(View v) {
                 listData.get(position).qty = listData.get(position).qty + 1;
                 holder.txtValue.setText(Integer.toString(listData.get(position).qty ));
+                listener.OnQtyClicked();
                 //setEstimatedCost(holder, item);
             }
         });

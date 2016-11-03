@@ -43,5 +43,22 @@ public class Frag_Estore_Payment extends Fragment {
                 ((EstoreActivity)getActivity()).nextStep();
             }
         });
+
+        rboBankTransfer.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                rboBankTransfer.setChecked(true);
+                rboCreditCard.setChecked(false);
+            }
+        });
+
+        rboCreditCard.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                rboCreditCard.setChecked(true);
+                rboBankTransfer.setChecked(false);
+            }
+        });
+
     }
 }
