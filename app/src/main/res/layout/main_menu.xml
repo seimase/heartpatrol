@@ -86,23 +86,25 @@
 
           </RelativeLayout>
 
-        <ui.CircleImageView
+        <RelativeLayout
             android:id="@+id/imageView7"
             android:layout_width="140dp"
             android:layout_height="140dp"
-            android:src="@drawable/heart"
-            app:view_backgroundColor="@color/white"
-            app:view_shadowRadius="4dp"
-            app:view_shadowDx="2dp"
-            app:view_shadowDy="0dp"
-            app:view_shadowColor="@color/grey"
-            app:view_borderWidth="0dp"
-            app:view_selectedColor="@color/colorPrimary"
-            app:view_borderColor="@android:color/darker_gray"
+            android:background="@drawable/bg_circle_white_red"
             android:layout_marginBottom="@dimen/space_20"
             android:layout_marginLeft="@dimen/space_20"
             android:layout_alignParentBottom="true"
             android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true" />
+            android:gravity="center"
+            android:layout_alignParentStart="true">
+
+            <ImageView
+                android:padding="@dimen/space_25"
+                android:src="@drawable/logo_heart"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+        </RelativeLayout>
+
+
     </RelativeLayout>
 </RelativeLayout>

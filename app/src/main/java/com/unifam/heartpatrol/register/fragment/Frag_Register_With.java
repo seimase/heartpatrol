@@ -159,7 +159,9 @@ public class Frag_Register_With extends Fragment implements GoogleApiClient.OnCo
                         "google",
                         email,
                         personName,
-                        personName);
+                        personName,
+                        AppConstant.DEVICE_ID,
+                        AppConstant.TOKEN);
                 call.enqueue(new Callback<Register>() {
                     @Override
                     public void onResponse(Call<Register> call, Response<Register> response) {

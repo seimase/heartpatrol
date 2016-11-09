@@ -66,7 +66,9 @@ public class Frag_Register_Done extends Fragment {
                             AppConstant.AUTH_PASSWORD,
                             AppConstant.AUTH_USERNAME,
                             txtFirst.getText().toString().trim(),
-                            txtLast.getText().toString().trim());
+                            txtLast.getText().toString().trim(),
+                            AppConstant.DEVICE_ID,
+                            AppConstant.TOKEN);
                     call.enqueue(new Callback<Register>() {
                         @Override
                         public void onResponse(Call<Register> call, Response<Register> response) {

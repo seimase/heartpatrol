@@ -39,10 +39,15 @@ public interface NetworkService {
     @POST("register")
     Call<Register> getRegister(@Field("name") String name, @Field("password") String password,
                                @Field("source") String source, @Field("first_name") String first_name,
-                               @Field("last_name") String last_name);
+                               @Field("last_name") String last_name,
+                               @Field("device_id") String device_id,
+                               @Field("token") String token);
+
     @FormUrlEncoded
     @POST("login")
-    Call<Register> getLogin(@Field("name") String name, @Field("password") String password);
+    Call<Register> getLogin(@Field("name") String name, @Field("password") String password,
+                            @Field("device_id") String device_id,
+                            @Field("token") String token);
 
     @FormUrlEncoded
     @POST("loginSocmed")
@@ -51,6 +56,10 @@ public interface NetworkService {
     @FormUrlEncoded
     @POST("profile")
     Call<Profile> getProfile(@Field("user_name") String user_name);
+
+    @FormUrlEncoded
+    @POST("list_user")
+    Call<Register> getListUser(@Field("device_id") String device_id);
 
     @FormUrlEncoded
     @POST("UpdateProfile")

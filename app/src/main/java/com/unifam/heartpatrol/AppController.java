@@ -4,6 +4,7 @@ import android.app.Application;
 import android.app.Dialog;
 import android.content.Context;
 import android.graphics.drawable.ColorDrawable;
+import android.provider.Settings;
 import android.support.multidex.MultiDex;
 import android.view.View;
 import android.view.Window;
@@ -26,7 +27,10 @@ public class AppController extends Application {
         super.onCreate();
         mInstance = this;
         sessionManager = new SessionManager(getApplicationContext());
+        AppConstant.DEVICE_ID = Settings.Secure.getString(getContentResolver(),
+                Settings.Secure.ANDROID_ID);
 
+        AppConstant.TOKEN = AppConstant.DEVICE_ID;
     }
 
     public static Context getAppContext() {

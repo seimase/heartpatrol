@@ -5,6 +5,7 @@ import android.os.Environment;
 
 import com.unifam.heartpatrol.model.Package;
 import com.unifam.heartpatrol.model.Profile;
+import com.unifam.heartpatrol.model.Register;
 
 import java.util.List;
 
@@ -34,6 +35,9 @@ public final class AppConstant {
     public static String AUTH_FIRST_NAME;
     public static String AUTH_LAST_NAME;
     public static Profile profile;
+    public static String DEVICE_ID;
+    public static String TOKEN;
+    public static String USER_FROM_LIST;
 
     public static boolean bExit;
 
@@ -45,4 +49,5 @@ public final class AppConstant {
 
     public static List<String> ECG_LIST;
     public static Package EstorePackage;
+    public static Register register;
 }

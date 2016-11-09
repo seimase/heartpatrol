@@ -86,7 +86,7 @@ public class ecg_result extends AppCompatActivity {
         // use a linear layout manager
         mRecyclerView.setLayoutManager(mLayoutManager);
 
-        AHBottomNavigationItem item1 = new AHBottomNavigationItem("Email ECG Result", R.drawable.ic_email_2, R.color.colorAccent);
+        AHBottomNavigationItem item1 = new AHBottomNavigationItem("History ECG", R.drawable.ic_email_2, R.color.colorAccent);
         AHBottomNavigationItem item2 = new AHBottomNavigationItem("Get ECG Over-Read", R.drawable.uff_ecg_review, R.color.colorAccent);
         AHBottomNavigationItem item3 = new AHBottomNavigationItem("Delete", R.drawable.gns_delete, R.color.colorAccent);
 
@@ -233,12 +233,10 @@ public class ecg_result extends AppCompatActivity {
                         ecgResultModel = response.body();
                         if (!ecgResultModel.error){
                             if (ecgResultModel.data.size() > 0){
-                                mAdapter = new AdapterEcgResult(getBaseContext(), ecgResultModel);
-                                mRecyclerView.setAdapter(mAdapter);
+                                FillAdapter();
                             }
                         }else{
-                            mAdapter = new AdapterEcgResult(getBaseContext(), ecgResultModel);
-                            mRecyclerView.setAdapter(mAdapter);
+                            FillAdapter();
                         }
                     }
                 }
@@ -285,6 +283,16 @@ public class ecg_result extends AppCompatActivity {
         }
     }
 
+    void FillAdapter(){
+        mAdapter = new AdapterEcgResult(getBaseContext(), ecgResultModel, new AdapterEcgResult.OnDownloadClicked() {
+            @Override
+            public void OnDownloadClicked(String sUrl, boolean bStatus) {
+                Intent mIntent = new Intent(getBaseContext(), Ecg_Review_PDF.class);
+                startActivity(mIntent);
+            }
+        });
+        mRecyclerView.setAdapter(mAdapter);
+    }
     @Override
     protected void onResume() {
         // TODO Auto-generated method stub

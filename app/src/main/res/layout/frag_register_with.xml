@@ -41,7 +41,7 @@
 
             <RelativeLayout
                 android:id="@+id/FrameLayout1"
-                android:layout_width="180dp"
+                android:layout_width="200dp"
                 android:layout_height="@dimen/space_60"
                 android:layout_alignParentRight="true"
                 android:layout_marginLeft="@dimen/space_60"
@@ -73,12 +73,20 @@
                     android:layout_alignParentStart="true"
                     android:layout_marginTop="5dp" />
 
+                <View
+                    android:layout_marginLeft="@dimen/space_45"
+                    android:layout_marginTop="@dimen/space_10"
+                    android:layout_marginBottom="@dimen/space_10"
+                    android:background="@color/black"
+                    android:layout_width="1dp"
+                    android:layout_height="match_parent"/>
+
             </RelativeLayout>
 
 
             <RelativeLayout
                 android:id="@+id/FrameLayout"
-                android:layout_width="180dp"
+                android:layout_width="200dp"
                 android:layout_height="@dimen/space_60"
                 android:layout_alignParentRight="true"
                 android:layout_marginBottom="@dimen/space_20"
@@ -112,18 +120,53 @@
                     android:layout_alignBottom="@+id/btn_login_google"
                     android:layout_alignParentTop="true" />
 
+                <View
+                    android:layout_marginLeft="@dimen/space_45"
+                    android:layout_marginTop="@dimen/space_10"
+                    android:layout_marginBottom="@dimen/space_10"
+                    android:background="@color/black"
+                    android:layout_width="1dp"
+                    android:layout_height="match_parent"/>
+
             </RelativeLayout>
         </LinearLayout>
 
-        <TextView
+        <RelativeLayout
             android:id="@+id/texline2"
-            android:layout_width="1dp"
+            android:layout_width="55dp"
             android:layout_height="fill_parent"
-            android:textColor="@color/black"
-            android:background="@color/black"
-
             android:layout_alignParentTop="true"
-            android:layout_centerHorizontal="true"/>
+            android:layout_centerHorizontal="true">
+
+            <TextView
+                android:layout_width="1dp"
+                android:layout_height="fill_parent"
+                android:textColor="@color/black"
+                android:background="@color/black"
+                android:gravity="center"
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true"/>
+
+            <RelativeLayout
+                android:id="@+id/imgRecord"
+                android:layout_width="@dimen/space_55"
+                android:layout_height="@dimen/space_55"
+                android:background="@drawable/bg_circle_white_black"
+                android:layout_centerVertical="true"
+                >
+
+                <ui.CustomtextView
+                    font:name = "Avenir_Light"
+                    android:textSize="@dimen/space_20"
+                    android:text="OR"
+                    android:gravity="center"
+                    android:textColor="@color/black"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" />
+
+            </RelativeLayout>
+
+        </RelativeLayout>
 
         <LinearLayout
             android:layout_width="fill_parent"
@@ -134,8 +177,8 @@
             android:layout_toRightOf="@+id/texline2"
             android:layout_toEndOf="@+id/texline2"
             android:layout_alignParentTop="true"
-            android:layout_marginLeft="@dimen/space_30"
-            android:layout_marginRight="@dimen/space_16"
+            android:layout_marginLeft="@dimen/space_20"
+            android:layout_marginRight="@dimen/space_60"
             android:id="@+id/linearLayout2">
 
             <ui.CustomtextView

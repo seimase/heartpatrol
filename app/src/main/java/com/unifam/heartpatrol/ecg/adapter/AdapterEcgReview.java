@@ -6,6 +6,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.unifam.heartpatrol.R;
@@ -63,7 +64,7 @@ public class AdapterEcgReview extends  RecyclerView.Adapter<AdapterEcgReview.Vie
 
         holder.smoothCheckBox.setChecked(listData.flag);
 
-        holder.txtDescription.setOnClickListener(new View.OnClickListener() {
+        holder.btnPDF.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 listener.OnDownloadClicked("http://unec.edu.az/application/uploads/2014/12/pdf-sample.pdf", true);
@@ -84,6 +85,8 @@ public class AdapterEcgReview extends  RecyclerView.Adapter<AdapterEcgReview.Vie
                 txtTime,
                 txtDescription;
 
+        ImageView btnPDF;
+
         Ecg_Result_Model.Data listData;
         final SmoothCheckBox smoothCheckBox;
         public ViewHolder(View itemView,
@@ -94,6 +97,7 @@ public class AdapterEcgReview extends  RecyclerView.Adapter<AdapterEcgReview.Vie
             txtTime = (TextView)itemView.findViewById(R.id.textTime);
             txtDate = (TextView)itemView.findViewById(R.id.textDate);
             txtDescription = (TextView)itemView.findViewById(R.id.textDescription);
+            btnPDF = (ImageView)itemView.findViewById(R.id.btn_pdf);
 
             smoothCheckBox.setOnClickListener(new View.OnClickListener() {
                 @Override

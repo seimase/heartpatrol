@@ -22,6 +22,13 @@
         -->
     </style>
 
+    <style name="Theme.MyDialog" parent="@style/Theme.AppCompat.Light.Dialog">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
+    </style>
+
     <style name="MyListView">
         <item name="android:listSelector">@android:color/transparent</item>
     </style>

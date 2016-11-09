@@ -5,6 +5,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
@@ -25,15 +26,16 @@ public class AdapterEcgResult extends  RecyclerView.Adapter<AdapterEcgResult.Vie
     private Context context;
     public int mSelectedItem = -1;
 
-    /*private OnCheckBoxClicked listener;
+    public interface OnDownloadClicked {
+        public void OnDownloadClicked(String sUrl, boolean bStatus);
+    }
 
-    public interface OnBarcodeClicked {
-        public void OnBarcodeClicked(String sKode, boolean bCamera, boolean bSave);
-    }*/
+    private AdapterEcgResult.OnDownloadClicked listener;
 
-    public AdapterEcgResult(Context context, Ecg_Result_Model ecgResultModel) {
+    public AdapterEcgResult(Context context, Ecg_Result_Model ecgResultModel, OnDownloadClicked listener) {
         this.context = context;
         this.ecgResultModel = ecgResultModel;
+        this.listener = listener;
         if (ecgResultModel == null) {
             throw new IllegalArgumentException("courses ArrayList must not be null");
         }
@@ -65,6 +67,12 @@ public class AdapterEcgResult extends  RecyclerView.Adapter<AdapterEcgResult.Vie
         holder.smoothCheckBox.setChecked(false);
         //holder.smoothCheckBox.setChecked(position == mSelectedItem);
 
+        holder.btnPDF.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                listener.OnDownloadClicked("http://unec.edu.az/application/uploads/2014/12/pdf-sample.pdf", true);
+            }
+        });
         holder.smoothCheckBox.setChecked(listData.flag);
         holder.listData = listData;
     }
@@ -83,6 +91,8 @@ public class AdapterEcgResult extends  RecyclerView.Adapter<AdapterEcgResult.Vie
 
         RelativeLayout layoutBar;
 
+        ImageView btnPDF;
+
         Ecg_Result_Model.Data listData;
         final SmoothCheckBox smoothCheckBox;
         public ViewHolder(View itemView,
@@ -94,6 +104,7 @@ public class AdapterEcgResult extends  RecyclerView.Adapter<AdapterEcgResult.Vie
             txtTime = (TextView)itemView.findViewById(R.id.textTime);
             txtDate = (TextView)itemView.findViewById(R.id.textDate);
             txtDescription = (TextView)itemView.findViewById(R.id.textDescription);
+            btnPDF = (ImageView)itemView.findViewById(R.id.btn_pdf);
 
             smoothCheckBox.setOnClickListener(new View.OnClickListener() {
                 @Override

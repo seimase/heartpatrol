@@ -64,8 +64,8 @@
             android:layout_alignParentTop="true"
             android:layout_alignParentBottom="true"
             android:layout_toRightOf="@+id/textTime"
-            android:layout_alignRight="@+id/scb"
-            android:layout_alignEnd="@+id/scb"
+            android:layout_alignRight="@+id/btn_pdf"
+            android:layout_alignEnd="@+id/btn_pdf"
             android:layout_marginLeft="@dimen/space_16"
             android:layout_marginRight="@dimen/space_40" />
 
@@ -80,6 +80,16 @@
             android:layout_alignParentRight="true"
             android:layout_alignParentEnd="true"
             android:layout_marginRight="@dimen/space_10" />
+
+        <ImageView
+            android:id="@+id/btn_pdf"
+            android:src="@drawable/uff_pdf"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:layout_marginRight="@dimen/space_55"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentTop="true" />
 
         <View
             android:layout_width="fill_parent"

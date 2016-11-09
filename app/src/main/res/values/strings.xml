@@ -22,6 +22,7 @@
     <string name="Enter_Name">Enter Name</string>
     <string name="First_Name">First Name</string>
     <string name="Last_Name">Last Name</string>
+    <string name="ListUser">List User</string>
 
     <!--PROFILE-->
     <string name="Profile">PROFILE</string>

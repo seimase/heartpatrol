@@ -1,5 +1,6 @@
 package com.unifam.heartpatrol;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -26,6 +27,7 @@ import com.google.android.gms.common.api.Status;
 import com.google.android.gms.plus.Plus;
 import com.unifam.heartpatrol.model.Register;
 import com.unifam.heartpatrol.model.net.NetworkManager;
+import com.unifam.heartpatrol.register.ListUserActivity;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -37,7 +39,7 @@ import retrofit2.Response;
 public class LoginActivity extends AppCompatActivity implements GoogleApiClient.OnConnectionFailedListener{
     private static final int RC_SIGN_IN = 9001;
     Toolbar toolbar;
-    ImageView imgBack;
+    ImageView imgBack, imgUser;
     TextView txtLabel;
 
     EditText txtEmail, txtPassword;
@@ -50,8 +52,9 @@ public class LoginActivity extends AppCompatActivity implements GoogleApiClient.
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        AppConstant.USER_FROM_LIST = "";
         setContentView(R.layout.activity_login);
-
+        imgUser = (ImageView)findViewById(R.id.icon5);
         toolbar = (Toolbar)findViewById(R.id.tool_bar);
         txtEmail = (EditText)findViewById(R.id.nav_login_email_edit_text);
         txtPassword = (EditText)findViewById(R.id.nav_login_password_edit_text);
@@ -102,8 +105,43 @@ public class LoginActivity extends AppCompatActivity implements GoogleApiClient.
                 LoginEmail();
             }
         });
+
+        imgUser.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                FillGrid();
+            }
+        });
     }
 
+    void FillGrid(){
+        final ProgressDialog progress = ProgressDialog.show(this,"Information","Get data", true);
+        try{
+            Call<Register> call = NetworkManager.getNetworkService(this).getListUser(AppConstant.DEVICE_ID);
+            call.enqueue(new Callback<Register>() {
+                @Override
+                public void onResponse(Call<Register> call, Response<Register> response) {
+                    int code = response.code();
+                    progress.dismiss();
+                    if (code == 200){
+                        register = response.body();
+                        if (!register.error){
+                            AppConstant.register = register;
+                            Intent mIntent = new Intent(getBaseContext(), ListUserActivity.class);
+                            startActivity(mIntent);
+                        }
+                    }
+                }
+
+                @Override
+                public void onFailure(Call<Register> call, Throwable t) {
+                    progress.dismiss();
+                }
+            });
+        }catch (Exception e){
+            progress.dismiss();
+        }
+    }
 
     @Override
     public void onConnectionFailed(ConnectionResult connectionResult) {
@@ -163,7 +201,9 @@ public class LoginActivity extends AppCompatActivity implements GoogleApiClient.
     void LoginEmail(){
         try{
             Call<Register> call = NetworkManager.getNetworkService(this).getLogin(
-                    txtEmail.getText().toString().trim(),txtPassword.getText().toString());
+                    txtEmail.getText().toString().trim(),txtPassword.getText().toString(),
+                    AppConstant.DEVICE_ID,
+                    AppConstant.TOKEN);
             call.enqueue(new Callback<Register>() {
                 @Override
                 public void onResponse(Call<Register> call, Response<Register> response) {
@@ -220,5 +260,11 @@ public class LoginActivity extends AppCompatActivity implements GoogleApiClient.
         }catch (Exception e){
 
         }
+    }
+    @Override
+    public void onResume(){
+        super.onResume();
+
+        txtEmail.setText(AppConstant.USER_FROM_LIST);
     }
 }

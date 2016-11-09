@@ -7,6 +7,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.alexzh.circleimageview.CircleImageView;
@@ -34,7 +35,7 @@ import retrofit2.Response;
 public class MainMenu extends AppCompatActivity {
     AHBottomNavigation bottomNavigation;
     ImageView imgSetting;
-    ImageView imgRecord;
+    RelativeLayout imgRecord;
     TextView txtName;
 
     Profile profile;
@@ -56,7 +57,7 @@ public class MainMenu extends AppCompatActivity {
 
     void InitControl(){
         imgSetting = (ImageView)findViewById(R.id.img_setting);
-        imgRecord = (ImageView)findViewById(R.id.imageView7);
+        imgRecord = (RelativeLayout)findViewById(R.id.imageView7);
         txtName = (TextView)findViewById(R.id.text_name);
 
         bottomNavigation = (AHBottomNavigation) findViewById(R.id.bottom_navigation);
@@ -64,8 +65,8 @@ public class MainMenu extends AppCompatActivity {
         AHBottomNavigationItem item2 = new AHBottomNavigationItem("ECG Result", R.drawable.uff_ecg_result, R.color.colorAccent);
         AHBottomNavigationItem item3 = new AHBottomNavigationItem("ECG Review", R.drawable.uff_ecg_review, R.color.colorAccent);
         AHBottomNavigationItem item4 = new AHBottomNavigationItem("Store", R.drawable.uff_store, R.color.colorAccent);
-        AHBottomNavigationItem item5 = new AHBottomNavigationItem("Transaction", R.drawable.uff_transaction, R.color.colorAccent);
-        AHBottomNavigationItem item6 = new AHBottomNavigationItem("Setting", R.drawable.uff_setting, R.color.colorAccent);
+        //AHBottomNavigationItem item5 = new AHBottomNavigationItem("Transaction", R.drawable.uff_transaction, R.color.colorAccent);
+        AHBottomNavigationItem item5 = new AHBottomNavigationItem("Settings", R.drawable.uff_setting, R.color.colorAccent);
         // Add items
 
 
@@ -132,8 +133,8 @@ public class MainMenu extends AppCompatActivity {
                         mIntent = new Intent(getBaseContext(), EstoreActivity.class);
                         startActivity(mIntent);
                         break;
-                    case 4://Transaction
-                        mIntent = new Intent(getBaseContext(),TransactionActivity.class);
+                    case 4://Transaction // Setting
+                        mIntent = new Intent(getBaseContext(),SettingsActivity.class);
                         startActivity(mIntent);
                         break;
 
@@ -155,6 +156,7 @@ public class MainMenu extends AppCompatActivity {
             }
         });
 
+        imgSetting.setVisibility(View.GONE);
         imgRecord.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

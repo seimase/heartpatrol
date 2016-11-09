@@ -136,6 +136,12 @@
         <activity android:name="potrait.Potrait_MainMenuActivity"
             android:screenOrientation="portrait"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar"></activity>
+
+        <activity android:name=".ecg.Ecg_CountdownTimer"
+            android:theme="@style/Theme.MyDialog"></activity>
+
+        <activity android:name=".register.ListUserActivity"
+            android:theme="@style/Theme.MyDialog"></activity>
     </application>
 
 </manifest>

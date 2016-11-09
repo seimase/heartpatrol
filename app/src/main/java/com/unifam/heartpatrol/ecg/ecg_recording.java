@@ -1,9 +1,11 @@
 package com.unifam.heartpatrol.ecg;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.alexzh.circleimageview.CircleImageView;
@@ -16,7 +18,7 @@ import com.unifam.heartpatrol.R;
 public class ecg_recording extends AppCompatActivity {
     ImageView imgBack;
     TextView txtLabel;
-    ImageView imgRecord;
+    RelativeLayout imgRecord;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -36,12 +38,13 @@ public class ecg_recording extends AppCompatActivity {
                 finish();
             }
         });
-        imgRecord = (ImageView)findViewById(R.id.imageView7);
-
+        imgRecord = (RelativeLayout)findViewById(R.id.imgRecord);
+        imgRecord.bringToFront();
         imgRecord.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                Intent mIntent = new Intent(getBaseContext(), Ecg_CountdownTimer.class);
+                startActivity(mIntent);
             }
         });
     }
