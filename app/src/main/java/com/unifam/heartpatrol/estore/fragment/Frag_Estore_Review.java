@@ -143,7 +143,7 @@ public class Frag_Estore_Review extends Fragment {
                                 if (dat.promo_type.equals("1")){
                                     dPromo = (dSubtotal * dat.percent) / 100 ;
                                 }else{
-                                    dPromo = dSubtotal - dat.value ;
+                                    dPromo = dat.value ;
                                 }
                             }
 

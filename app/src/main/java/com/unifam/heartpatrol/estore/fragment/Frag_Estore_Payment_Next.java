@@ -8,6 +8,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.unifam.heartpatrol.R;
+import com.unifam.heartpatrol.estore.EstoreActivity;
 
 /**
  * Created by User on 9/26/2016.
@@ -36,5 +37,12 @@ public class Frag_Estore_Payment_Next extends Fragment {
         txtTime = (TextView)v.findViewById(R.id.text_time);
         txtAmount = (TextView)v.findViewById(R.id.text_amount);
         btnConfirm = (TextView)v.findViewById(R.id.btn_Confirm);
+
+        btnConfirm.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                ((EstoreActivity)getActivity()).nextStep();
+            }
+        });
     }
 }

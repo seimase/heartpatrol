@@ -5,6 +5,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.unifam.heartpatrol.R;
@@ -20,13 +21,20 @@ public class AdapterEcgOverRead extends  RecyclerView.Adapter<AdapterEcgOverRead
     Ecg_Result_Model ecgResultModel;
     private Context context;
 
-    public AdapterEcgOverRead(Context context, Ecg_Result_Model ecgResultModel) {
+    public AdapterEcgOverRead(Context context, Ecg_Result_Model ecgResultModel, OnDeleteClicked listener) {
         this.context = context;
         this.ecgResultModel = ecgResultModel;
+        this.listener = listener;
         if (ecgResultModel == null) {
             throw new IllegalArgumentException("courses ArrayList must not be null");
         }
     }
+
+    public interface OnDeleteClicked {
+        public void OnDeleteClicked(int position);
+    }
+
+    private OnDeleteClicked listener;
 
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
@@ -38,17 +46,27 @@ public class AdapterEcgOverRead extends  RecyclerView.Adapter<AdapterEcgOverRead
     }
 
     @Override
-    public void onBindViewHolder(ViewHolder holder, int position) {
+    public void onBindViewHolder(ViewHolder holder, final int position) {
         Ecg_Result_Model.Data listData = ecgResultModel.data.get(position);
         //Set text
         holder.txtDescription.setText("Report " + listData.ecg_date);
         holder.txtCredits.setText("10");
 
         if ((position % 2) ==0){
+            holder.layoutDelete.setBackgroundColor(context.getResources().getColor(R.color.grey_ss));
             holder.txtDescription.setBackgroundColor(context.getResources().getColor(R.color.grey_ss));
         }else{
+            holder.layoutDelete.setBackgroundColor(context.getResources().getColor(R.color.white));
             holder.txtDescription.setBackgroundColor(context.getResources().getColor(R.color.white));
         }
+
+        holder.layoutDelete.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                listener.OnDeleteClicked(position);
+            }
+        });
+
         holder.listData = listData;
     }
 
@@ -64,11 +82,13 @@ public class AdapterEcgOverRead extends  RecyclerView.Adapter<AdapterEcgOverRead
                 txtCredits;
 
         Ecg_Result_Model.Data listData;
+
+        RelativeLayout layoutDelete;
         public ViewHolder(View itemView,
                           Context context,
                           final AdapterEcgOverRead mCourseAdapter) {
             super(itemView);
-
+            layoutDelete = (RelativeLayout)itemView.findViewById(R.id.layout_delete);
             txtDescription = (TextView)itemView.findViewById(R.id.textDescription);
             txtCredits = (TextView)itemView.findViewById(R.id.text_credits);
         }

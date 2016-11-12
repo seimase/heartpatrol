@@ -38,7 +38,7 @@ public final class AppConstant {
     public static String DEVICE_ID;
     public static String TOKEN;
     public static String USER_FROM_LIST;
-
+    public static String PDF_FILENAME;
     public static boolean bExit;
 
     //PROFILE---------------------------------------------------------------------------------------

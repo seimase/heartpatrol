@@ -6,7 +6,7 @@
     android:layout_height="match_parent">
 
     <RelativeLayout
-        android:background="@color/grey"
+        android:background="@color/grey_dark"
         android:layout_width="match_parent"
         android:layout_height="@dimen/space_45"
         android:layout_marginTop="@dimen/space_10"
@@ -18,7 +18,7 @@
             font:type = "bold"
             android:text="TOTAL PAYMENT"
             android:textColor="@color/white"
-            android:textSize="@dimen/space_22"
+            android:textSize="@dimen/space_18"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
@@ -51,98 +51,131 @@
             android:layout_alignParentTop="true"
             android:layout_alignParentBottom="true"
             android:gravity="fill_vertical"
-            android:paddingLeft="@dimen/space_5" />
+            android:paddingLeft="@dimen/space_20" />
 
 
     </RelativeLayout>
 
-    <ui.CustomtextView
-        font:name = "Avenir_Light"
-
-        android:textSize="@dimen/space_25"
-        android:text="Payment Motode"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="@dimen/space_16"
-        android:layout_marginTop="@dimen/space_10" />
-
-    <RadioGroup
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-        <LinearLayout
-            android:orientation="horizontal"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="@dimen/space_30"
-            android:layout_marginTop="@dimen/space_5">
-
-
-            <RadioButton
-                android:id="@+id/rboBankTransfer"
-                android:layout_width="20sp"
-                android:layout_height="20sp"
-                android:layout_marginBottom="@dimen/space_5"
-                android:background="@drawable/background_radiobutton_register"
-                android:buttonTint="@android:color/transparent"
-                android:theme="@style/radionbutton" />
-
-            <ui.CustomtextView
-                font:name = "Avenir_Light"
-                android:textSize="@dimen/space_25"
-                android:text="Bank Transfer"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/space_3"
-                android:layout_marginLeft="@dimen/space_10" />
-        </LinearLayout>
+    <ScrollView
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent">
 
         <LinearLayout
-            android:orientation="horizontal"
+            android:orientation="vertical"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="@dimen/space_30"
-            android:layout_marginTop="@dimen/space_5">
-
-            <RadioButton
-                android:id="@+id/rboCreditCard"
-                android:layout_width="20sp"
-                android:layout_height="20sp"
-                android:layout_marginBottom="@dimen/space_5"
-                android:background="@drawable/background_radiobutton_register"
-                android:buttonTint="@android:color/transparent"
-                android:theme="@style/radionbutton" />
+            android:layout_height="match_parent">
 
             <ui.CustomtextView
                 font:name = "Avenir_Light"
 
-                android:textSize="@dimen/space_25"
-                android:text="Credit Card"
+                android:textSize="@dimen/space_20"
+                android:text="Payment Motode"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/space_3"
-                android:layout_marginLeft="@dimen/space_10" />
+                android:layout_marginLeft="@dimen/space_16"
+                android:layout_marginTop="@dimen/space_5" />
+
+            <RadioGroup
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/space_30">
+
+
+                    <RadioButton
+                        android:id="@+id/rboBankTransfer"
+                        android:layout_width="20sp"
+                        android:layout_height="20sp"
+                        android:layout_marginBottom="@dimen/space_5"
+                        android:background="@drawable/background_radiobutton_register"
+                        android:buttonTint="@android:color/transparent"
+                        android:theme="@style/radionbutton" />
+
+                    <ui.CustomtextView
+                        font:name = "Avenir_Light"
+                        android:id="@+id/text_banktransfer"
+                        android:textSize="@dimen/space_20"
+                        android:text="Bank Transfer"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/space_10" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/space_30">
+
+                    <RadioButton
+                        android:id="@+id/rboCreditCard"
+                        android:layout_width="20sp"
+                        android:layout_height="20sp"
+                        android:layout_marginBottom="@dimen/space_5"
+                        android:background="@drawable/background_radiobutton_register"
+                        android:buttonTint="@android:color/transparent"
+                        android:theme="@style/radionbutton" />
+
+                    <ui.CustomtextView
+                        font:name = "Avenir_Light"
+                        android:id="@+id/text_creditcard"
+                        android:textSize="@dimen/space_20"
+                        android:text="Credit Card"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/space_10" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/space_30">
+
+                    <RadioButton
+                        android:id="@+id/rboPulsa"
+                        android:layout_width="20sp"
+                        android:layout_height="20sp"
+                        android:layout_marginBottom="@dimen/space_5"
+                        android:background="@drawable/background_radiobutton_register"
+                        android:buttonTint="@android:color/transparent"
+                        android:theme="@style/radionbutton" />
+
+                    <ui.CustomtextView
+                        font:name = "Avenir_Light"
+                        android:id="@+id/text_pulsa"
+                        android:textSize="@dimen/space_20"
+                        android:text="Pulsa"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/space_10" />
+                </LinearLayout>
+
+            </RadioGroup>
+
+            <ui.CustomtextView
+                android:id="@+id/btn_pay"
+                android:layout_width="@dimen/space_187"
+                android:layout_height="@dimen/space_60"
+                android:background="@drawable/btn_shape"
+                android:gravity="center"
+                android:onClick="onClick"
+                android:text="@string/Pay"
+                android:textColor="#ffffff"
+                android:textSize="@dimen/space_20"
+                font:name="Avenir_Heavy"
+                android:layout_alignParentBottom="true"
+                android:layout_alignLeft="@+id/linearLayout2"
+                android:layout_alignRight="@+id/linearLayout2"
+                android:layout_alignEnd="@+id/linearLayout2"
+                android:layout_gravity="right"
+                android:layout_marginTop="@dimen/space_10"
+                android:layout_marginBottom="@dimen/space_35"
+                android:layout_marginRight="@dimen/space_16" />
         </LinearLayout>
+    </ScrollView>
 
-
-    </RadioGroup>
-
-    <ui.CustomtextView
-        android:id="@+id/btn_pay"
-        android:layout_width="@dimen/space_187"
-        android:layout_height="@dimen/space_60"
-        android:background="@drawable/btn_shape"
-        android:gravity="center"
-        android:onClick="onClick"
-        android:text="@string/Pay"
-        android:textColor="#ffffff"
-        android:textSize="@dimen/space_20"
-        font:name="Avenir_Heavy"
-        android:layout_alignParentBottom="true"
-        android:layout_alignLeft="@+id/linearLayout2"
-        android:layout_alignRight="@+id/linearLayout2"
-        android:layout_alignEnd="@+id/linearLayout2"
-        android:layout_gravity="right"
-        android:layout_marginTop="@dimen/space_10"
-        android:layout_marginBottom="@dimen/space_35"
-        android:layout_marginRight="@dimen/space_16" />
 </LinearLayout>

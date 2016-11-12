@@ -168,9 +168,7 @@ public class Ecg_Over_Read extends AppCompatActivity {
                                 bConfirm = false;
                                 txtConfirm.setBackground(getResources().getDrawable(R.drawable.btn_shape_grey));
                             }
-
-                            mAdapter = new AdapterEcgOverRead(getBaseContext(), ecgResultModel);
-                            mRecyclerView.setAdapter(mAdapter);
+                            FillAdapter();
                         }
                     }
                 }
@@ -183,6 +181,30 @@ public class Ecg_Over_Read extends AppCompatActivity {
         }catch (Exception e){
             layoutLoading.setVisibility(View.GONE);
         }
+    }
+
+
+    void FillAdapter(){
+
+
+
+        mAdapter = new AdapterEcgOverRead(getBaseContext(), ecgResultModel, new AdapterEcgOverRead.OnDeleteClicked() {
+            @Override
+            public void OnDeleteClicked(int position) {
+                ecgResultModel.data.remove(position);
+                int iTotalResultCredit = ecgResultModel.data.size() * 10;
+                txtYourCredits.setText(Long.toString(ecgResultModel.credits));
+                txtCredit.setText(Long.toString(ecgResultModel.data.size() * 10));
+
+                bConfirm = true;
+                if (iTotalResultCredit > ecgResultModel.credits){
+                    bConfirm = false;
+                    txtConfirm.setBackground(getResources().getDrawable(R.drawable.btn_shape_grey));
+                }
+                mAdapter.notifyDataSetChanged();
+            }
+        });
+        mRecyclerView.setAdapter(mAdapter);
     }
 
     @Override

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:font="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ui.CustomtextView
+        android:textColor="@color/colorPrimary"
+        android:textSize="@dimen/space_20"
+        android:text="Payment Confirmed"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <ui.CustomtextView
+        android:textColor="@color/colorPrimary"
+        android:textSize="@dimen/space_20"
+        android:text="Your order is on progress"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <ui.CustomtextView
+        android:layout_marginTop="@dimen/space_30"
+        android:textColor="@color/colorPrimary"
+        android:textSize="@dimen/space_20"
+        android:text="Thank You"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+</LinearLayout>

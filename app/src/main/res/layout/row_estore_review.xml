@@ -10,7 +10,6 @@
 
         <ui.CustomtextView
             font:name = "Avenir_Light"
-            font:type = "bold"
             android:id="@+id/textDescription"
             android:text="10"
             android:textColor="@color/black"
@@ -26,7 +25,6 @@
 
         <ui.CustomtextView
             font:name = "Avenir_Light"
-            font:type = "bold"
             android:id="@+id/textTotal"
             android:text="10"
             android:textColor="@color/black"
@@ -39,7 +37,7 @@
         <View
             android:layout_width="1dp"
             android:layout_height="fill_parent"
-            android:background="@color/grey_dark"
+            android:background="@color/grey_x"
             android:layout_alignParentTop="true"
             android:layout_toRightOf="@+id/textDescription"
             android:layout_toEndOf="@+id/textDescription" />
@@ -54,7 +52,6 @@
 
             <ui.CustomtextView
                 font:name = "Avenir_Light"
-                font:type = "bold"
                 android:id="@+id/text_credits"
                 android:text="10"
                 android:textColor="@color/black"

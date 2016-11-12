@@ -19,7 +19,7 @@
         android:paddingLeft="@dimen/space_4"
         android:paddingRight="@dimen/space_12"
         android:paddingBottom="@dimen/space_8"
-        android:textSize="@dimen/space_12"
+        android:textSize="@dimen/space_14"
         android:background="@drawable/estore_separator"
         android:textColor="@color/step_inactive"
         android:text="@string/estore_package" />
@@ -32,7 +32,7 @@
         android:gravity="center"
         android:paddingTop="@dimen/space_8"
         android:paddingLeft="@dimen/space_4"
-        android:paddingRight="@dimen/space_12"
+        android:paddingRight="@dimen/space_14"
         android:paddingBottom="@dimen/space_8"
         android:textSize="@dimen/space_12"
         android:background="@drawable/estore_separator"
@@ -49,7 +49,7 @@
         android:paddingLeft="0dp"
         android:paddingRight="@dimen/space_8"
         android:paddingBottom="@dimen/space_8"
-        android:textSize="@dimen/space_12"
+        android:textSize="@dimen/space_14"
         android:background="@drawable/estore_separator"
         android:textColor="@color/step_inactive"
         android:text="@string/estore_payment"/>
@@ -64,7 +64,7 @@
         android:paddingLeft="@dimen/space_4"
         android:paddingRight="@dimen/space_12"
         android:paddingBottom="@dimen/space_8"
-        android:textSize="@dimen/space_12"
+        android:textSize="@dimen/space_14"
         android:textColor="@color/step_inactive"
         android:text="@string/estore_confirm"/>
 </LinearLayout>

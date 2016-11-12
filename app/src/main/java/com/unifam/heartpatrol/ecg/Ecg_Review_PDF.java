@@ -23,6 +23,7 @@ import com.github.barteksc.pdfviewer.listener.OnLoadCompleteListener;
 import com.github.barteksc.pdfviewer.listener.OnPageChangeListener;
 import com.github.barteksc.pdfviewer.scroll.DefaultScrollHandle;
 import com.unifam.heartpatrol.AppConstant;
+import com.unifam.heartpatrol.AppController;
 import com.unifam.heartpatrol.R;
 import com.unifam.heartpatrol.model.Model_ecg_review;
 
@@ -48,7 +49,7 @@ public class Ecg_Review_PDF extends AppCompatActivity implements OnPageChangeLis
     private long downloadID;
     private DownloadManager downloadManager;
     Uri uri;
-    String sUrl = "http://www.khazanah.com.my/khazanah/files/20/200f21f3-07ff-4903-ab99-7c0cb557eb51.pdf";
+    String sUrl = "http://unec.edu.az/application/uploads/2014/12/pdf-sample.pdf";
     String pdfFileName = "" ;
     File folder;
     @Override
@@ -128,12 +129,23 @@ public class Ecg_Review_PDF extends AppCompatActivity implements OnPageChangeLis
         rLayoutDownload.setVisibility(View.VISIBLE);
 
         DownloadManager.Request request = new DownloadManager.Request(Uri.parse(sUrl));
-        request.setTitle("TITLE");
-        request.setDescription("DESCRIPTION");
-        request.setNotificationVisibility(DownloadManager.Request.VISIBILITY_VISIBLE_NOTIFY_COMPLETED);
-        request.setDestinationInExternalPublicDir(AppConstant.STORAGE_CARD_DOWNLOAD,  "sample_pdf.pdf");
-        request.allowScanningByMediaScanner();
-        downloadID = downloadManager.enqueue(request);
+        AppConstant.PDF_FILENAME = AppController.getInstance().getFileName(sUrl);
+        File file = new File(AppConstant.STORAGE_CARD + "/Download/" + AppConstant.PDF_FILENAME);
+        if (file.exists()){
+            DisplayPDF(AppConstant.STORAGE_CARD + "/Download/" + AppConstant.PDF_FILENAME);
+        }else{
+            request.setTitle(AppConstant.PDF_FILENAME);
+
+            request.setDescription("DESCRIPTION");
+            request.setNotificationVisibility(DownloadManager.Request.VISIBILITY_VISIBLE_NOTIFY_COMPLETED);
+            // request.setDestinationInExternalPublicDir(AppConstant.FOLDER_DOWNLOAD, "DOWNLOAD_FILE_NAME.pdf");
+
+            File root = new File(AppConstant.STORAGE_CARD + "/Download/");
+            Uri path = Uri.withAppendedPath(Uri.fromFile(root), AppConstant.PDF_FILENAME);
+            request.setDestinationUri(path);
+
+            downloadID = downloadManager.enqueue(request);
+        }
 
 
         downloadProgressView.show(downloadID, new DownloadProgressView.DownloadStatusListener() {
@@ -150,7 +162,7 @@ public class Ecg_Review_PDF extends AppCompatActivity implements OnPageChangeLis
                 pdfView.setVisibility(View.VISIBLE);
                 rLayoutDownload.setVisibility(View.GONE);
 
-                DisplayPDF(AppConstant.STORAGE_CARD + "/Download/sample_pdf.pdf");
+                DisplayPDF(AppConstant.STORAGE_CARD + "/Download/" + AppConstant.PDF_FILENAME);
             }
 
             @Override

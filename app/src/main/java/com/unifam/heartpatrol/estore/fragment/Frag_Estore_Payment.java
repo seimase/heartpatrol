@@ -15,8 +15,12 @@ import com.unifam.heartpatrol.estore.EstoreActivity;
  * Created by Unifam on 9/26/2016.
  */
 public class Frag_Estore_Payment extends Fragment {
-    RadioButton rboBankTransfer, rboCreditCard;
-    TextView txtPay, txtAmount;
+    RadioButton rboBankTransfer, rboCreditCard, rboPulsa;
+    TextView txtPay, txtAmount,
+            txtBank,
+            txtCC,
+            txtPulsa
+            ;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -34,13 +38,25 @@ public class Frag_Estore_Payment extends Fragment {
     void InitControl(View v){
         rboBankTransfer = (RadioButton)v.findViewById(R.id.rboBankTransfer);
         rboCreditCard = (RadioButton)v.findViewById(R.id.rboCreditCard);
+        rboPulsa = (RadioButton)v.findViewById(R.id.rboPulsa);
         txtPay = (TextView)v.findViewById(R.id.btn_pay);
         txtAmount = (TextView)v.findViewById(R.id.text_amount);
-
+        txtBank = (TextView)v.findViewById(R.id.text_banktransfer);
+        txtCC = (TextView)v.findViewById(R.id.text_creditcard);
+        txtPulsa = (TextView)v.findViewById(R.id.text_pulsa);
         txtPay.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 ((EstoreActivity)getActivity()).nextStep();
+            }
+        });
+
+        txtBank.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                rboBankTransfer.setChecked(true);
+                rboCreditCard.setChecked(false);
+                rboPulsa.setChecked(false);
             }
         });
 
@@ -49,6 +65,16 @@ public class Frag_Estore_Payment extends Fragment {
             public void onClick(View view) {
                 rboBankTransfer.setChecked(true);
                 rboCreditCard.setChecked(false);
+                rboPulsa.setChecked(false);
+            }
+        });
+
+        txtCC.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                rboCreditCard.setChecked(true);
+                rboBankTransfer.setChecked(false);
+                rboPulsa.setChecked(false);
             }
         });
 
@@ -57,8 +83,26 @@ public class Frag_Estore_Payment extends Fragment {
             public void onClick(View view) {
                 rboCreditCard.setChecked(true);
                 rboBankTransfer.setChecked(false);
+                rboPulsa.setChecked(false);
             }
         });
 
+        txtPulsa.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                rboCreditCard.setChecked(false);
+                rboBankTransfer.setChecked(false);
+                rboPulsa.setChecked(true);
+            }
+        });
+
+        rboPulsa.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                rboCreditCard.setChecked(false);
+                rboBankTransfer.setChecked(false);
+                rboPulsa.setChecked(true);
+            }
+        });
     }
 }

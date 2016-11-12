@@ -16,6 +16,7 @@ import com.unifam.heartpatrol.MainMenu;
 import com.unifam.heartpatrol.R;
 import com.unifam.heartpatrol.estore.fragment.Frag_Estore_Package;
 import com.unifam.heartpatrol.estore.fragment.Frag_Estore_Payment;
+import com.unifam.heartpatrol.estore.fragment.Frag_Estore_Payment_Confirm;
 import com.unifam.heartpatrol.estore.fragment.Frag_Estore_Payment_Next;
 import com.unifam.heartpatrol.estore.fragment.Frag_Estore_Review;
 
@@ -44,7 +45,7 @@ public class EstoreActivity extends AppCompatActivity {
             Frag_Estore_Review.class,
             Frag_Estore_Payment.class,
             Frag_Estore_Payment_Next.class,
-            Frag_Estore_Package.class
+            Frag_Estore_Payment_Confirm.class
     };
 
     @Override
@@ -102,20 +103,25 @@ public class EstoreActivity extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
-        if (paymentSteps[currentStep] == 1) {
-            super.onBackPressed();
-        } else if (paymentSteps[currentStep] < 4) {
-            //title.setText(R.string.estore_product);
-            currentStep -= 2;
-            paymentStepView.setCurrentStep(paymentSteps[currentStep]);
-            currentStep++;
-            if (FragmentUtil.backPressed(this)) {
+        try {
+            if (paymentSteps[currentStep] == 1) {
                 super.onBackPressed();
-            }
+            } else if (paymentSteps[currentStep] < 4) {
+                //title.setText(R.string.estore_product);
+                currentStep -= 2;
+                paymentStepView.setCurrentStep(paymentSteps[currentStep]);
+                currentStep++;
+                if (FragmentUtil.backPressed(this)) {
+                    super.onBackPressed();
+                }
 
-        } else {
+            } else {
+                finish();
+            }
+        }catch (Exception e){
             finish();
         }
+
     }
 
     public static void changeToolbarname(){

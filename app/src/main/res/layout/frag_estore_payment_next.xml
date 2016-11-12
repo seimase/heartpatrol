@@ -25,17 +25,17 @@
                 android:id="@+id/linearLayout4">
                 <ImageView
                     android:src="@drawable/circle_1"
-                    android:layout_width="@dimen/space_35"
-                    android:layout_height="@dimen/space_35" />
+                    android:layout_width="@dimen/space_30"
+                    android:layout_height="@dimen/space_30" />
 
                 <ui.CustomtextView
                     font:name = "Avenir_Light"
                     android:text="Lakukan Transfer"
                     android:textSize="@dimen/space_16"
-                    android:layout_width="match_parent"
+                    android:layout_width="304dp"
                     android:layout_height="match_parent"
                     android:gravity="fill_vertical"
-                    android:layout_marginLeft="@dimen/space_3" />
+                    android:layout_marginLeft="@dimen/space_7" />
 
             </LinearLayout>
 
@@ -135,8 +135,8 @@
                 android:id="@+id/linearLayout5">
                 <ImageView
                     android:src="@drawable/circle_2"
-                    android:layout_width="@dimen/space_35"
-                    android:layout_height="@dimen/space_35" />
+                    android:layout_width="@dimen/space_30"
+                    android:layout_height="@dimen/space_30" />
 
                 <ui.CustomtextView
                     font:name = "Avenir_Light"
@@ -145,7 +145,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:gravity="fill_vertical"
-                    android:layout_marginLeft="@dimen/space_3" />
+                    android:layout_marginLeft="@dimen/space_7" />
 
             </LinearLayout>
 
@@ -216,7 +216,7 @@
                     android:layout_alignParentStart="true"
                     android:paddingRight="@dimen/space_3"
                     android:layout_marginTop="@dimen/space_3"
-                    android:layout_marginLeft="@dimen/space_3" />
+                    android:layout_marginLeft="@dimen/space_10" />
 
             </RelativeLayout>
 
@@ -234,7 +234,7 @@
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentStart="true"
                 android:id="@+id/text_amount"
-                android:layout_marginLeft="@dimen/space_3" />
+                android:layout_marginLeft="@dimen/space_10" />
 
             <ui.CustomtextView
                 font:name = "Avenir_Light"
@@ -268,7 +268,7 @@
                 android:layout_toRightOf="@+id/textView5"
                 android:layout_toEndOf="@+id/textView5"
                 android:layout_marginTop="@dimen/space_14"
-                android:layout_marginLeft="@dimen/space_3"
+                android:layout_marginLeft="@dimen/space_10"
                 android:id="@+id/view24" />
 
             <ui.CustomtextView
@@ -292,7 +292,7 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/view25"
                 android:layout_marginTop="@dimen/space_10"
-                android:layout_marginLeft="@dimen/space_3"
+                android:layout_marginLeft="@dimen/space_10"
                 android:layout_marginRight="@dimen/space_3">
 
                 <LinearLayout
@@ -367,7 +367,6 @@
             android:layout_height="@dimen/space_60"
             android:background="@drawable/btn_shape"
             android:gravity="center"
-            android:onClick="onClick"
             android:text="@string/estore_sudah_bayar"
             android:textColor="#ffffff"
             android:textSize="@dimen/space_20"

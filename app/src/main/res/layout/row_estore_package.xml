@@ -19,15 +19,15 @@
             android:layout_weight="1"
             android:orientation="vertical"
             android:gravity="center"
-            android:layout_marginTop="@dimen/space_3"
-            android:layout_marginBottom="@dimen/space_3"
-            android:layout_marginLeft="@dimen/space_3">
+            android:layout_marginTop="@dimen/space_10"
+            android:layout_marginBottom="@dimen/space_10"
+            android:layout_marginLeft="@dimen/space_10">
 
             <ui.CustomtextView
                 font:name = "Avenir_Light"
                 font:type = "bold"
                 android:text="Package"
-                android:textSize="@dimen/space_22"
+                android:textSize="@dimen/space_18"
                 android:id="@+id/textPackage"
                 android:textColor="@color/black"
                 android:layout_width="match_parent"
@@ -36,7 +36,7 @@
             <ui.CustomtextView
                 font:name = "Avenir_Light"
                 android:text="Package"
-                android:textSize="@dimen/space_22"
+                android:textSize="@dimen/space_18"
                 android:id="@+id/textDescription"
                 android:textColor="@color/black"
                 android:layout_width="match_parent"
@@ -50,8 +50,9 @@
 
             <ui.CustomtextView
                 font:name = "Avenir_Light"
+                android:paddingLeft="@dimen/space_14"
                 android:text="IDR 200.000"
-                android:textSize="@dimen/space_22"
+                android:textSize="@dimen/space_18"
                 android:id="@+id/textPrice"
                 android:textColor="@color/black"
                 android:layout_width="match_parent"
@@ -70,12 +71,13 @@
             android:layout_weight="1"
             android:layout_gravity="center"
             android:gravity="center">
+
             <TextView
                 android:id="@+id/btn_product_package_min"
                 android:layout_width="@dimen/space_30"
                 android:layout_height="@dimen/space_30"
                 android:layout_marginRight="@dimen/space_4"
-                android:textSize="@dimen/text_medium"
+                android:textSize="@dimen/space_22"
                 android:gravity="center"
                 android:textColor="@color/white"
                 android:background="@drawable/bg_circle_red"

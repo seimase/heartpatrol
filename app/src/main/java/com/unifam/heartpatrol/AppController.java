@@ -109,4 +109,10 @@ public class AppController extends Application {
 
         dialog.show();
     }
+
+    public String getFileName(String sPath){
+        String sResult;
+        sResult = sPath.substring(sPath.lastIndexOf('/') + 1);
+        return sResult;
+    }
 }

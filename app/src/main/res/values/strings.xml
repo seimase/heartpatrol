@@ -23,7 +23,7 @@
     <string name="First_Name">First Name</string>
     <string name="Last_Name">Last Name</string>
     <string name="ListUser">List User</string>
-
+    <string name="pilih_bahasa">Pilih Bahasa</string>
     <!--PROFILE-->
     <string name="Profile">PROFILE</string>
     <string name="My_birthdate">My birth date is </string>

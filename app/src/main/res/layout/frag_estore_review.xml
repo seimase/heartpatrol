@@ -10,96 +10,104 @@
         android:orientation="horizontal"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@+id/textView38"
-        android:layout_marginTop="@dimen/space_5"
-        android:layout_marginBottom="@dimen/space_5">
+        android:layout_centerVertical="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true">
 
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1">
 
-            <android.support.v7.widget.RecyclerView
-                android:id = "@+id/my_recycler_view"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_below="@+id/relativeLayout7"
-                android:layout_above="@+id/relativeLayout8"
-                android:layout_marginLeft="@dimen/space_5"></android.support.v7.widget.RecyclerView>
             <RelativeLayout
+                android:layout_marginTop="@dimen/space_5"
+                android:layout_marginLeft="@dimen/space_5"
+                android:layout_marginBottom="@dimen/space_5"
+                android:background="@drawable/btn_shape_kotak"
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/space_35"
-                android:id="@+id/relativeLayout7"
-                android:layout_marginLeft="@dimen/space_5">
+                android:layout_height="50dp"
+                android:layout_above="@+id/relativeLayout8"
+                android:layout_alignParentTop="true">
 
-                <ui.CustomtextView
-                    font:name = "Avenir_Heavy"
-                    android:text="ITEM LIST"
-                    android:textColor="@color/black"
+                <android.support.v7.widget.RecyclerView
+                    android:id = "@+id/my_recycler_view"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:layout_toStartOf="@+id/view17"
-                    android:gravity="center"
-                    android:textSize="@dimen/space_12"
-                    android:layout_toLeftOf="@+id/view17"
-                    android:id="@+id/view18" />
+                    android:layout_below="@+id/relativeLayout7"
+                    android:layout_marginRight="@dimen/space_5"
+                    android:layout_marginLeft="@dimen/space_5"></android.support.v7.widget.RecyclerView>
                 <RelativeLayout
-                    android:layout_width="@dimen/space_80"
-                    android:layout_height="match_parent"
-                    android:layout_alignParentTop="true"
-                    android:layout_alignParentRight="true"
-                    android:layout_alignParentEnd="true"
-                    android:background="@color/grey"
-                    android:id="@+id/relativeLayout5">
+                    android:background="@color/white"
+                    android:layout_marginRight="@dimen/space_5"
+                    android:layout_marginTop="@dimen/space_5"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/space_35"
+                    android:id="@+id/relativeLayout7"
+                    android:layout_marginLeft="@dimen/space_5">
 
                     <ui.CustomtextView
                         font:name = "Avenir_Heavy"
-                        android:text="CREDIT"
-                        android:textColor="@color/white"
+                        android:text="ITEM LIST"
+                        android:textColor="@color/black"
                         android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_toStartOf="@+id/view17"
+                        android:gravity="center"
+                        android:textSize="@dimen/space_12"
+                        android:layout_toLeftOf="@+id/view17"
+                        android:id="@+id/view18" />
+                    <RelativeLayout
+                        android:layout_width="@dimen/space_80"
+                        android:layout_height="match_parent"
+                        android:layout_alignParentTop="true"
+                        android:layout_alignParentRight="true"
+                        android:layout_alignParentEnd="true"
+                        android:background="@color/grey_dark"
+                        android:id="@+id/relativeLayout5">
+
+                        <ui.CustomtextView
+                            font:name = "Avenir_Heavy"
+                            android:text="CREDITS"
+                            android:textColor="@color/white"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+
+                            android:gravity="center"
+                            android:textSize="@dimen/space_12" />
+
+                    </RelativeLayout>
+
+                    <ui.CustomtextView
+                        font:name = "Avenir_Heavy"
+                        android:text="TOTAL"
+                        android:textColor="@color/black"
+                        android:layout_width="@dimen/space_80"
                         android:layout_height="match_parent"
 
                         android:gravity="center"
-                        android:textSize="@dimen/space_12" />
+                        android:textSize="@dimen/space_12"
+                        android:layout_toLeftOf="@+id/relativeLayout5"
+                        android:id="@+id/view17" />
 
+                    <View
+                        android:layout_width="fill_parent"
+                        android:layout_height="1dp"
+                        android:background="@color/grey_x"
+                        android:layout_alignParentBottom="true"
+                        android:layout_alignParentLeft="true"
+                        android:layout_alignParentStart="true" />
+
+
+                    <View
+                        android:layout_width="1dp"
+                        android:layout_height="fill_parent"
+                        android:background="@color/grey_x"
+                        android:layout_alignParentBottom="true"
+                        android:layout_toLeftOf="@+id/view17"
+                        android:layout_toRightOf="@+id/view18"
+                        android:layout_toEndOf="@+id/view18" />
                 </RelativeLayout>
 
-                <ui.CustomtextView
-                    font:name = "Avenir_Heavy"
-                    android:text="TOTAL"
-                    android:textColor="@color/black"
-                    android:layout_width="@dimen/space_80"
-                    android:layout_height="match_parent"
-
-                    android:gravity="center"
-                    android:textSize="@dimen/space_12"
-                    android:layout_toLeftOf="@+id/relativeLayout5"
-                    android:id="@+id/view17" />
-
-                <View
-                    android:layout_width="fill_parent"
-                    android:layout_height="1dp"
-                    android:background="@color/grey_dark"
-                    android:layout_alignParentBottom="true"
-                    android:layout_alignParentLeft="true"
-                    android:layout_alignParentStart="true" />
-
-                <View
-                    android:layout_width="fill_parent"
-                    android:layout_height="1dp"
-                    android:background="@color/grey_dark"
-                    android:layout_alignParentTop="true"
-                    android:layout_alignParentLeft="true"
-                    android:layout_alignParentStart="true" />
-
-                <View
-                    android:layout_width="1dp"
-                    android:layout_height="fill_parent"
-                    android:background="@color/grey_dark"
-                    android:layout_alignParentBottom="true"
-                    android:layout_toLeftOf="@+id/view17"
-                    android:layout_toRightOf="@+id/view18"
-                    android:layout_toEndOf="@+id/view18" />
             </RelativeLayout>
 
             <RelativeLayout
@@ -117,19 +125,20 @@
                     android:layout_height="match_parent"
                     android:layout_toLeftOf="@+id/relativeLayout6"
                     android:gravity="fill_vertical"
-                    android:background="@color/grey"
+                    android:background="@color/grey_dark"
                     android:id="@+id/view15"
                     android:paddingLeft="@dimen/space_5"
+
                     android:layout_alignParentLeft="true"
                     android:layout_alignParentStart="true"
                     android:textSize="@dimen/space_12" />
                 <RelativeLayout
-                    android:layout_width="@dimen/space_80"
+                    android:layout_width="@dimen/space_85"
                     android:layout_height="match_parent"
                     android:layout_alignParentTop="true"
                     android:layout_alignParentRight="true"
                     android:layout_alignParentEnd="true"
-                    android:background="@color/grey"
+                    android:background="@color/grey_dark"
                     android:id="@+id/relativeLayout6">
 
                     <ui.CustomtextView
@@ -148,6 +157,8 @@
                 <View
                     android:layout_width="1dp"
                     android:layout_height="match_parent"
+                    android:layout_marginTop="@dimen/space_3"
+                    android:layout_marginBottom="@dimen/space_3"
                     android:background="@color/white"
                     android:layout_alignParentBottom="true"
                     android:layout_toLeftOf="@+id/relativeLayout6"
@@ -173,6 +184,7 @@
             android:layout_weight="1">
 
             <LinearLayout
+                android:layout_marginTop="@dimen/space_5"
                 android:orientation="horizontal"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/space_40"
@@ -213,7 +225,7 @@
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:layout_marginRight="@dimen/space_5"
-                    android:layout_marginLeft="@dimen/space_5">
+                    android:layout_marginLeft="@dimen/space_20">
 
                     <ui.CustomtextView
                         android:id="@+id/btn_Apply"
@@ -225,7 +237,7 @@
                         android:text="APPLY"
                         android:textColor="#ffffff"
                         android:textSize="@dimen/space_20"
-                        font:name="Avenir_Heavy"
+                        font:name="Avenir_Book"
                         android:layout_gravity="right"
                         android:layout_alignRight="@+id/relativeLayout9"
                         android:layout_alignEnd="@+id/relativeLayout9"
@@ -245,6 +257,7 @@
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentStart="true"
                 android:layout_marginRight="@dimen/space_5"
+                android:textSize="@dimen/space_11"
                 android:gravity="right"
                 android:layout_marginTop="@dimen/space_2" />
 
@@ -269,6 +282,7 @@
                         android:layout_height="wrap_content">
 
                         <RelativeLayout
+                            android:layout_marginLeft="@dimen/space_10"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_weight="1">
@@ -304,6 +318,7 @@
                         <RelativeLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
+                            android:layout_marginLeft="@dimen/space_10"
                             android:layout_weight="1">
 
                             <ui.CustomtextView
@@ -335,6 +350,7 @@
                         android:layout_marginTop="@dimen/space_5">
 
                         <RelativeLayout
+                            android:layout_marginLeft="@dimen/space_10"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_weight="1">
@@ -363,6 +379,7 @@
                     </LinearLayout>
 
                     <View
+                        android:layout_marginLeft="@dimen/space_10"
                         android:layout_width="fill_parent"
                         android:layout_height="1dp"
                         android:background="@color/grey_dark"
@@ -370,7 +387,7 @@
                         android:layout_alignParentLeft="true"
                         android:layout_alignParentStart="true"
                         android:layout_marginTop="@dimen/space_5"
-                        android:layout_marginRight="@dimen/space_5" />
+                        android:layout_marginRight="@dimen/space_10" />
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -381,6 +398,7 @@
                         <RelativeLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
+                            android:layout_marginLeft="@dimen/space_10"
                             android:layout_weight="1">
 
                             <ui.CustomtextView
@@ -412,51 +430,55 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/relativeLayout11"
-                android:id="@+id/relativeLayout12">
+                android:id="@+id/relativeLayout12"
+                android:layout_alignLeft="@+id/relativeLayout11"
+                android:layout_alignStart="@+id/relativeLayout11">
 
                 <ui.CustomtextView
                     font:name = "Avenir_Light"
-                    android:textSize="12dp"
+                    android:textSize="@dimen/space_11"
                     android:text="@string/Note_Register"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:id="@+id/view19"
-                    android:layout_marginLeft="@dimen/space_10"
                     android:layout_marginTop="@dimen/space_5" />
+
+                <ui.CustomtextView
+                    font:name = "Avenir_Light"
+                    font:type = "bold"
+                    android:textSize="@dimen/space_11"
+                    android:text="@string/Term_condition"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/colorPrimary"
+                    android:textStyle="bold"
+                    android:id="@+id/view20"
+                    android:layout_marginLeft="@dimen/space_5"
+                    android:layout_toRightOf="@+id/view19"
+                    android:layout_alignBaseline="@+id/view19"
+                    android:layout_alignBottom="@+id/view19"
+                    android:layout_alignParentRight="true"
+                    android:layout_alignParentEnd="true" />
 
             </RelativeLayout>
 
             <ui.CustomtextView
                 android:id="@+id/btn_pay"
-                android:layout_width="@dimen/space_187"
-                android:layout_height="@dimen/space_60"
+                android:layout_width="@dimen/space_160"
+                android:layout_height="@dimen/space_50"
                 android:background="@drawable/btn_shape"
                 android:gravity="center"
                 android:onClick="onClick"
                 android:text="@string/Pay"
                 android:textColor="#ffffff"
                 android:textSize="@dimen/space_20"
-                font:name="Avenir_Heavy"
+                font:name="Avenir_Book"
                 android:layout_gravity="right"
-                android:layout_below="@+id/view20"
-                android:layout_alignRight="@+id/relativeLayout11"
-                android:layout_alignEnd="@+id/relativeLayout11"
-                android:layout_marginTop="@dimen/space_5" />
-
-            <ui.CustomtextView
-                font:name = "Avenir_Light"
-                font:type = "bold"
-                android:textSize="12dp"
-                android:text="@string/Term_condition"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textColor="@color/colorPrimary"
-                android:textStyle="bold"
+                android:layout_marginTop="@dimen/space_10"
+                android:layout_marginRight="@dimen/space_5"
                 android:layout_below="@+id/relativeLayout12"
-                android:layout_alignParentLeft="true"
-                android:layout_alignParentStart="true"
-                android:id="@+id/view20"
-                android:layout_marginLeft="@dimen/space_10" />
+                android:layout_alignParentRight="true"
+                android:layout_alignParentEnd="true" />
 
         </RelativeLayout>
 
