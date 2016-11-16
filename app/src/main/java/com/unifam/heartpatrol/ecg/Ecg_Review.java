@@ -106,23 +106,28 @@ public class Ecg_Review extends AppCompatActivity{
 
                         break;
                     case 1: //Delete
-                        int iOverRead = 0;
-                        listEcg = new ArrayList<String>();
-                        if (!isLoading){
-                            for (Ecg_Result_Model.Data dat: ecgResultModel.data){
-                                if (dat.flag){
-                                    listEcg.add(dat.ecg_id);
-                                    iOverRead += 1;
+                        try{
+                            int iOverRead = 0;
+                            listEcg = new ArrayList<String>();
+                            if (!isLoading){
+                                for (Ecg_Result_Model.Data dat: ecgResultModel.data){
+                                    if (dat.flag){
+                                        listEcg.add(dat.ecg_id);
+                                        iOverRead += 1;
+                                    }
                                 }
-                            }
 
-                            if (listEcg.size() > 0){
-                                doDialogResult(Integer.toString(iOverRead));
-                            }else{
-                                AppController.getInstance().CustomeDialog(Ecg_Review.this, "Please select ECG Review, Try Again!");
-                            }
+                                if (listEcg.size() > 0){
+                                    doDialogResult(Integer.toString(iOverRead));
+                                }else{
+                                    AppController.getInstance().CustomeDialog(Ecg_Review.this, "Please select ECG Review, Try Again!");
+                                }
 
+                            }
+                        }catch (Exception e){
+                            AppController.getInstance().CustomeDialog(Ecg_Review.this, "Please select ECG Review, Try Again!");
                         }
+
                         //CustomAlertDialogBuilder builder = new CustomAlertDialogBuilder(getActivity(), getResources().getColor(R.color.green_xxl));
                         break;
                 }
