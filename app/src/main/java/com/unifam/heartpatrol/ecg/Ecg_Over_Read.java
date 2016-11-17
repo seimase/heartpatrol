@@ -18,6 +18,7 @@ import com.unifam.heartpatrol.AppConstant;
 import com.unifam.heartpatrol.AppController;
 import com.unifam.heartpatrol.R;
 import com.unifam.heartpatrol.ecg.adapter.AdapterEcgOverRead;
+import com.unifam.heartpatrol.ecg.adapter.AdapterEcgOverRead_Dummy;
 import com.unifam.heartpatrol.estore.EstoreActivity;
 import com.unifam.heartpatrol.model.Ecg_Result_Model;
 import com.unifam.heartpatrol.model.ListData;
@@ -62,7 +63,8 @@ public class Ecg_Over_Read extends AppCompatActivity {
         bConfirm = false;
         InitControl();
         setSupportActionBar(toolbar);
-        FillGrid();
+        //FillGrid();
+        FillDummy();
     }
 
     void InitControl() {
@@ -98,7 +100,7 @@ public class Ecg_Over_Read extends AppCompatActivity {
             public void onClick(View view) {
                 if (bConfirm){
                     finish();
-                    vConfirm();
+                    //vConfirm();
                 }
             }
         });
@@ -204,6 +206,30 @@ public class Ecg_Over_Read extends AppCompatActivity {
                 mAdapter.notifyDataSetChanged();
             }
         });
+        mRecyclerView.setAdapter(mAdapter);
+    }
+
+    void FillDummy(){
+          AryListData = new ArrayList<>();
+
+        listData = new ListData();
+        long lCredit = 0;
+        for(int i = 1; i < 8 ; i++){
+            listData = new ListData();
+            listData.setAtr1("Report 09/02/2015 9:37 PM");
+            listData.setAtr2("10");
+            lCredit += 10;
+            AryListData.add(listData);
+        }
+
+        txtCredit.setText(Long.toString(lCredit));
+
+        mAdapter = new AdapterEcgOverRead_Dummy(getBaseContext(), AryListData, new AdapterEcgOverRead_Dummy.OnDeleteClicked() {
+            @Override
+            public void OnDeleteClicked(int position) {
+            }
+        });
+
         mRecyclerView.setAdapter(mAdapter);
     }
 

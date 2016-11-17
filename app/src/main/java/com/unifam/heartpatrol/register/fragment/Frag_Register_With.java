@@ -25,6 +25,7 @@ import com.google.android.gms.common.api.Status;
 import com.google.android.gms.plus.Plus;
 import com.unifam.heartpatrol.AppConstant;
 import com.unifam.heartpatrol.AppController;
+import com.unifam.heartpatrol.LoginActivity;
 import com.unifam.heartpatrol.MainMenu;
 import com.unifam.heartpatrol.R;
 import com.unifam.heartpatrol.model.Register;
@@ -109,8 +110,12 @@ public class Frag_Register_With extends Fragment implements GoogleApiClient.OnCo
             btnGoogle.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Intent signInIntent = Auth.GoogleSignInApi.getSignInIntent(mGoogleApiClient);
-                    startActivityForResult(signInIntent, RC_SIGN_IN);
+                    /*Intent signInIntent = Auth.GoogleSignInApi.getSignInIntent(mGoogleApiClient);
+                    startActivityForResult(signInIntent, RC_SIGN_IN);*/
+
+                    AppConstant.AUTH_USERNAME = "Ronald";
+                    Intent intent = new Intent(getActivity(), MainMenu.class);
+                    startActivity(intent);
                 }
             });
         }catch (Exception e){

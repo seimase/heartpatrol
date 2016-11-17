@@ -22,6 +22,7 @@ import com.unifam.heartpatrol.AppConstant;
 import com.unifam.heartpatrol.AppController;
 import com.unifam.heartpatrol.R;
 import com.unifam.heartpatrol.ecg.adapter.AdapterEcgReview;
+import com.unifam.heartpatrol.ecg.adapter.AdapterEcgReview_Dummy;
 import com.unifam.heartpatrol.model.Ecg_Result_Model;
 import com.unifam.heartpatrol.model.Model_ecg_review;
 import com.unifam.heartpatrol.model.net.NetworkManager;
@@ -62,7 +63,8 @@ public class Ecg_Review extends AppCompatActivity{
         isLoading = false;
         InitControl();
         setSupportActionBar(toolbar);
-        FillGrid();
+        //FillGrid();
+        FillDummy();
     }
 
     void InitControl(){
@@ -108,7 +110,7 @@ public class Ecg_Review extends AppCompatActivity{
                     case 1: //Delete
                         try{
                             int iOverRead = 0;
-                            listEcg = new ArrayList<String>();
+                            /*listEcg = new ArrayList<String>();
                             if (!isLoading){
                                 for (Ecg_Result_Model.Data dat: ecgResultModel.data){
                                     if (dat.flag){
@@ -122,6 +124,21 @@ public class Ecg_Review extends AppCompatActivity{
                                 }else{
                                     AppController.getInstance().CustomeDialog(Ecg_Review.this, "Please select ECG Review, Try Again!");
                                 }
+
+                            }*/
+
+                            if (!isLoading){
+                                for (Model_ecg_review dat: Arymodel_ecg_review){
+                                    if (dat.getAtrCheck1()){
+                                        iOverRead += 1;
+                                    }
+                                }
+                                doDialogResult(Integer.toString(iOverRead));
+                               /* if (listEcg.size() > 0){
+                                    doDialogResult(Integer.toString(iOverRead));
+                                }else{
+                                    AppController.getInstance().CustomeDialog(Ecg_Review.this, "Please select ECG Review, Try Again!");
+                                }*/
 
                             }
                         }catch (Exception e){
@@ -156,7 +173,7 @@ public class Ecg_Review extends AppCompatActivity{
             @Override
             public void onClick(View v) {
                 dialog.dismiss();
-                DeleteEcgReview(listEcg);
+                //DeleteEcgReview(listEcg);
             }
         });
 
@@ -228,7 +245,7 @@ public class Ecg_Review extends AppCompatActivity{
 
     void FillGrid(){
         Arymodel_ecg_review = new ArrayList<>();
-/*        for(int i = 1; i < 10 ; i++){
+         for(int i = 1; i < 10 ; i++){
             model_ecg_review = new Model_ecg_review();
             model_ecg_review.setAtr1("02 / 01 / 2015");
             model_ecg_review.setAtr2("9:37 PM");
@@ -240,7 +257,7 @@ public class Ecg_Review extends AppCompatActivity{
             }
 
             Arymodel_ecg_review.add(model_ecg_review);
-        }*/
+        }
 
         isLoading = true;
         layoutLoading.setVisibility(View.VISIBLE);
@@ -275,6 +292,32 @@ public class Ecg_Review extends AppCompatActivity{
         }
     }
 
+    void FillDummy(){
+        layoutLoading.setVisibility(View.GONE);
+        Arymodel_ecg_review = new ArrayList<>();
+        for(int i = 1; i < 10 ; i++){
+            model_ecg_review = new Model_ecg_review();
+            model_ecg_review.setAtr1("02 / 01 / 2015");
+            model_ecg_review.setAtr2("9:37 PM");
+            model_ecg_review.setAtr3("Submitted");
+            model_ecg_review.setAtr4("1");
+            if ((i%3)  == 0){
+                model_ecg_review.setAtr3("Reviewed");
+                model_ecg_review.setAtr4("");
+            }
+
+            Arymodel_ecg_review.add(model_ecg_review);
+        }
+
+        mAdapter = new AdapterEcgReview_Dummy(getBaseContext(), Arymodel_ecg_review, new AdapterEcgReview_Dummy.OnDownloadClicked() {
+            @Override
+            public void OnDownloadClicked(String sUrl, boolean bStatus) {
+                Intent mIntent = new Intent(getBaseContext(), Ecg_Review_PDF.class);
+                startActivity(mIntent);
+            }
+        });
+        mRecyclerView.setAdapter(mAdapter);
+    }
     void FillAdapter(){
         mAdapter = new AdapterEcgReview(getBaseContext(), ecgResultModel, new AdapterEcgReview.OnDownloadClicked() {
             @Override

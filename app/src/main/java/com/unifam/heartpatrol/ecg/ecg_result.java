@@ -19,6 +19,7 @@ import com.aurelhubert.ahbottomnavigation.AHBottomNavigationItem;
 import com.unifam.heartpatrol.AppConstant;
 import com.unifam.heartpatrol.AppController;
 import com.unifam.heartpatrol.R;
+import com.unifam.heartpatrol.ecg.adapter.AdapterEcgResult_Dummy;
 import com.unifam.heartpatrol.model.Ecg_Result_Model;
 import com.unifam.heartpatrol.model.model_ecg_result;
 import com.unifam.heartpatrol.ecg.adapter.AdapterEcgResult;
@@ -53,13 +54,15 @@ public class ecg_result extends AppCompatActivity {
 
     List<String> listEcg;
     boolean isLoading;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.ecg_result);
         isLoading = false;
         InitControl();
-        FillGrid();
+        //FillGrid();
+        FillDummy();
 
     }
 
@@ -108,7 +111,7 @@ public class ecg_result extends AppCompatActivity {
 
                         break;
                     case 1: //Get ECG Over-Read
-                        try{
+                        /*try{
                             int iOverRead = 0;
                             listEcg = new ArrayList<String>();
                             if (!isLoading){
@@ -128,12 +131,26 @@ public class ecg_result extends AppCompatActivity {
                             }
                         }catch (Exception e){
                             AppController.getInstance().CustomeDialog(ecg_result.this, "Please select ECG Result, Try Again!");
-                        }
+                        }*/
 
+                        mIntent = new Intent(getBaseContext(), Ecg_Over_Read.class);
+                        startActivity(mIntent);
 
                         break;
                     case 2: //Delete
-                        try{
+                        int iDelete = 0;
+                        for (model_ecg_result dat: Arymodel_ecg_result){
+                            if (dat.getAtrCheck1()){
+                                iDelete += 1;
+                            }
+                        }
+                        if (listEcg.size() > 0){
+                            doDialog(Integer.toString(iDelete));
+                        }else{
+                            AppController.getInstance().CustomeDialog(ecg_result.this, "Please select ECG Result, Try Again!");
+                        }
+
+                        /*try{
                             int iDelete = 0;
                             listEcg = new ArrayList<String>();
                             if (!isLoading){
@@ -151,7 +168,7 @@ public class ecg_result extends AppCompatActivity {
                             }
                         }catch (Exception e){
                             AppController.getInstance().CustomeDialog(ecg_result.this, "Please select ECG Result, Try Again!");
-                        }
+                        }*/
                         //CustomAlertDialogBuilder builder = new CustomAlertDialogBuilder(getActivity(), getResources().getColor(R.color.green_xxl));
                         break;
                 }
@@ -180,7 +197,7 @@ public class ecg_result extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 dialog.dismiss();
-                DeleteEcgResult(listEcg);
+                //DeleteEcgResult(listEcg);
             }
         });
 
@@ -298,10 +315,40 @@ public class ecg_result extends AppCompatActivity {
         });
         mRecyclerView.setAdapter(mAdapter);
     }
+
+    void FillDummy(){
+        Arymodel_ecg_result = new ArrayList<>();
+        for(int i = 1; i < 10 ; i++){
+            model_ecg_result = new model_ecg_result();
+            model_ecg_result.setAtr1("02 / 01 / 2015");
+            model_ecg_result.setAtr2("9:37 PM");
+            model_ecg_result.setAtr3("No abnormality Detected");
+            model_ecg_result.setAtr4("1");
+            model_ecg_result.setAtrCheck1(false);
+            if ((i%3)  == 0){
+                model_ecg_result.setAtr3("Abnormality Detected");
+                model_ecg_result.setAtr4("");
+            }
+
+            Arymodel_ecg_result.add(model_ecg_result);
+
+        }
+
+        mAdapter = new AdapterEcgResult_Dummy(getBaseContext(), Arymodel_ecg_result, new AdapterEcgResult_Dummy.OnDownloadClicked() {
+            @Override
+            public void OnDownloadClicked(String sUrl, boolean bStatus) {
+                Intent mIntent = new Intent(getBaseContext(), Ecg_Review_PDF.class);
+                startActivity(mIntent);
+            }
+        });
+        mRecyclerView.setAdapter(mAdapter);
+    }
     @Override
     protected void onResume() {
         // TODO Auto-generated method stub
         super.onResume();
-        FillGrid();
+        //FillGrid();
+        layoutLoading.setVisibility(View.GONE);
+        FillDummy();
     }
 }

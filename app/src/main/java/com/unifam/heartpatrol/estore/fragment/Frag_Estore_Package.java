@@ -15,6 +15,7 @@ import com.unifam.heartpatrol.AppController;
 import com.unifam.heartpatrol.R;
 import com.unifam.heartpatrol.estore.EstoreActivity;
 import com.unifam.heartpatrol.estore.adapter.AdapterEstorePackage;
+import com.unifam.heartpatrol.estore.adapter.AdapterEstorePackage_Dummy;
 import com.unifam.heartpatrol.model.Model_Estore_Package;
 import com.unifam.heartpatrol.model.Package;
 import com.unifam.heartpatrol.model.net.NetworkManager;
@@ -159,6 +160,26 @@ public class Frag_Estore_Package extends Fragment {
 
                 notifCount.setText(String.valueOf(iQty));
                 txtAmount.setText(AppController.toCurrencyRp(iAmount));
+            }
+        });
+        mRecyclerView.setAdapter(mAdapter);
+    }
+
+    void FillDummy(){
+        AryListData = new ArrayList<>();
+        for(int i = 1; i < 8 ; i++){
+            model_estore_package = new Model_Estore_Package();
+            model_estore_package.setAtr1("Package " + i);
+            model_estore_package.setAtr2((10 * i) + " Credits");
+            model_estore_package.setAtr3("IDR " +  AppController.toCurrency(100000 * i));
+            model_estore_package.setAtrAmount(0);
+            AryListData.add(model_estore_package);
+        }
+
+        mAdapter = new AdapterEstorePackage_Dummy(getActivity(), AryListData, new AdapterEstorePackage_Dummy.OnQtyClicked() {
+            @Override
+            public void OnQtyClicked() {
+
             }
         });
         mRecyclerView.setAdapter(mAdapter);

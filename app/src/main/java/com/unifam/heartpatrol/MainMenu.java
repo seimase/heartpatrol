@@ -47,12 +47,15 @@ public class MainMenu extends AppCompatActivity {
 
         InitControl();
 
-        Register register = AppController.getInstance().getSessionManager().getUserProfile();
+        /*Register register = AppController.getInstance().getSessionManager().getUserProfile();
 
         if (register !=null){
             AppConstant.AUTH_USERNAME = register.name;
             txtName.setText("Hi, " + register.first_name);
-        }
+        }*/
+
+
+        txtName.setText("Hi, " + AppConstant.AUTH_USERNAME);
     }
 
     void InitControl(){
@@ -90,6 +93,9 @@ public class MainMenu extends AppCompatActivity {
                         progress.show();*/
 
                         try{
+                            mIntent = new Intent(getBaseContext(),ProfileViewActivity.class);
+                            startActivity(mIntent);
+
                             Call<Profile> call = NetworkManager.getNetworkService(getBaseContext()).getProfile(AppConstant.AUTH_USERNAME);
                             call.enqueue(new Callback<Profile>() {
                                 @Override
@@ -98,14 +104,16 @@ public class MainMenu extends AppCompatActivity {
                                     profile = response.body();
                                     //progress.dismiss();
                                     if (!profile.error){
-                                        if (profile.data.size() > 0){
+                                        /*if (profile.data.size() > 0){
                                             Intent mIntent = new Intent(getBaseContext(),ProfileViewActivity.class);
                                             AppConstant.profile = profile;
                                             startActivity(mIntent);
                                         }else{
                                             Intent mIntent = new Intent(getBaseContext(),ProfileActivity.class);
                                             startActivity(mIntent);
-                                        }
+                                        }*/
+
+
                                     }else{
                                         AppController.getInstance().CustomeDialog(getBaseContext(),profile.message);
                                     }

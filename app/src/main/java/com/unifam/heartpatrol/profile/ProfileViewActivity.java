@@ -49,13 +49,18 @@ public class ProfileViewActivity extends AppCompatActivity {
             }
         });
 
-        profile = AppConstant.profile;
+        txtName.setText("Ronald");
+        txtBirthDate.setText("1987-11-11");
+        txtEmail.setText("test@gmail.com");
+        txtEthnicity.setText("");
+
+        /*profile = AppConstant.profile;
         for (Profile.Data dat : profile.data){
             txtName.setText(dat.first_name + " " + dat.last_name);
             txtBirthDate.setText(dat.birth_date);
             txtEmail.setText(dat.email);
             txtEthnicity.setText(dat.gender);
-        }
+        }*/
 
     }
 

@@ -74,8 +74,11 @@ public class LoginActivity extends AppCompatActivity implements GoogleApiClient.
         btnLoginGoogle.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent signInIntent = Auth.GoogleSignInApi.getSignInIntent(mGoogleApiClient);
-                startActivityForResult(signInIntent, RC_SIGN_IN);
+                /*Intent signInIntent = Auth.GoogleSignInApi.getSignInIntent(mGoogleApiClient);
+                startActivityForResult(signInIntent, RC_SIGN_IN);*/
+                AppConstant.AUTH_USERNAME = "Ronald";
+                Intent intent = new Intent(LoginActivity.this, MainMenu.class);
+                startActivity(intent);
             }
         });
 
@@ -94,15 +97,22 @@ public class LoginActivity extends AppCompatActivity implements GoogleApiClient.
         btnGoogle.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent signInIntent = Auth.GoogleSignInApi.getSignInIntent(mGoogleApiClient);
-                startActivityForResult(signInIntent, RC_SIGN_IN);
+                /*Intent signInIntent = Auth.GoogleSignInApi.getSignInIntent(mGoogleApiClient);
+                startActivityForResult(signInIntent, RC_SIGN_IN);*/
+                AppConstant.AUTH_USERNAME = "Ronald";
+                Intent intent = new Intent(LoginActivity.this, MainMenu.class);
+                startActivity(intent);
             }
         });
 
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                LoginEmail();
+                String sName = txtEmail.getText().toString().trim();
+                AppConstant.AUTH_USERNAME = sName;
+                Intent intent = new Intent(LoginActivity.this, MainMenu.class);
+                startActivity(intent);
+                //LoginEmail();
             }
         });
 

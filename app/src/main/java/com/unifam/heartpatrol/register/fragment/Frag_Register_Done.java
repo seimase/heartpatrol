@@ -60,7 +60,12 @@ public class Frag_Register_Done extends Fragment {
                         "Registration", true);
                 progress.show();
 
-                try{
+                AppConstant.AUTH_USERNAME = txtFirst.getText().toString().trim();
+                getActivity().finish();
+                Intent intent = new Intent(getActivity(), MainMenu.class);
+                startActivity(intent);
+
+                /*try{
                     Call<Register> call = NetworkManager.getNetworkService(getActivity()).getRegister(
                             AppConstant.AUTH_USERNAME,
                             AppConstant.AUTH_PASSWORD,
@@ -95,7 +100,7 @@ public class Frag_Register_Done extends Fragment {
                 }catch (Exception e){
                     progress.dismiss();
                     AppController.getInstance().CustomeDialog(getActivity(), e.getMessage());
-                }
+                }*/
 
             }
         });

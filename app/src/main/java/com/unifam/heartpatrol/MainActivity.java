@@ -35,12 +35,12 @@ public class MainActivity extends AppCompatActivity {
         InitControl();
         accessgallery();
 
-        //AppController.getInstance().getSessionManager().setUserAccount(null);
         AppConstant.bExit = false;
-        if (AppController.getInstance().getSessionManager().isUserLogon()){finish();
+        /*if (AppController.getInstance().getSessionManager().isUserLogon()){finish();
             Intent intent = new Intent(MainActivity.this, MainMenu.class);
             startActivity(intent);
-        }
+        }*/
+
     }
 
     void InitControl(){

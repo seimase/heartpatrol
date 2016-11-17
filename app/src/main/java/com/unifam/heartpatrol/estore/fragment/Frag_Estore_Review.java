@@ -17,6 +17,7 @@ import com.unifam.heartpatrol.R;
 import com.unifam.heartpatrol.ecg.adapter.AdapterEcgOverRead;
 import com.unifam.heartpatrol.estore.EstoreActivity;
 import com.unifam.heartpatrol.estore.adapter.AdapterEstoreReview;
+import com.unifam.heartpatrol.estore.adapter.AdapterEstoreReview_Dummy;
 import com.unifam.heartpatrol.model.ListData;
 import com.unifam.heartpatrol.model.Model_Estore_Review;
 import com.unifam.heartpatrol.model.Package;
@@ -61,7 +62,8 @@ public class Frag_Estore_Review extends Fragment {
     @Override
     public void onViewCreated(View view, Bundle savedInstanceState) {
         InitControl(view);
-        FillGrid();
+        //FillGrid();
+        FillDummy();
     }
 
     void InitControl(View v){
@@ -88,7 +90,7 @@ public class Frag_Estore_Review extends Fragment {
         btnApply.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                CalculatePromo(txtPromoCode.getText().toString().trim());
+                //CalculatePromo(txtPromoCode.getText().toString().trim());
             }
         });
     }
@@ -165,5 +167,24 @@ public class Frag_Estore_Review extends Fragment {
         }catch (Exception e){
             progressDialog.dismiss();
         }
+    }
+
+    void FillDummy(){
+        AryListData = new ArrayList<>();
+
+        listData = new Model_Estore_Review();
+        long lCredit = 0;
+        for(int i = 1; i < 8 ; i++){
+            listData = new Model_Estore_Review();
+            listData.setAtr1("Package " + i);
+            listData.setAtr2("1");
+            listData.setAtr3("10");
+            lCredit += 10;
+            AryListData.add(listData);
+        }
+
+        mAdapter = new AdapterEstoreReview_Dummy(getActivity(), AryListData);
+        // set the adapter object to the Recyclerview
+        mRecyclerView.setAdapter(mAdapter);
     }
 }
